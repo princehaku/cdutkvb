@@ -5,9 +5,10 @@
  * Site http://3haku.net
  * Created on : 2010-7-22, 21:50:29
  */
-package net._3haku.kvb.bean;
+package net._3haku.kvb.CourseTable;
 
 import java.util.ArrayList;
+import net._3haku.kvb.bean.Course;
 
 /**课程表
  *

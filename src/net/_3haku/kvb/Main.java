@@ -11,9 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import net._3haku.kvb.bean.TableColumn;
-import net._3haku.kvb.bean.CourseColumn;
-import net._3haku.kvb.bean.CourseTable;
+import net._3haku.kvb.CourseTable.CourseTable;
 import net._3haku.kvb.util.Parser;
 
 /**

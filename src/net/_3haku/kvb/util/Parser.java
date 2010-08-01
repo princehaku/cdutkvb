@@ -12,10 +12,10 @@ import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import net._3haku.kvb.bean.Course;
-import net._3haku.kvb.bean.CourseColumn;
-import net._3haku.kvb.bean.CourseRow;
-import net._3haku.kvb.bean.CourseRowHead;
-import net._3haku.kvb.bean.CourseTable;
+import net._3haku.kvb.CourseTable.CourseColumn;
+import net._3haku.kvb.CourseTable.CourseRow;
+import net._3haku.kvb.CourseTable.CourseRowHead;
+import net._3haku.kvb.CourseTable.CourseTable;
 
 /**
  *

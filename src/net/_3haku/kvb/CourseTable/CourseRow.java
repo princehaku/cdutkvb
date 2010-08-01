@@ -6,7 +6,7 @@
  * Created on : 2010-7-22, 7:23:43
  */
 
-package net._3haku.kvb.bean;
+package net._3haku.kvb.CourseTable;
 
 import java.util.ArrayList;
 

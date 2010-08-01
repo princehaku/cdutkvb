@@ -7,6 +7,8 @@
  */
 package net._3haku.kvb.bean;
 
+import net._3haku.kvb.TimeFactory.TimeTable;
+
 import java.util.ArrayList;
 
 /**课程

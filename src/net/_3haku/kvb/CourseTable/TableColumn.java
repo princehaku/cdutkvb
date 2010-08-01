@@ -6,7 +6,7 @@
  * Created on : 2010-7-20, 9:02:43
  */
 
-package net._3haku.kvb.bean;
+package net._3haku.kvb.CourseTable;
 
 /**单元格
  * @author princehaku

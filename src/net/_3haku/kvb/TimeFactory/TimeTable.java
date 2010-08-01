@@ -6,13 +6,13 @@
  * Created on : 2010-7-27, 21:56:23
  */
 
-package net._3haku.kvb.bean;
+package net._3haku.kvb.TimeFactory;
 
 /**时间表
  *
  * @author princehaku
  */
-class TimeTable {
+public class TimeTable {
     //重复开始时间
 
     //重复结束时间
