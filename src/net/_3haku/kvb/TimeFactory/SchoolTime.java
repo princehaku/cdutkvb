@@ -8,33 +8,21 @@
 
 package net._3haku.kvb.TimeFactory;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 /**
  *
  * @author princehaku
  */
-public class SchoolTime extends Date{
-    /**夏时令时间
+public interface SchoolTime {
+    /**设置时间
      *
      */
-    ArrayList<String> summerTimer=new ArrayList<String>();
-    /**到当天第X节课时间
-     *@param courseSt
-     *@param seasonType 时令
+    void setTime();
+    /**得到上课时间 XX:XX 上课时间
+     *@param int courseSt
      */
-    Date getTimeAt(int courseSt,SeasonType seasonType){
-        this.setSeconds(0);
-        if(seasonType.equals(SeasonType.WINTER))
-        {
-            this.setHours(8);
-        }
-        return null;
-    }
-    SchoolTime()
-    {
-        summerTimer.add("7:45");
-        summerTimer.add("7:45");
-    }
+    Date getStartTimeAt(int courseSt);
+
+    
 }
