@@ -45,11 +45,11 @@ public class Main {
                    for(int o=1;o<=Tb.getColumnNums(i);o++)
                    {
                        CourseColumn cc=Tb.getColum(i, o);
+                       System.out.println("--------------------------");
                        System.out.println(Tb.getColum(i, o).toString());
-                       System.out.println(Tb.getColum(i, o).getCrossSpan());
-                       System.out.println(st.getStartTimeAt(courest).toString());
+                       System.out.println("上课时间"+st.getStartTimeAt(courest).toString());
                        courest=courest+cc.getCrossSpan();
-                       System.out.println(st.getEndTimeAt(courest-1).toString());
+                       System.out.println("下课时间"+st.getEndTimeAt(courest-1).toString());
                        if(courest>11)courest=1;
                      }
                 }
