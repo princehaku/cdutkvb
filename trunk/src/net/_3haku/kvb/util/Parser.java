@@ -89,12 +89,12 @@ public class Parser {
             //参数1..分离单元格的跨度(用于计算上课时间)
             String argv1 = mc.group(1);
             int crossSpan = 1;
-            String crossSpanString = StringUtil.findMc(argv1.toLowerCase(), "colspan='{0,1}(\\d*)'{0,1}", 1);
+            String crossSpanString = StringUtil.findMc(argv1.toLowerCase(), "colspan=[\'\"]{0,1}(\\d*)[\'\"]{0,1}", 1);
             if (!crossSpanString.equals("")) {
                 crossSpan = Integer.parseInt(crossSpanString);
-                //参数2...分离出课程索引名和上课的地点
-
             }
+            cc.setCrossSpan(crossSpan);
+            //参数2...分离出课程索引名和上课的地点
             String argv2 = mc.group(2);
             //如果是1号单元格..则将其视为表头..分离出表头信息
             if (colidx == 1) {

@@ -10,7 +10,7 @@ package net._3haku.kvb.TimeFactory;
 
 import java.util.Date;
 
-/**
+/**学校时间
  *
  * @author princehaku
  */
@@ -19,10 +19,14 @@ public interface SchoolTime {
      *
      */
     void setTime();
-    /**得到上课时间 XX:XX 上课时间
+    /**得到第X节课的开始上课时间 XX:XX 上课时间
      *@param int courseSt
      */
     Date getStartTimeAt(int courseSt);
+    /**得到第X节课的下课时间 XX:XX 上课时间
+     *@param int courseSt
+     */
+    Date getEndTimeAt(int courseSt);
 
     
 }

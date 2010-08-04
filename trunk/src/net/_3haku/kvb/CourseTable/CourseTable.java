@@ -15,7 +15,7 @@ import net._3haku.kvb.bean.Course;
  * @author princehaku
  */
 public class CourseTable {
-    /**
+    /**用课表行信息  和  课程信息构造一个新的课程表
      * @param rows
      * @param courses
      */
@@ -25,16 +25,8 @@ public class CourseTable {
         this.courses=courses;
     }
     /**所有的课程信息{课号,课名,上课教师,}
-     *
      */
     private ArrayList<Course> courses;
-    /**得到课程的数量
-     *
-     * @return
-     */
-    public int getCoursesNums() {
-        return courses.size();
-    }
     /**课表行私有
      *
      */
@@ -43,20 +35,43 @@ public class CourseTable {
      *
      */
     private int rowNums;
-
+    /**得到行数
+     * @return int
+     */
     public int getRowNums() {
         return rowNums;
     }
-
-    public CourseRowHead getRowHead(int rowNum) throws Exception {
-        if (rowNum > rows.size() || rowNum < 1) {
+    /**得到课程的数量
+     * @return int
+     */
+    public int getCoursesNums() {
+        return courses.size();
+    }
+    /**得到某行单元格数两
+     * @param rowIdx 行号 下标1
+     * @return int
+     * @throws Exception
+     */
+    public int getColumnNums(int rowIdx) throws Exception {
+        if (rowIdx > rows.size() || rowIdx < 1) {
             throw new Exception("Row Out of Range");
         }
-        return rows.get(rowNum-1).getRowHead();
+        return rows.get(rowIdx-1).getCourseColums().size();
+    }
+    /**得到表头
+     * @param rowIdx 行号 下标1
+     * @return CourseRowHead
+     * @throws Exception
+     */
+    public CourseRowHead getRowHead(int rowIdx) throws Exception {
+        if (rowIdx > rows.size() || rowIdx < 1) {
+            throw new Exception("Row Out of Range");
+        }
+        return rows.get(rowIdx-1).getRowHead();
     }
     /**得到指定位置的课程单元格
-     * @param rowIdx
-     * @param columnIdx
+     * @param rowIdx 行号 下标1
+     * @param columnIdx 列号 下标1
      * @return CourseColumn
      * @throws Exception
      */
@@ -71,7 +86,7 @@ public class CourseTable {
     
     }
     /**得到某行的所有课程节点
-     * @param rowIdx
+     * @param rowIdx 行号 下标1
      * @return ArrayList<CourseColumn>
      * @throws Exception
      */
