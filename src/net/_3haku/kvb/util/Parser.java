@@ -30,7 +30,7 @@ public class Parser {
      */
     private static String CourseInfoHTMLString = "";
 
-    /**解析出课程表
+    /**解析课程表
      * @return CourseTable
      */
     public static CourseTable parseTable(String WholeHTMLString) throws Exception {
@@ -40,7 +40,7 @@ public class Parser {
         return tb;
     }
 
-    /**解析出行
+    /**解析出课程表的行
      * @return ArrayList<CourseRow>
      */
     private static ArrayList<CourseRow> parseRow(String WholeHTMLString) {
