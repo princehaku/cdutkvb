@@ -15,13 +15,13 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**冬时令时间
+/**夏时令时间
  *
  * @author princehaku
  */
-public class WinterSchoolTime implements SchoolTime{
+public class SummerSchoolTime implements SchoolTime{
 
-    public WinterSchoolTime(){
+    public SummerSchoolTime(){
         this.setTime();
     }
     /**上课时间
@@ -32,7 +32,7 @@ public class WinterSchoolTime implements SchoolTime{
      *
      */
     ArrayList<String> endTimeTb=new ArrayList<String>();
-    
+
     public void setTime() {
          startTimeTb.add("8:10");
          startTimeTb.add("9:00");

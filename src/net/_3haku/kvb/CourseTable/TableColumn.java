@@ -20,7 +20,7 @@ public abstract class TableColumn{
      *
      * @param crossSpan
      */
-    protected void setCrossSpan(int crossSpan) {
+    public void setCrossSpan(int crossSpan) {
         this.crossSpan = crossSpan;
     }
 

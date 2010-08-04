@@ -79,6 +79,9 @@ public class CourseColumn extends TableColumn implements CourseCellInfo{
     public void setCourseIdxName(String courseIdxName) {
         this.courseIdxName = courseIdxName;
     }
-
-
+    @Override
+    public String toString()
+    {
+        return "课程索引名 :"+getCourseIdxName()+"上课地点 :"+getCoursePlace();
+    }
 }
