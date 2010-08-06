@@ -1,0 +1,2396 @@
+<html>
+<head>
+<title>生成课表(V3)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link rel="stylesheet" href="sel_printkb.css">
+<script>
+</script>
+<script>
+this.focus();
+</script>
+<SCRIPT src="../inc/sys_js.js"></SCRIPT>
+<SCRIPT src="sel_printkb.js"></SCRIPT>
+</head>
+<BODY style="MARGIN:0px;width:100%;height:100%" >
+
+<FORM >
+<center><b>所选教学班课表</b></center>
+<table border=1 style='background:#ffffff;border-collapse:collapse;color:#000000' cellspacing=0 cellpadding=0>
+<tr>
+<td ROWSPAN=2 bgcolor='#dddddd' ALIGN=center >
+周</td>
+<td colSpan=11 ALIGN=center bgcolor='#dddddd' >星期 1</td>
+<td colSpan=11 ALIGN=center bgcolor='#dddddd' >星期 2</td>
+<td colSpan=11 ALIGN=center bgcolor='#dddddd' >星期 3</td>
+<td colSpan=11 ALIGN=center bgcolor='#dddddd' >星期 4</td>
+<td colSpan=11 ALIGN=center bgcolor='#dddddd' >星期 5</td>
+<td colSpan=11 ALIGN=center bgcolor='#dddddd' >星期 6</td>
+<td colSpan=11 ALIGN=center bgcolor='#dddddd' >星期 7</td>
+<tr>
+<td bgcolor='#dddddd' style="font-size:12px;">01</td>
+<td bgcolor='#dddddd' style="font-size:12px;">02</td>
+<td bgcolor='#dddddd' style="font-size:12px;">03</td>
+<td bgcolor='#dddddd' style="font-size:12px;">04</td>
+<td bgcolor='#dddddd' style="font-size:12px;">05</td>
+<td bgcolor='#dddddd' style="font-size:12px;">06</td>
+<td bgcolor='#dddddd' style="font-size:12px;">07</td>
+<td bgcolor='#dddddd' style="font-size:12px;">08</td>
+<td bgcolor='#dddddd' style="font-size:12px;">09</td>
+<td bgcolor='#dddddd' style="font-size:12px;">10</td>
+<td bgcolor='#dddddd' style="font-size:12px;">11</td>
+<td bgcolor='#dddddd' style="font-size:12px;">01</td>
+<td bgcolor='#dddddd' style="font-size:12px;">02</td>
+<td bgcolor='#dddddd' style="font-size:12px;">03</td>
+<td bgcolor='#dddddd' style="font-size:12px;">04</td>
+<td bgcolor='#dddddd' style="font-size:12px;">05</td>
+<td bgcolor='#dddddd' style="font-size:12px;">06</td>
+<td bgcolor='#dddddd' style="font-size:12px;">07</td>
+<td bgcolor='#dddddd' style="font-size:12px;">08</td>
+<td bgcolor='#dddddd' style="font-size:12px;">09</td>
+<td bgcolor='#dddddd' style="font-size:12px;">10</td>
+<td bgcolor='#dddddd' style="font-size:12px;">11</td>
+<td bgcolor='#dddddd' style="font-size:12px;">01</td>
+<td bgcolor='#dddddd' style="font-size:12px;">02</td>
+<td bgcolor='#dddddd' style="font-size:12px;">03</td>
+<td bgcolor='#dddddd' style="font-size:12px;">04</td>
+<td bgcolor='#dddddd' style="font-size:12px;">05</td>
+<td bgcolor='#dddddd' style="font-size:12px;">06</td>
+<td bgcolor='#dddddd' style="font-size:12px;">07</td>
+<td bgcolor='#dddddd' style="font-size:12px;">08</td>
+<td bgcolor='#dddddd' style="font-size:12px;">09</td>
+<td bgcolor='#dddddd' style="font-size:12px;">10</td>
+<td bgcolor='#dddddd' style="font-size:12px;">11</td>
+<td bgcolor='#dddddd' style="font-size:12px;">01</td>
+<td bgcolor='#dddddd' style="font-size:12px;">02</td>
+<td bgcolor='#dddddd' style="font-size:12px;">03</td>
+<td bgcolor='#dddddd' style="font-size:12px;">04</td>
+<td bgcolor='#dddddd' style="font-size:12px;">05</td>
+<td bgcolor='#dddddd' style="font-size:12px;">06</td>
+<td bgcolor='#dddddd' style="font-size:12px;">07</td>
+<td bgcolor='#dddddd' style="font-size:12px;">08</td>
+<td bgcolor='#dddddd' style="font-size:12px;">09</td>
+<td bgcolor='#dddddd' style="font-size:12px;">10</td>
+<td bgcolor='#dddddd' style="font-size:12px;">11</td>
+<td bgcolor='#dddddd' style="font-size:12px;">01</td>
+<td bgcolor='#dddddd' style="font-size:12px;">02</td>
+<td bgcolor='#dddddd' style="font-size:12px;">03</td>
+<td bgcolor='#dddddd' style="font-size:12px;">04</td>
+<td bgcolor='#dddddd' style="font-size:12px;">05</td>
+<td bgcolor='#dddddd' style="font-size:12px;">06</td>
+<td bgcolor='#dddddd' style="font-size:12px;">07</td>
+<td bgcolor='#dddddd' style="font-size:12px;">08</td>
+<td bgcolor='#dddddd' style="font-size:12px;">09</td>
+<td bgcolor='#dddddd' style="font-size:12px;">10</td>
+<td bgcolor='#dddddd' style="font-size:12px;">11</td>
+<td bgcolor='#dddddd' style="font-size:12px;">01</td>
+<td bgcolor='#dddddd' style="font-size:12px;">02</td>
+<td bgcolor='#dddddd' style="font-size:12px;">03</td>
+<td bgcolor='#dddddd' style="font-size:12px;">04</td>
+<td bgcolor='#dddddd' style="font-size:12px;">05</td>
+<td bgcolor='#dddddd' style="font-size:12px;">06</td>
+<td bgcolor='#dddddd' style="font-size:12px;">07</td>
+<td bgcolor='#dddddd' style="font-size:12px;">08</td>
+<td bgcolor='#dddddd' style="font-size:12px;">09</td>
+<td bgcolor='#dddddd' style="font-size:12px;">10</td>
+<td bgcolor='#dddddd' style="font-size:12px;">11</td>
+<td bgcolor='#dddddd' style="font-size:12px;">01</td>
+<td bgcolor='#dddddd' style="font-size:12px;">02</td>
+<td bgcolor='#dddddd' style="font-size:12px;">03</td>
+<td bgcolor='#dddddd' style="font-size:12px;">04</td>
+<td bgcolor='#dddddd' style="font-size:12px;">05</td>
+<td bgcolor='#dddddd' style="font-size:12px;">06</td>
+<td bgcolor='#dddddd' style="font-size:12px;">07</td>
+<td bgcolor='#dddddd' style="font-size:12px;">08</td>
+<td bgcolor='#dddddd' style="font-size:12px;">09</td>
+<td bgcolor='#dddddd' style="font-size:12px;">10</td>
+<td bgcolor='#dddddd' style="font-size:12px;">11</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+01周<br>08-30/09-05</td><td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+报到注册</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+报到注册</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1<br><font style="font-size:7px">4301</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+形<br><font style="font-size:7px">6C405</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">7404</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='3'>
+计2<br><font style="font-size:7px">6B201</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+02周<br>09-06/09-12</td><td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">4301</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1<br><font style="font-size:7px">4301</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">7404</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='3'>
+计2<br><font style="font-size:7px">6B201</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+03周<br>09-13/09-19</td><td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">4301</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1<br><font style="font-size:7px">4301</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+形<br><font style="font-size:7px">6C405</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">7404</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='3'>
+计2<br><font style="font-size:7px">6B201</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='4'>
+国家计机考试</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">7404</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+04周<br>09-20/09-26</td><td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">4301</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+中秋节</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+中秋节</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+中秋节</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='3'>
+计2<br><font style="font-size:7px">6B201</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1<br><font style="font-size:7px">4301</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+形<br><font style="font-size:7px">6C405</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+05周<br>09-27/10-03</td><td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">4301</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1<br><font style="font-size:7px">4301</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">7404</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+国庆节</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+国庆节</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+国庆节</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+06周<br>10-04/10-10</td><td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+国庆节</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+国庆节</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+国庆节</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+国庆节</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">7404</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='3'>
+计2<br><font style="font-size:7px">6B201</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">7404</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+07周<br>10-11/10-17</td><td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">4301</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1<br><font style="font-size:7px">4301</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">7404</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">7404</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='3'>
+计2<br><font style="font-size:7px">6B201</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+08周<br>10-18/10-24</td><td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">4301</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1<br><font style="font-size:7px">4301</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+形<br><font style="font-size:7px">6C405</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">7404</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">7404</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='3'>
+计2<br><font style="font-size:7px">6B201</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='4'>
+省计机考试</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+09周<br>10-25/10-31</td><td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">6A110</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计2s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">4301</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1<br><font style="font-size:7px">4301</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">7404</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">7404</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='3'>
+计2<br><font style="font-size:7px">6B201</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+10周<br>11-01/11-07</td><td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">6A110</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计2s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">4301</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1<br><font style="font-size:7px">4301</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+形<br><font style="font-size:7px">6C405</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">7404</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">7404</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='3'>
+计2<br><font style="font-size:7px">6B201</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+11周<br>11-08/11-14</td><td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">6A110</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计2s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">4301</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1<br><font style="font-size:7px">4301</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数<br><font style="font-size:7px">7404</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">7404</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='3'>
+计2<br><font style="font-size:7px">6B201</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+12周<br>11-15/11-21</td><td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">6A110</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A104</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+操<br><font style="font-size:7px">6A502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计2s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1<br><font style="font-size:7px">4301</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+形<br><font style="font-size:7px">6C405</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计s3<br><font style="font-size:7px">6C1001</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">7404</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='3'>
+计2<br><font style="font-size:7px">6B201</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+13周<br>11-22/11-28</td><td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">6A110</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计2s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1<br><font style="font-size:7px">4301</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计s3<br><font style="font-size:7px">6C1001</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">7404</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='3'>
+计2<br><font style="font-size:7px">6B201</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+14周<br>11-29/12-05</td><td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">6A110</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计2s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1<br><font style="font-size:7px">4301</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+形<br><font style="font-size:7px">6C405</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计s3<br><font style="font-size:7px">6C1001</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1s3<br><font style="font-size:7px">6B602</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">7404</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计2<br><font style="font-size:7px">6B201</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+15周<br>12-06/12-12</td><td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">6A110</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计2s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1<br><font style="font-size:7px">4301</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计<br><font style="font-size:7px">4502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+编<br><font style="font-size:7px">4502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计s3<br><font style="font-size:7px">6C1001</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1s3<br><font style="font-size:7px">6B602</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">7404</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计2<br><font style="font-size:7px">6B201</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+16周<br>12-13/12-19</td><td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">6A110</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+软s1<br><font style="font-size:7px">6A110</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计2s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='4'>
+软s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1<br><font style="font-size:7px">4301</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+形<br><font style="font-size:7px">6C405</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='4'>
+软s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1s3<br><font style="font-size:7px">6B602</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">7404</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='4'>
+软s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='8'>
+英语四六级</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+17周<br>12-20/12-26</td><td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1<br><font style="font-size:7px">6A110</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='4'>
+软s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+计1s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='4'>
+软s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1<br><font style="font-size:7px">4301</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='4'>
+软s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='2'>
+数1s3<br><font style="font-size:7px">6B602</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+18周<br>12-27/01-02</td><td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='4'>
+软s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='1'>
+形<br><font style="font-size:7px">6C405</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='3'>
+软s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='3'>
+软s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='4'>
+软s1<br><font style="font-size:7px">6A502</font></td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+元旦节</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+元旦节</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+19周<br>01-03/01-09</td><td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+元旦节</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+<tr>
+<td bgcolor='#dddddd' ALIGN=center style="font-size:9px" noWrap>
+20周<br>01-10/01-16</td><td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+考试</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+考试</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+考试</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+考试</td>
+<td nowrap ALIGN=center style="font-size:10px" colspan='11'>
+考试</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+<td nowrap style="font-size:10px">
+&nbsp;</td>
+</tr>
+</table><table border=1 style='background:#ffffff;border-collapse:collapse;color:#000000' cellspacing=1 cellpadding=1>
+<tr>
+<td VALIGN=top style="font-size:9px;width:230"><b style="font-size:8px">数字信号处理</b><font style="font-size:7px">(数)(ID[0503B301]学分[3])</font><br>053801([理论] 时[40] 师[解振东] 室[7404])<br>->注:选修<br>053801s1([实验] 时[8] 师[解振东] 室[6A502])<br>->注:选修</td>
+<td VALIGN=top style="font-size:9px;width:230"><b style="font-size:8px">数字逻辑</b><font style="font-size:7px">(数1)(ID[0503B302]学分[2.5])</font><br>053802([理论] 时[32] 师[李雪梅] 室[4301])<br>053802s3([实验] 时[8] 师[李雪梅] 室[6B602])</td>
+<td VALIGN=top style="font-size:9px;width:230"><b style="font-size:8px">计算机组成基础</b><font style="font-size:7px">(计)(ID[0503B303]学分[4])</font><br>053803([理论] 时[56] 师[洪志全] 室[4502])<br>053803s3([实验] 时[8] 师[洪志全] 室[6C1001])</td>
+<td VALIGN=top style="font-size:9px;width:230"><b style="font-size:8px">计算机网络原理</b><font style="font-size:7px">(计1)(ID[0503B310]学分[3])</font><br>053804([理论] 时[40] 师[涂德志] 室[7404])<br>053804s1([实验] 时[8] 师[涂德志] 室[6A502])</td>
+<td VALIGN=top style="font-size:9px;width:230"><b style="font-size:8px">编译原理</b><font style="font-size:7px">(编)(ID[0503C302]学分[3.5])</font><br>053805([理论] 时[56] 师[罗俊松] 室[4502])</td>
+</tr>
+<tr>
+<td VALIGN=top style="font-size:9px;width:230"><b style="font-size:8px">计算机图形学</b><font style="font-size:7px">(计2)(ID[0503C303]学分[3.5])</font><br>053806([理论] 时[40] 师[邓飞] 室[6B201])<br>053806s1([实验] 时[16] 师[邓飞] 室[6A502])</td>
+<td VALIGN=top style="font-size:9px;width:230"><b style="font-size:8px">操作系统原理</b><font style="font-size:7px">(操)(ID[0503B311]学分[3.5])</font><br>053807([理论] 时[40] 师[罗俊松] 室[6A104])<br>053807s11([实验] 时[8] 师[罗俊松] 室[6A502])</td>
+<td VALIGN=top style="font-size:9px;width:230"><b style="font-size:8px">软件工程课程设计</b><font style="font-size:7px">(软)(ID[0503S301]学分[2])</font><br>053807s1([实习] 时[2] 师[唐云] 室[6A110])</td>
+<td VALIGN=top style="font-size:9px;width:230"><b style="font-size:8px">形势与政策</b><font style="font-size:7px">(形)(ID[0900A105]学分[1])</font><br>055807([理论] 时[17] 师[刘玉超] 室[6C405])</td>
+</tr>
+</table></form>
+</body>
+</html>
+
+<!-- 
+YTo2OntpOjA7czoxNjoiyv2+3b/iway907PJuaYhCiI7aToxO3M6OTY6IiBDbHVzdGVyIHNlbGVjdCBmOCBhcyBqeGIgZnJvbSBzeXNfc2tiMjAxMF8xIHdoZXJlIGY2PScyMzAwMDAwMDAwJzs7IC0tL3NlbF9wcmludGtiL3ByaW50a2IucGhwCiI7aToyO3M6NzcxOiIgQ2x1c3RlciBzZWxlY3QgdHJpbShza2IxLmY2KSBhcyBwa3QsdHJpbShza2IxLmY1KSBhcyBwa3IsdHJpbShza2IxLmYxKSBhcyBwa2p4Yix0cmltKHNrYjEuZjQpIGFzIHBraix0cmltKHNrYjEuZjMpIGFzIHBreCx0cmltKHNrYjEuZjIpIGFzIHBreix0cmltKHN5c19za2IyMDEwXzEuZjYpIGFzIHNrYm5vLHRyaW0oc3lzX3NrYjIwMTBfMS5mMjIpIGFzIGJ6LHRyaW0oc3lzX2tjc3guZjIpICBhcyBrY3N4LHRyaW0oc3lzX3NrYjIwMTBfMS5mMTYpIGFzIHNrYmxiLHRyaW0oc3lzX3NrYjIwMTBfMS5mMTApIGFzIHNrYmZzLHRyaW0oc3lzX3NrYjIwMTBfMS5mMTQpIGFzIHNrYnN4LHRyaW0oc3lzX3NrYjIwMTBfMS5mMTUpIGFzIHNrYnhzLHRyaW0oc2V0bGVzc29uLmYyKSBhcyBsZXNzbix0cmltKHNldGxlc3Nvbi5mMykgYXMgbGVzc3hmLHRyaW0oc3lzX3RtbmdfaW0uZjIpIGFzIHRlYWNuIGZyb20gc3lzX3BrMjAxMF8xIHNrYjEgbGVmdCBqb2luIHN5c19za2IyMDEwXzEgb24gc3lzX3NrYjIwMTBfMS5mOD1za2IxLmYxIGxlZnQgam9pbiBzZXRsZXNzb24gb24gc2V0bGVzc29uLmYxPXN5c19za2IyMDEwXzEuZjYgbGVmdCBqb2luIHN5c190bW5nX2ltIG9uIHN5c190bW5nX2ltLmYxPXNrYjEuZjYgbGVmdCBqb2luIHN5c19rY3N4IG9uIHN5c19rY3N4LmYxPXN5c19za2IyMDEwXzEuZjE2IHdoZXJlIHNrYjEuZjE9J7K5v84nIG9yZGVyIGJ5IHNrYjEuZjEsc2tiMS5mMixza2IxLmYzLHNrYjEuZjQ7OyAtLS9zZWxfcHJpbnRrYi9wcmludGtiLnBocAoiO2k6MztzOjMwOiJyZXN1bHQgyKuyv7Lwtb3V88HQseTK/dbQyqew3AoiO2k6NDtzOjg1OiIgQ2x1c3RlciBzZWxlY3QgZjEsZjIsZjMgZnJvbSBzeXNfa3pzejIwMTBfMSBvcmRlciBieSBmMTsgLS0vc2VsX3ByaW50a2IvcHJpbnRrYi5waHAKIjtpOjU7czo3NDoiIENsdXN0ZXIgc2VsZWN0IGYxIGZyb20gc3lzX3NqanMgIG9yZGVyIGJ5IGYxOyAtLS9zZWxfcHJpbnRrYi9wcmludGtiLnBocAoiO30=
+ -->
