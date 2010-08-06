@@ -34,6 +34,8 @@ public class Parser {
      * @return CourseTable
      */
     public static CourseTable parseTable(String WholeHTMLString) throws Exception {
+       	courseidx = 99;
+    	  CourseInfoHTMLString = "";
         ArrayList<CourseRow> rows = parseRow(WholeHTMLString);
         ArrayList<Course> courses = parseCourse(CourseInfoHTMLString);
         CourseTable tb = new CourseTable(rows,courses);
