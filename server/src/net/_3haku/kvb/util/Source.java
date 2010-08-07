@@ -56,8 +56,7 @@ public class Source {
 			httpConn.setRequestProperty("Accept-Charset","GB2312,utf-8;q=0.7,*;q=0.7");
 			if (!(Source.cookieString.equals(""))) {
 				// 晕死..
-				httpConn.setRequestProperty("Cookie", "" + Source.cookieString
-						+ ";");
+				httpConn.setRequestProperty("Cookie", "" + Source.cookieString+ ";");
 				// System.out.print("发送cookie======="+Inc.cookieString);
 			}
 			httpConn.setRequestProperty("Keep-Alive", "300");
@@ -72,13 +71,11 @@ public class Source {
 			if (httpConn.getHeaderField("Set-Cookie") != null) {
 				String set_Cookie = httpConn.getHeaderField("Set-Cookie");
 				// System.out.println("得到cookie"+set_Cookie);
-				Source.cookieString = set_Cookie.substring(0, set_Cookie
-						.indexOf(";"));
+				Source.cookieString = set_Cookie.substring(0, set_Cookie.indexOf(";"));
 				// System.out.println(Inc.cookieString);
 			}
 
-			BufferedReader br = new BufferedReader(new InputStreamReader(uurl,
-					encode));
+			BufferedReader br = new BufferedReader(new InputStreamReader(uurl,encode));
 			while (line != null) {
 				line = br.readLine();
 				if (line   !=   null)
@@ -142,7 +139,7 @@ public class Source {
 			httpConn.setRequestProperty("Cache-Control", "no-cache");
 			httpConn.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
 			httpConn.setRequestProperty("Content-Length", String.valueOf(parm.length()));
-			httpConn.setConnectTimeout(20000);
+			httpConn.setConnectTimeout(30000);
 			httpConn.setDoOutput(true);
 			httpConn.setDoInput(true);
 			OutputStreamWriter out = new OutputStreamWriter(httpConn
@@ -178,7 +175,7 @@ public class Source {
 		} finally {
 			// 关闭连接
 			httpConn.disconnect();
-			// System.out.println(content);
+			//System.out.println(content);
 			return content;
 		}
 	}

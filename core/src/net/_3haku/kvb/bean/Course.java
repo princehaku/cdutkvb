@@ -67,39 +67,68 @@ public class Course {
      *
      */
     private ArrayList<TimeTable> timeTables;
-
+    /**得到课程上课地点
+     * 
+     * @return
+     */
     public String getCoursePlace() {
         return coursePlace;
     }
-    
+    /**得到课程执教老师
+     * 
+     * @return
+     */
     public String getCourseTeacher() {
         return courseTeacher;
     }
-
+    /**得到课程索引名
+     * 
+     * @return
+     */
     public String getCourseIdxName() {
         return courseIdxName;
     }
-
+    /**得到课程课号
+     * 
+     * @return
+     */
     public String getCourseId() {
         return courseId;
     }
-
+    /**得到课程源HTML
+     * 
+     * @return
+     */
     public String getCourseScoure() {
         return courseScoure;
     }
-
+    /**得到课程全名
+     * 
+     * @return
+     */
     public String getCourseName() {
         return courseName;
     }
-
+    /**得到课程类型
+     * 
+     * @return
+     */
     public String getCourseType() {
         return courseType;
     }
-    
+
+    /**得到时间表
+     * @deprecated
+     * @return
+     */
     public ArrayList<TimeTable> getTimeTables() {
         return timeTables;
     }
 
+    /**设置时间表
+     * @deprecated
+     * @return
+     */
     public void setTimeTable(ArrayList<TimeTable> timeTables) {
         this.timeTables = timeTables;
     }

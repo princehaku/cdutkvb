@@ -31,4 +31,14 @@ public class StringUtil {
                 return mc.group(pos);
             return "";
     }
+    /**字符串前补0
+     *
+     */
+    public static String plusZero(String s,int length)
+    {
+        if(s.length()<length)
+            return "0"+plusZero(s,length-1);
+        else
+            return s;
+    }
 }
