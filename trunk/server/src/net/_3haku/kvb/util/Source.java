@@ -27,16 +27,20 @@ public class Source {
 	 * 
 	 */
 	static Long timespan;
-	
+	/**课表的url
+	 * 
+	 */
 	public static String surl="";
-	
+	/**课表的HTML
+	 * 
+	 */
 	public static String res="";
 	/**Session 是否过期
 	 * @return boolean
 	 */
 	public static boolean isSessionOutOfDate()
 	{
-		if((new Date().getTime()-timespan)>300)
+		if((new Date().getTime()-timespan)>300000)
 			return true;
 		else
 			return false;
@@ -154,7 +158,7 @@ public class Source {
 				// 晕死..
 				httpConn.setRequestProperty("Cookie", "" + Source.cookieString
 						+ ";");
-				// System.out.print("发送cookie======="+Inc.cookieString);
+				System.out.println("发送cookie======="+Source.cookieString);
 			}
 			httpConn.setRequestProperty("Keep-Alive", "300");
 			httpConn.setRequestProperty("Connection", "keep-alive");
@@ -178,7 +182,7 @@ public class Source {
 
 			if (httpConn.getHeaderField("Set-Cookie") != null) {
 				String set_Cookie = httpConn.getHeaderField("Set-Cookie");
-				// System.out.println("得到cookie"+set_Cookie);
+				System.out.println("得到cookie"+set_Cookie);
 				Source.cookieString = set_Cookie.substring(0, set_Cookie
 						.indexOf(";"));
 				// System.out.println(Inc.cookieString);
