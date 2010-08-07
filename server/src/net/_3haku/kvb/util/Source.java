@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Date;
 
 /**
  * 下载网页内容
@@ -21,7 +22,25 @@ import java.net.URL;
 public class Source {
     /** 存放cookie
      */
-	static String cookieString="";
+	public static String cookieString="";
+	/**存放的时间 用于使session过期
+	 * 
+	 */
+	static Long timespan;
+	
+	public static String surl="";
+	
+	public static String res="";
+	/**Session 是否过期
+	 * @return boolean
+	 */
+	public static boolean isSessionOutOfDate()
+	{
+		if((new Date().getTime()-timespan)>300)
+			return true;
+		else
+			return false;
+	}
 	/**
 	 * url
 	 * 
@@ -31,11 +50,13 @@ public class Source {
 	 *            编码
 	 */
 	@SuppressWarnings("finally")
-	public String get(String url, String encode) {
+	public static String get(String url, String encode) {
 
 		String line = "";
 
 		String content = "";
+		
+		timespan=new Date().getTime();
 
 		// System.out.println(Inc.cookieString);
 
@@ -103,11 +124,13 @@ public class Source {
 	 *            编码
 	 */
 	@SuppressWarnings("finally")
-	public String post(String url, String parm, String encode) {
+	public static String post(String url, String parm, String encode) {
 
 		String line = "";
 
 		String content = "";
+		
+		timespan=new Date().getTime();
 
 		// System.out.println(Inc.cookieString);
 

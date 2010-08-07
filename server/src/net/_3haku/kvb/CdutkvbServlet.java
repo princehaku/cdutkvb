@@ -44,7 +44,7 @@ public class CdutkvbServlet extends HttpServlet {
 			resp.setCharacterEncoding("UTF-8");
 			//课表的HTML
 			String kbhtml = "";
-			Source kvb=new Source();
+			
 			if(req.getParameter("s")==null||req.getParameter("p")==null)
 			{
 				throw new Exception("0");
@@ -57,100 +57,115 @@ public class CdutkvbServlet extends HttpServlet {
 			int classnums=0;
 			//从教务处得到课表的HTML
 			//登陆
-			//resp.getWriter().println("尝试1");
-			String res=kvb.post("http://202.115.139.16/login.php","upwd="+pwd+"&uname="+sid+"&usertype=%D1%A7%C9%FA","gb2312");
-			if(res.length()<10)	{
-				//resp.getWriter().println("尝试2");
-				res=kvb.post("http://202.115.139.16/login.php","upwd="+pwd+"&uname="+sid+"&usertype=%D1%A7%C9%FA","gb2312");
-			}
-			////resp.getWriter().print(res);
-			if(res.length()<10)	{
-				throw new Exception("1");
-			}
-			if(res.indexOf("登录失败")!=-1)	{
-				throw new Exception("2");
+			String res="";
+			if(Source.cookieString.equals("")||Source.isSessionOutOfDate())
+				{
+				//resp.getWriter().println("尝试1");
+				res=Source.post("http://202.115.139.16/login.php","upwd="+pwd+"&uname="+sid+"&usertype=%D1%A7%C9%FA","gb2312");
+				if(res.length()<10)	{
+					//resp.getWriter().println("尝试2");
+					res=Source.post("http://202.115.139.16/login.php","upwd="+pwd+"&uname="+sid+"&usertype=%D1%A7%C9%FA","gb2312");
+				}
+				////resp.getWriter().print(res);
+				if(res.length()<10)	{
+					throw new Exception("1");
+				}
+				if(res.indexOf("登录失败")!=-1)	{
+					throw new Exception("2");
+				}
 			}
 			//得到课表url
-			//resp.getWriter().println("尝试1");
-			res=kvb.get("http://202.115.139.16/sel_listsys/sel_listsys.php","gb2312");
-			if(res.length()<10)	{
-				//resp.getWriter().println("尝试2");
-				res=kvb.get("http://202.115.139.16/sel_listsys/sel_listsys.php","gb2312");
-			}	
-			if(res.length()<10)	{
-				throw new Exception("3");
+			String url=Source.surl;
+			if(Source.surl.equals(""))
+			{
+				//resp.getWriter().println("尝试1");
+				res=Source.get("http://202.115.139.16/sel_listsys/sel_listsys.php","gb2312");
+				if(res.length()<10)	{
+					//resp.getWriter().println("尝试2");
+					res=Source.get("http://202.115.139.16/sel_listsys/sel_listsys.php","gb2312");
+				}	
+				if(res.length()<10)	{
+					throw new Exception("3");
+				}
+				url=StringUtil.findMc(res, "\\\'查看所选课表总课表\\\' onclick=\\\"window.open\\(\\\'\\.\\.(.*?)\\\'\\,",1).replaceAll(" ","%20");
+	
+				Source.surl=url;
 			}
-			String url=StringUtil.findMc(res, "\\\'查看所选课表总课表\\\' onclick=\\\"window.open\\(\\\'\\.\\.(.*?)\\\'\\,",1).replaceAll(" ","%20");
 			////resp.getWriter().println(url);
 			//resp.getWriter().println("尝试1");
-			kbhtml=kvb.get("http://202.115.139.16"+url,"gb2312");
-			if(kbhtml.length()<10){
-				//resp.getWriter().println("尝试2");
-				kbhtml=kvb.get("http://202.115.139.16"+url,"gb2312");
-			}
-			if(kbhtml.length()<10){
-				throw new Exception("4");
-			}
-			// 解析课表
-			CourseTable Tb;
-	        SchoolTime st = new WinterSchoolTime();
-			Tb = Parser.parseTable(kbhtml);
-	        //计算总课数
-	        for (int i = 1; i <= Tb.getRowNums(); i++) {
-	            for (int o = 1; o <= Tb.getColumnNums(i); o++) {
-	                CourseColumn cc = Tb.getColum(i, o);
-	                if (cc.haveClass()) {
-	                    classnums++;
-	                }
-	            }
-
-	        }
-	        //打印周数,课程数,分段数
-	        resp.getWriter().print(Tb.getRowNums() + "@" + Tb.getCoursesNums() + "@" + classnums);
-	        //依次打印课程 {索引名,课程名,课程类型,上课地点}
-	        for (int i = 1; i <= Tb.getCoursesNums(); i++) {
-	            Course cc = Tb.getCourseAt(i);
-	            resp.getWriter().print("|" + cc.getCourseIdxName() + "@" + cc.getCourseName()+"@"+cc.getCourseType() + "@" + cc.getCoursePlace());
-	        }
-	        Date dat=new Date();
-	        //初始化date
-	        dat.setMonth(Integer.parseInt(Tb.getRowHead(1).getWeekStartDate().substring(0,Tb.getRowHead(1).getWeekStartDate().indexOf("-")))-1);
-	        dat.setDate(Integer.parseInt(Tb.getRowHead(1).getWeekStartDate().substring(Tb.getRowHead(1).getWeekStartDate().indexOf("-")+1,Tb.getRowHead(1).getWeekStartDate().length())));
-	        for (int i = 1; i <= Tb.getRowNums(); i++) {
-	            // 一周开始的时间
-	            int courest = 1;
-	            for (int o = 1; o <= Tb.getColumnNums(i); o++) {
-	                CourseColumn cc = Tb.getColum(i, o);
-	                if (cc.haveClass()) {
-	                    resp.getWriter().print("|" + cc.getCourseIdxName().replaceAll("\n", ""));
-	                    int date=dat.getMonth()+1;
-	                    int day=dat.getDate();
-	                    resp.getWriter().print("@"+StringUtil.plusZero((dat.getYear()+1900)+"",4)+"-"+StringUtil.plusZero(date+"",2)+"-"+StringUtil.plusZero(day+"",2));
-	                    resp.getWriter().print("@"
-	                            + StringUtil.plusZero(st.getStartTimeAt(courest).getHours()+"",2)
-	                            + ":"
-	                            + StringUtil.plusZero(st.getStartTimeAt(courest).getMinutes()+"",2));
-	                    courest = courest + cc.getCrossSpan();
-	                    resp.getWriter().print("@"
-	                            + StringUtil.plusZero(st.getEndTimeAt(courest - 1).getHours()+"",2)
-	                            + ":"
-	                            + StringUtil.plusZero(st.getEndTimeAt(courest - 1).getMinutes()+"",2));
-
-	                } else {
-	                    courest = courest + cc.getCrossSpan();
-	                }
-	                if (courest > 11) {
-	                    courest = 1;
-	                    dat=new Date(dat.getTime()+3600*24*1000);
-	                }
-	            }
-	        }
-
-			//resp.getWriter().print("|end");
+			if(Source.res.equals(""))
+			{
+				kbhtml=Source.get("http://202.115.139.16"+url,"gb2312");
+				if(kbhtml.length()<10){
+					//resp.getWriter().println("尝试2");
+					kbhtml=Source.get("http://202.115.139.16"+url,"gb2312");
+				}
+				if(kbhtml.length()<10){
+					throw new Exception("4");
+				}
+				// 解析课表
+				CourseTable Tb;
+		        SchoolTime st = new WinterSchoolTime();
+				Tb = Parser.parseTable(kbhtml);
+		        //计算总课数
+		        for (int i = 1; i <= Tb.getRowNums(); i++) {
+		            for (int o = 1; o <= Tb.getColumnNums(i); o++) {
+		                CourseColumn cc = Tb.getColum(i, o);
+		                if (cc.haveClass()) {
+		                    classnums++;
+		                }
+		            }
+	
+		        }
+		        String result="";
+		        //打印周数,课程数,分段数
+		        result=result+(Tb.getRowNums() + "@" + Tb.getCoursesNums() + "@" + classnums);
+		        //依次打印课程 {索引名,课程名,课程类型,上课地点}
+		        for (int i = 1; i <= Tb.getCoursesNums(); i++) {
+		            Course cc = Tb.getCourseAt(i);
+		            result=result+("|" + cc.getCourseIdxName() + "@" + cc.getCourseName()+"@"+cc.getCourseType() + "@" + cc.getCoursePlace());
+		        }
+		        Date dat=new Date();
+		        //初始化date
+		        dat.setMonth(Integer.parseInt(Tb.getRowHead(1).getWeekStartDate().substring(0,Tb.getRowHead(1).getWeekStartDate().indexOf("-")))-1);
+		        dat.setDate(Integer.parseInt(Tb.getRowHead(1).getWeekStartDate().substring(Tb.getRowHead(1).getWeekStartDate().indexOf("-")+1,Tb.getRowHead(1).getWeekStartDate().length())));
+		        for (int i = 1; i <= Tb.getRowNums(); i++) {
+		            // 一周开始的时间
+		            int courest = 1;
+		            for (int o = 1; o <= Tb.getColumnNums(i); o++) {
+		                CourseColumn cc = Tb.getColum(i, o);
+		                if (cc.haveClass()) {
+		                	result=result+("|" + cc.getCourseIdxName().replaceAll("\n", ""));
+		                    int date=dat.getMonth()+1;
+		                    int day=dat.getDate();
+		                    result=result+("@"+StringUtil.plusZero((dat.getYear()+1900)+"",4)+"-"+StringUtil.plusZero(date+"",2)+"-"+StringUtil.plusZero(day+"",2));
+		                    result=result+("@"
+		                            + StringUtil.plusZero(st.getStartTimeAt(courest).getHours()+"",2)
+		                            + ":"
+		                            + StringUtil.plusZero(st.getStartTimeAt(courest).getMinutes()+"",2));
+		                    courest = courest + cc.getCrossSpan();
+		                    result=result+("@"
+		                            + StringUtil.plusZero(st.getEndTimeAt(courest - 1).getHours()+"",2)
+		                            + ":"
+		                            + StringUtil.plusZero(st.getEndTimeAt(courest - 1).getMinutes()+"",2));
+	
+		                } else {
+		                    courest = courest + cc.getCrossSpan();
+		                }
+		                if (courest > 11) {
+		                    courest = 1;
+		                    dat=new Date(dat.getTime()+3600*24*1000);
+		                }
+		            }
+		        }
+		        result=result+("|end");
+				Source.res=result;
+				}
+				resp.getWriter().print(Source.res);
 		} catch (Exception e) {
-			resp.getWriter().print("error"+e.getMessage());
-			resp.getWriter().close();
-			//e.printStackTrace();
+				resp.getWriter().print("error"+e.getMessage());
+				resp.getWriter().close();
+				//e.printStackTrace();
 		}
 	}
 }
