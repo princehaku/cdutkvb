@@ -24,7 +24,7 @@ public class CourseTable {
         this.rowNums=rows.size();
         this.courses=courses;
     }
-    /**所有的课程信息{课号,课名,上课教师,}
+    /**所有的课程信息{课号,课名,上课教师}
      */
     private ArrayList<Course> courses;
     /**课表行私有
@@ -46,6 +46,15 @@ public class CourseTable {
      */
     public int getCoursesNums() {
         return courses.size();
+    }
+    /**得到课程
+     * @return int
+     * @throws Exception 
+     */
+    public Course getCourseAt(int pos) throws Exception {
+    	if(pos>getCoursesNums()||pos<1)
+            throw new Exception("Row Out of Range");
+        return courses.get(pos-1);
     }
     /**得到某行单元格数两
      * @param rowIdx 行号 下标1
