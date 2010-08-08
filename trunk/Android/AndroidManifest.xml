@@ -2,17 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
      package="org.me.androidkvb">
     <application>
-         <activity android:name=".MainActivity" android:label="MainActivity">
+         <activity android:name=".MainActivity" android:label="CdutKvb">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-         <uses-permission
-         android:name="android.permission.READ_CALENDAR">
-         </uses-permission>
-         <uses-permission
-         android:name="android.permission.WRITE_CALENDAR">
-         </uses-permission>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+    android:name="android.permission.READ_CALENDAR">
+    </uses-permission>
+    <uses-permission
+    android:name="android.permission.WRITE_CALENDAR">
+    </uses-permission>
 </manifest>
