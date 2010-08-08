@@ -119,6 +119,10 @@ public class MainActivity extends Activity implements OnClickListener{
                 //隐藏button
                 bt.setVisibility(4);
             }
+            else if(msg.what==3)
+            {
+                //新的视图载入并开始进行课程解析
+            }
             else
             {
                 //隐藏进度圈圈
@@ -151,7 +155,7 @@ public class MainActivity extends Activity implements OnClickListener{
             public void run() {
                 if(!getResultString().equals(""))
                 {
-                    //getAlert().show("Error",getResultString());
+                    int r=0;
                     switch(statu)
                     {
                         case 1:
@@ -167,14 +171,13 @@ public class MainActivity extends Activity implements OnClickListener{
                             getAlert().show("Error","获取课表信息超时 请重试");
                         break;
                         case 5:
-                            getAlert().show("Error",getResultString());
-                            //setContentView(R.layout.process);
+                            r=3;
                         break;
                         default:
                               getAlert().show("Error","无法与服务器通信"+getResultString());
                         break;
                     }
-                        statuHandler.sendEmptyMessage(0);
+                        statuHandler.sendEmptyMessage(r);
                         this.cancel();
                 }
             }
