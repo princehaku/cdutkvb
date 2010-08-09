@@ -51,9 +51,9 @@ public class Alert {
     /**隐藏对话框
      *
      */
-    public void canhide() {
+    public void destory() {
         if(alert!=null){
-            alert.setCancelable(true);
+            alert.dismiss();
         }
     }
     /**隐含的方法

@@ -20,6 +20,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import java.util.Timer;
 import java.util.TimerTask;
 /**
@@ -43,7 +44,7 @@ public class MainActivity extends Activity implements OnClickListener{
     /**从GAE得到的序列化后的课表串
      * 
      */
-    String result;
+    static String result;
     /**结果Handler
      *
      */
@@ -55,7 +56,43 @@ public class MainActivity extends Activity implements OnClickListener{
             super.handleMessage(msg);
         }
     };
-
+    //总共需要处理的节数
+    static int tolnums=0;
+    //当前正在处理的节数
+    static int nownums=0;
+    static String buffspace="";
+    ParseThread t=new ParseThread();
+    public Handler processbarHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            t.statuHandler.sendEmptyMessage(0);
+            int nowpos=245*msg.what/100;
+            if(msg.what>100)
+                 nowpos=245;
+            if(msg.what<0)
+                nowpos=0;
+            int i=nownums*100/tolnums;
+            //((Button)(findViewById(R.id.barnow))).setWidth(nowpos);
+            ((Button)(findViewById(R.id.barnow))).setText(i+"%");
+            //增加美观度
+            if(((TextView)(findViewById(R.id.console))).getLineCount()>20){
+                 ((TextView)(findViewById(R.id.console))).setText("");
+            }
+            ((TextView)(findViewById(R.id.console))).setText(((TextView)(findViewById(R.id.console))).getText()+buffspace);
+            buffspace="";
+            t.statuHandler.sendEmptyMessage(1);
+            super.handleMessage(msg);
+        }
+    };
+    public Handler consoleHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.getData().getString("add")!=null)
+                ((TextView)(findViewById(R.id.console))).setText(((TextView)(findViewById(R.id.console))).getText()+
+                    msg.getData().getString("add")+"\n");
+            super.handleMessage(msg);
+        }
+    };
     public String getPwd() {
         return pwd;
     }
@@ -72,7 +109,7 @@ public class MainActivity extends Activity implements OnClickListener{
         this.sid = sid;
     }
     //返回结果串
-    public String getResultString() {
+   public static String getResultString() {
         if(result==null)
             result="";
             return result;
@@ -107,8 +144,7 @@ public class MainActivity extends Activity implements OnClickListener{
         setContentView(R.layout.main);
         bt=(Button)findViewById(R.id.button);
         bt.setOnClickListener(this);
-    }
-
+        }
     public Handler statuHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -122,6 +158,25 @@ public class MainActivity extends Activity implements OnClickListener{
             else if(msg.what==3)
             {
                 //新的视图载入并开始进行课程解析
+                getAlert().destory();
+                setContentView(R.layout.process);
+                //定时器 间隔一定时间将buff里面的存入到视图区
+                Timer tr=new Timer();
+                tr.schedule(new TimerTask(){
+                     @Override
+                     public void run() {
+                     //Message msg = new Message();
+                     //Bundle ble = new Bundle();
+                     processbarHandler.sendEmptyMessage(1);
+//                    msg = new Message();
+//                    ble = new Bundle();
+//                    ble.putString("add",st.nextToken());
+//                    msg.setData(ble);
+//                    consoleHandler.sendMessage(msg);
+                    }
+                },0,300);
+                //进程 不做视图处理  负责后台建立进程
+                 t.start();
             }
             else
             {
@@ -129,8 +184,8 @@ public class MainActivity extends Activity implements OnClickListener{
                 ((ProgressBar)(findViewById(R.id.processbar))).setVisibility(4);
                 //显示button
                 bt.setVisibility(0);
+                super.handleMessage(msg);
             }
-            super.handleMessage(msg);
         }
     };
     /**点击按钮的事件
@@ -159,7 +214,7 @@ public class MainActivity extends Activity implements OnClickListener{
                     switch(statu)
                     {
                         case 1:
-                            getAlert().show("Error","登陆失败 正在重试");
+                            getAlert().show("Error","登陆超时 请重试");
                         break;
                         case 2:
                             getAlert().show("Error","登陆失败 账号名或密码错误");
@@ -187,7 +242,6 @@ public class MainActivity extends Activity implements OnClickListener{
     private void addEvent()
     {
           ContentValues event = new ContentValues();
-          event.put("calendar_id", 1);
           event.put("title", "Event Title");
           event.put("description", "Event Desc");
           event.put("eventLocation", "Event Location");
@@ -196,7 +250,7 @@ public class MainActivity extends Activity implements OnClickListener{
           event.put("dtstart", startTime);
           event.put("dtend", endTime);
           Uri eventsUri = Uri.parse("content://calendar/events");
-          Uri url = getContentResolver().insert(eventsUri, event);
+          getContentResolver().insert(eventsUri, event);
     }
     private void fetchHTML() {
        result="";
@@ -241,6 +295,7 @@ public class MainActivity extends Activity implements OnClickListener{
                  }
                  msg.setData(ble);
               } catch (Exception ex) {
+                 ble.clear();
                  ble.putString("result",ex.getMessage());
                  //String sints=sresult.substring((int) (sresult.indexOf("error") + 5),sresult.length());
                  ble.putString("statu","0");
