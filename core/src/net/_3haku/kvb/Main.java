@@ -32,6 +32,8 @@ public class Main {
      */
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException, IOException, Exception {
         Calendar.getInstance(TimeZone.getTimeZone("GMT+08:00"));
+        String sresult="error1";
+        System.out.println(sresult.substring((int) (sresult.indexOf("error") + 5),sresult.length()));
         String kbhtml = "";
         FileInputStream fs = new FileInputStream("src/resourse/kb.html");
         InputStreamReader read = new InputStreamReader(fs, "gb2312");
