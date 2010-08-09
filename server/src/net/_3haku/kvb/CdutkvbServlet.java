@@ -24,7 +24,7 @@ import net._3haku.kvb.util.StringUtil;
 
 @SuppressWarnings("serial")
 public class CdutkvbServlet extends HttpServlet {
-
+	
 	/**-------------------------------------
 	 * 返回的错误代码
 	 * 0   参数无效
@@ -58,7 +58,7 @@ public class CdutkvbServlet extends HttpServlet {
 			//从教务处得到课表的HTML
 			//登陆
 			String res="";
-			if(Source.cookieString.equals("")||Source.isSessionOutOfDate())
+			if(!Source.s.equals(sid)||Source.cookieString.equals("")||Source.isSessionOutOfDate())
 				{
 				//resp.getWriter().println("尝试1");
 				res=Source.post("http://202.115.139.16/login.php","upwd="+pwd+"&uname="+sid+"&usertype=%D1%A7%C9%FA","gb2312");
@@ -73,6 +73,7 @@ public class CdutkvbServlet extends HttpServlet {
 				if(res.indexOf("登录失败")!=-1)	{
 					throw new Exception("2");
 				}
+				Source.s=sid;
 			}
 			//得到课表url
 			String url=Source.surl;
