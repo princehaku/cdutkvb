@@ -13,10 +13,10 @@ import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
-import net._3haku.kvb.CourseTable.CourseColumn;
-import net._3haku.kvb.CourseTable.CourseTable;
-import net._3haku.kvb.TimeFactory.SchoolTime;
-import net._3haku.kvb.TimeFactory.WinterSchoolTime;
+import net._3haku.kvb.coursetable.CourseColumn;
+import net._3haku.kvb.coursetable.CourseTable;
+import net._3haku.kvb.time.SchoolTime;
+import net._3haku.kvb.time.WinterSchoolTime;
 import net._3haku.kvb.bean.Course;
 import net._3haku.kvb.util.Parser;
 import net._3haku.kvb.util.StringUtil;
@@ -35,7 +35,7 @@ public class Main {
         String sresult="error1";
         System.out.println(sresult.substring((int) (sresult.indexOf("error") + 5),sresult.length()));
         String kbhtml = "";
-        FileInputStream fs = new FileInputStream("src/resourse/kb.html");
+        FileInputStream fs = new FileInputStream("src/resource/kb.html");
         InputStreamReader read = new InputStreamReader(fs, "gb2312");
         BufferedReader in = new BufferedReader(read);
         while (in.ready()) {
