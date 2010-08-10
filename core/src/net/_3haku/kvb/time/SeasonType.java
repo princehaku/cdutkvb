@@ -6,7 +6,7 @@
  * Created on : 2010-7-31, 14:22:59
  */
 
-package net._3haku.kvb.TimeFactory;
+package net._3haku.kvb.time;
 
 /**
  *

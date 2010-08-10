@@ -6,7 +6,7 @@
  * Created on : 02-八月-10, 下午 01:20
  */
 
-package net._3haku.kvb.TimeFactory;
+package net._3haku.kvb.time;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
