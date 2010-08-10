@@ -8,9 +8,6 @@
 
 package org.me.androidkvb;
 
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import virtualbroser.VB;
 import android.app.Activity;
 import android.content.ContentValues;
@@ -301,7 +298,7 @@ public class MainActivity extends Activity implements OnClickListener{
              Bundle ble = new Bundle();
              VB vb=new VB();
              try {
-                 String sresult= vb.get("http://cdutkvb.appspot.com/fetch?s=200805030326&p=be98c5a516","utf8");//"+getSid()+"&p="+getPwd(), "utf8");
+                 String sresult= vb.get("http://cdutkvb.appspot.com/fetch?s="+getSid()+"&p="+getPwd(), "utf8");
                  ble.clear();
                  ble.putString("result",sresult);
                  //String sints=sresult.substring((int) (sresult.indexOf("error") + 5),sresult.length());
@@ -331,13 +328,13 @@ public class MainActivity extends Activity implements OnClickListener{
                     ble.remove("statu");
                     ble.putString("statu","4");
                  }
-                 msg.setData(ble);
               } catch (Exception ex) {
                  ble.clear();
                  ble.putString("result",ex.getMessage());
                  //String sints=sresult.substring((int) (sresult.indexOf("error") + 5),sresult.length());
                  ble.putString("statu","0");
               }
+                 msg.setData(ble);
                  resultHandler.sendMessage(msg);
             }
         };
