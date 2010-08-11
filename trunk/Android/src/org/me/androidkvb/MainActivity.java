@@ -21,6 +21,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -92,6 +93,8 @@ public class MainActivity extends Activity implements OnClickListener{
                  //((TextView)(findViewById(R.id.console))).setText("");
             //}
             ((TextView)(findViewById(R.id.console))).setText(((TextView)(findViewById(R.id.console))).getText()+buffspace);
+            //((ScrollView)(findViewById(R.id.widget32))).setSelected(true);
+            ((ScrollView)(findViewById(R.id.widget32))).scrollBy(50, 0);
             buffspace="";
             t.statuHandler.sendEmptyMessage(1);
             super.handleMessage(msg);
