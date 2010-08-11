@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**用于解析从服务器返回的数据
  *
@@ -24,7 +26,7 @@ public class ParseThread extends Thread {
     private static MainActivity res;
     
     ParseThread(MainActivity res) {
-        this.res = res;
+        ParseThread.res = res;
     }
     private boolean islock = false;
 
@@ -52,12 +54,14 @@ public class ParseThread extends Thread {
     };
 
     @Override
+    @SuppressWarnings("static-access")
     public void run() {
         int weekNums = 0;
         int courseNums = 0;
         int parNums = 0;
         String coursefullname = "";
         CourseList cl = new CourseList();
+        @SuppressWarnings("static-access")
         StringTokenizer st = new StringTokenizer(res.getResultString(), "|");
         res.tolnums = st.countTokens();
         int i = 1;
@@ -102,6 +106,11 @@ public class ParseThread extends Thread {
             res.nownums = i++;
             //用于阻塞消息
             while (1 == 1) {
+                try {
+                    this.sleep(50);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(ParseThread.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 if (!isIslock()) {
                     res.buffspace = res.buffspace + rspart + "加入成功\n";
                     break;

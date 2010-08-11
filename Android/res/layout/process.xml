@@ -13,14 +13,6 @@ android:layout_height="fill_parent"
 xmlns:android="http://schemas.android.com/apk/res/android"
 >
 <Button
-android:id="@+id/bartol"
-android:layout_width="255px"
-android:layout_height="25px"
-android:layout_x="37px"
-android:layout_y="362px"
->
-</Button>
-<Button
 android:id="@+id/barnow"
 android:layout_width="250px"
 android:layout_height="20px"
