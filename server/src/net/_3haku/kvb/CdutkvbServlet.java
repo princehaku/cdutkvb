@@ -77,7 +77,7 @@ public class CdutkvbServlet extends HttpServlet {
 			}
 			//得到课表url
 			String url=Source.surl;
-			if(Source.surl.equals(""))
+			if(!Source.s.equals(sid)||Source.surl.equals(""))
 			{
 				//resp.getWriter().println("尝试1");
 				res=Source.get("http://202.115.139.16/sel_listsys/sel_listsys.php","gb2312");
@@ -94,7 +94,7 @@ public class CdutkvbServlet extends HttpServlet {
 			}
 			////resp.getWriter().println(url);
 			//resp.getWriter().println("尝试1");
-			if(Source.res.equals(""))
+			if(!Source.s.equals(sid)||Source.res.equals(""))
 			{
 				kbhtml=Source.get("http://202.115.139.16"+url,"gb2312");
 				if(kbhtml.length()<10){
