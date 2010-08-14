@@ -32,6 +32,7 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
     private StringItem stringItem;
     private TextField textField;
     private TextField textField1;
+    private ChoiceGroup choiceGroup;
     private WaitScreen waitScreen;
     private Alert alert;
     private Alert alert1;
@@ -209,7 +210,7 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
     public Form getForm() {
         if (form == null) {//GEN-END:|14-getter|0|14-preInit
             // write pre-init user code here
-            form = new Form("Welcome", new Item[] { getStringItem(), getTextField(), getTextField1() });//GEN-BEGIN:|14-getter|1|14-postInit
+            form = new Form("Welcome", new Item[] { getStringItem(), getTextField(), getTextField1(), getChoiceGroup() });//GEN-BEGIN:|14-getter|1|14-postInit
             form.addCommand(getExitCommand());
             form.addCommand(getOkCommand());
             form.setCommandListener(this);//GEN-END:|14-getter|1|14-postInit
@@ -298,16 +299,24 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
                 public void execute() throws Exception {//GEN-END:|33-getter|1|33-execute
                     // write task-execution user code here
                     if(getStatuCode()==6)exitMIDlet();
+                    int networktype=1;
+                    networktype=getChoiceGroup().isSelected(1)?1:2;
                     //联网登陆..结果存入statu
                     String sid = getTextField().getString();
                     String pwd = getTextField1().getString();
                     Source a = new Source();
                     getWaitScreen().setText("开始联网获取信息");
-                    String res = a.get("http://cdutkvb.appspot.com/fetch?s="+sid+"&p="+pwd, "UTF-8");
+                    String res = "";
+                    try{
+                        res=a.get("http://cdutkvb.appspot.com/fetch?s="+sid+"&p="+pwd, "UTF-8",networktype);
+                    }catch(Exception ex){
+                        setStatuCode(0);
+                        setResReturn(ex.getMessage());
+                    }
                     System.out.println(res);
                     setResReturn(res);
                     setStatuCode(5);
-                    if (res.indexOf("error0") != -1) {
+                    if (res.indexOf("error0") != -1||res.length()<200) {
                         setStatuCode(0);
                     }
                     if (res.indexOf("error1") != -1) {
@@ -344,6 +353,9 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
     private boolean HandleCode() {
         System.out.println("code!!!"+getStatuCode());
         switch (getStatuCode()) {
+            case 0:
+                getAlert1().setString("无法与服务器通信"+getResReturn());
+                break;
             case 1:
                 getAlert1().setString("登陆超时 请重试");
                 break;
@@ -359,7 +371,7 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
             case 5:
                 return true;
             default:
-                getAlert().setString("无法与服务器通信"+getResReturn());
+                getAlert1().setString("无法与服务器通信"+getResReturn());
                 break;
         }
         return false;
@@ -443,6 +455,25 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
         return alert1;
     }
     //</editor-fold>//GEN-END:|41-getter|2|
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: choiceGroup ">//GEN-BEGIN:|42-getter|0|42-preInit
+    /**
+     * Returns an initiliazed instance of choiceGroup component.
+     * @return the initialized component instance
+     */
+    public ChoiceGroup getChoiceGroup() {
+        if (choiceGroup == null) {//GEN-END:|42-getter|0|42-preInit
+            // write pre-init user code here
+            choiceGroup = new ChoiceGroup("\u8054\u7F51\u65B9\u5F0F", Choice.EXCLUSIVE);//GEN-BEGIN:|42-getter|1|42-postInit
+            choiceGroup.append("WAP", null);
+            choiceGroup.append("GPRS", null);
+            choiceGroup.setFitPolicy(Choice.TEXT_WRAP_ON);
+            choiceGroup.setSelectedFlags(new boolean[] { true, false });//GEN-END:|42-getter|1|42-postInit
+            // write post-init user code here
+        }//GEN-BEGIN:|42-getter|2|
+        return choiceGroup;
+    }
+    //</editor-fold>//GEN-END:|42-getter|2|
 
     /**
      * Returns a display instance.
