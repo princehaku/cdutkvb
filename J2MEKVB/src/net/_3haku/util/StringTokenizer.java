@@ -35,7 +35,7 @@ public class StringTokenizer {
         setSperator(sperator);
         pos=0;
     }
-    /**是否还有分词
+    /**是否还有分段
      * @return
      */
     public boolean hasMoreTokens() {
@@ -45,7 +45,7 @@ public class StringTokenizer {
         else
             return true;
     }
-    /**下一个分词
+    /**下一个分段
      *
      * @return
      */
@@ -65,7 +65,7 @@ public class StringTokenizer {
     private void setSource(String source) {
         this.source = source;
     }
-
+    
     private String getSperator() {
         return sperator;
     }

@@ -73,6 +73,10 @@ public class CourseList {
         }
         return "";
     }
+    /**向此链表中新加一个课程
+     *
+     * @param csr
+     */
     public void add(Course csr)
     {
         cs.put(size+++"",csr);

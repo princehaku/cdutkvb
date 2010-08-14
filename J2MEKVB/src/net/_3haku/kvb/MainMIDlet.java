@@ -22,7 +22,7 @@ import org.netbeans.microedition.util.SimpleCancellableTask;
 /**
  * @author princehaku
  */
-public class HelloMIDlet extends MIDlet implements CommandListener {
+public class MainMIDlet extends MIDlet implements CommandListener {
 
     private boolean midletPaused = false;
     //<editor-fold defaultstate="collapsed" desc=" Generated Fields ">//GEN-BEGIN:|fields|0|
@@ -40,9 +40,9 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
     //</editor-fold>//GEN-END:|fields|0|
 
     /**
-     * The HelloMIDlet constructor.
+     * The MainMIDlet constructor.
      */
-    public HelloMIDlet() {
+    public MainMIDlet() {
     }
 
     //<editor-fold defaultstate="collapsed" desc=" Generated Methods ">//GEN-BEGIN:|methods|0|
