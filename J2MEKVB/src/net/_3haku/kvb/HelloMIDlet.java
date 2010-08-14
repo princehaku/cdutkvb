@@ -123,11 +123,10 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
                 // write post-action user code here
             } else if (command == WaitScreen.SUCCESS_COMMAND) {//GEN-LINE:|7-commandAction|7|31-preAction
                 // write pre-action user code here
-                exitMIDlet();
-                /**
-                 * switchDisplayable (getAlert (), getForm ());//GEN-LINE:|7-commandAction|8|31-postAction
+
+                switchDisplayable(getAlert(), getForm());//GEN-LINE:|7-commandAction|8|31-postAction
                 // write post-action user code here
-                */
+
             }//GEN-BEGIN:|7-commandAction|9|7-postCommandAction
         }//GEN-END:|7-commandAction|9|7-postCommandAction
         // write post-action user code here
@@ -168,6 +167,7 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
                 String dat = st1.nextToken();
                 String startdat = dat + " " + st1.nextToken();
                 String enddat = dat + " " + st1.nextToken();
+                int per=i*100/parNums;
                 try {
                     EventList list;
                     list = (EventList) PIM.getInstance().openPIMList(PIM.EVENT_LIST, PIM.READ_WRITE);
@@ -176,9 +176,9 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
                     ev.addDate(Event.END, PIMItem.DATE, Date.ToTimeSpan(enddat + ":00"));
                     ev.addString(Event.SUMMARY, PIMItem.ATTR_NONE, coursefullname + "[" + cl.getType(idxname) + "]" + cl.getPlace(idxname));
                     ev.commit();
-                    getWaitScreen().setText(coursefullname + "添加成功\n");
+                    getWaitScreen().setText(coursefullname + "添加成功\n"+per+"%");
                 } catch (PIMException ex) {
-                    getWaitScreen().setText(coursefullname + "添加失败\n");
+                    getWaitScreen().setText(coursefullname + "添加失败\n"+per+"%");
                 }
             }
             i++;
@@ -297,6 +297,7 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
             task.setExecutable(new org.netbeans.microedition.util.Executable() {
                 public void execute() throws Exception {//GEN-END:|33-getter|1|33-execute
                     // write task-execution user code here
+                    if(getStatuCode()==6)exitMIDlet();
                     //联网登陆..结果存入statu
                     String sid = getTextField().getString();
                     String pwd = getTextField1().getString();
