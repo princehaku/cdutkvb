@@ -1,3 +1,10 @@
+/**
+ * Copyright (c) 2010 princehaku
+ * All right reserved.
+ * Author princehaku
+ * Site http://3haku.net
+ * Created on : 2010-6-1, 9:19:23
+ */
 package net._3haku.util;
 
 import java.util.Calendar;
@@ -35,11 +42,10 @@ public class Date extends java.util.Date {
             cal.set(Calendar.MINUTE, Mins);
             int Seconds = Integer.parseInt(time.substring(17, 19));
             cal.set(Calendar.SECOND, Seconds);
-            System.out.println(cal.getTime());
+            //System.out.println(cal.getTime());
             long totime = cal.getTime().getTime();
             return totime;
         } catch (NumberFormatException numberFormatException) {
-
             return 0;
         }
     }

@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package net._3haku.kvb;
 
 import net._3haku.course.CourseList;
@@ -16,7 +15,9 @@ import javax.microedition.pim.PIM;
 import javax.microedition.pim.PIMException;
 import javax.microedition.pim.PIMItem;
 import net._3haku.util.Date;
-import org.netbeans.microedition.lcdui.LoginScreen;
+import net._3haku.util.Source;
+import org.netbeans.microedition.lcdui.WaitScreen;
+import org.netbeans.microedition.util.SimpleCancellableTask;
 
 /**
  * @author princehaku
@@ -24,12 +25,17 @@ import org.netbeans.microedition.lcdui.LoginScreen;
 public class HelloMIDlet extends MIDlet implements CommandListener {
 
     private boolean midletPaused = false;
-
     //<editor-fold defaultstate="collapsed" desc=" Generated Fields ">//GEN-BEGIN:|fields|0|
     private Command exitCommand;
     private Command okCommand;
     private Form form;
     private StringItem stringItem;
+    private TextField textField;
+    private TextField textField1;
+    private WaitScreen waitScreen;
+    private Alert alert;
+    private Alert alert1;
+    private SimpleCancellableTask task;
     //</editor-fold>//GEN-END:|fields|0|
 
     /**
@@ -40,7 +46,6 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
 
     //<editor-fold defaultstate="collapsed" desc=" Generated Methods ">//GEN-BEGIN:|methods|0|
     //</editor-fold>//GEN-END:|methods|0|
-
     //<editor-fold defaultstate="collapsed" desc=" Generated Method: initialize ">//GEN-BEGIN:|0-initialize|0|0-preInitialize
     /**
      * Initilizes the application.
@@ -108,67 +113,78 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
                 // write post-action user code here
             } else if (command == okCommand) {//GEN-LINE:|7-commandAction|3|24-preAction
                 // write pre-action user code here
-                         int weekNums=0;
-                         int courseNums=0;
-                         int parNums=0;
-                         StringTokenizer st = new StringTokenizer("20@15@194|数@数字信号处理@理论@7404|数@数字信号处理@实验@6A502|数1@数字逻辑@理论@4301|数1@数字逻辑@实验@6B602|计@计算机组成基础@理论@4502|计@计算机组成基础@实验@6C1001|计1@计算机网络原理@理论@7404|计1@计算机网络原理@实验@6A502|编@编译原理@理论@4502|计2@计算机图形学@理论@6B201|计2@计算机图形学@实验@6A502|操@操作系统原理@理论@6A104|操@操作系统原理@实验@6A502|软@软件工程课程设计@实习@6A110|形@形势与政策@理论@6C405|操@2010-09-01@08:10@09:45|数1@2010-09-01@10:15@11:50|形@2010-09-01@14:30@16:00|计@2010-09-02@08:10@09:45|编@2010-09-02@10:15@11:50|数@2010-09-02@16:10@17:50|计2@2010-09-03@14:30@16:55|计@2010-09-06@08:10@09:45|操@2010-09-06@10:15@11:50|编@2010-09-07@14:30@16:00|数@2010-09-07@16:10@17:50|操@2010-09-08@08:10@09:45|数1@2010-09-08@10:15@11:50|计@2010-09-09@08:10@09:45|编@2010-09-09@10:15@11:50|数@2010-09-09@16:10@17:50|计2@2010-09-10@14:30@16:55|计@2010-09-13@08:10@09:45|操@2010-09-13@10:15@11:50|编@2010-09-14@14:30@16:00|数@2010-09-14@16:10@17:50|操@2010-09-15@08:10@09:45|数1@2010-09-15@10:15@11:50|形@2010-09-15@14:30@16:00|计@2010-09-16@08:10@09:45|编@2010-09-16@10:15@11:50|数@2010-09-16@16:10@17:50|计2@2010-09-17@14:30@16:55|计@2010-09-19@08:10@09:45|编@2010-09-19@10:15@11:50|数@2010-09-19@16:10@17:50|计@2010-09-20@08:10@09:45|操@2010-09-20@10:15@11:50|编@2010-09-21@14:30@16:00|数@2010-09-21@16:10@17:50|计2@2010-09-25@14:30@16:55|操@2010-09-26@08:10@09:45|数1@2010-09-26@10:15@11:50|形@2010-09-26@14:30@16:00|计@2010-09-27@08:10@09:45|操@2010-09-27@10:15@11:50|编@2010-09-28@14:30@16:00|数@2010-09-28@16:10@17:50|操@2010-09-29@08:10@09:45|数1@2010-09-29@10:15@11:50|计@2010-09-30@08:10@09:45|编@2010-09-30@10:15@11:50|数@2010-09-30@16:10@17:50|计1@2010-10-08@10:15@11:50|计2@2010-10-08@14:30@16:55|计@2010-10-09@08:10@09:45|编@2010-10-09@10:15@11:50|数@2010-10-09@16:10@17:50|计@2010-10-11@08:10@09:45|操@2010-10-11@10:15@11:50|编@2010-10-12@14:30@16:00|数@2010-10-12@16:10@17:50|操@2010-10-13@08:10@09:45|数1@2010-10-13@10:15@11:50|计@2010-10-14@08:10@09:45|编@2010-10-14@10:15@11:50|数@2010-10-14@16:10@17:50|计1@2010-10-15@10:15@11:50|计2@2010-10-15@14:30@16:55|计@2010-10-18@08:10@09:45|操@2010-10-18@16:10@17:50|编@2010-10-19@14:30@16:00|数@2010-10-19@16:10@17:50|操@2010-10-20@08:10@09:45|数1@2010-10-20@10:15@11:50|形@2010-10-20@14:30@16:00|计@2010-10-21@08:10@09:45|编@2010-10-21@10:15@11:50|数@2010-10-21@16:10@17:50|计1@2010-10-22@10:15@11:50|计2@2010-10-22@14:30@16:55|计@2010-10-25@08:10@09:45|计1@2010-10-25@10:15@11:50|操@2010-10-25@16:10@17:50|操@2010-10-25@19:10@20:40|计2s1@2010-10-26@08:10@09:45|数s1@2010-10-26@10:15@11:50|编@2010-10-26@14:30@16:00|数@2010-10-26@16:10@17:50|操@2010-10-27@08:10@09:45|数1@2010-10-27@10:15@11:50|计@2010-10-28@08:10@09:45|编@2010-10-28@10:15@11:50|数@2010-10-28@16:10@17:50|计1@2010-10-29@10:15@11:50|计2@2010-10-29@14:30@16:55|计@2010-11-01@08:10@09:45|计1@2010-11-01@10:15@11:50|操@2010-11-01@16:10@17:50|操@2010-11-01@19:10@20:40|计2s1@2010-11-02@08:10@09:45|数s1@2010-11-02@10:15@11:50|编@2010-11-02@14:30@16:00|数@2010-11-02@16:10@17:50|操@2010-11-03@08:10@09:45|数1@2010-11-03@10:15@11:50|形@2010-11-03@14:30@16:00|计@2010-11-04@08:10@09:45|编@2010-11-04@10:15@11:50|数@2010-11-04@16:10@17:50|计1@2010-11-05@10:15@11:50|计2@2010-11-05@14:30@16:55|计@2010-11-08@08:10@09:45|计1@2010-11-08@10:15@11:50|操@2010-11-08@16:10@17:50|操@2010-11-08@19:10@20:40|计2s1@2010-11-09@08:10@09:45|数s1@2010-11-09@10:15@11:50|编@2010-11-09@14:30@16:00|数@2010-11-09@16:10@17:50|操@2010-11-10@08:10@09:45|数1@2010-11-10@10:15@11:50|计@2010-11-11@08:10@09:45|编@2010-11-11@10:15@11:50|数@2010-11-11@16:10@17:50|计1@2010-11-12@10:15@11:50|计2@2010-11-12@14:30@16:55|计@2010-11-15@08:10@09:45|计1@2010-11-15@10:15@11:50|操@2010-11-15@16:10@17:50|操@2010-11-15@19:10@20:40|计2s1@2010-11-16@08:10@09:45|数s1@2010-11-16@10:15@11:50|编@2010-11-16@14:30@16:00|数1@2010-11-17@10:15@11:50|形@2010-11-17@14:30@16:00|计@2010-11-18@08:10@09:45|编@2010-11-18@10:15@11:50|计s3@2010-11-18@16:10@17:50|计1@2010-11-19@10:15@11:50|计2@2010-11-19@14:30@16:55|计@2010-11-22@08:10@09:45|计1@2010-11-22@10:15@11:50|计2s1@2010-11-23@08:10@09:45|编@2010-11-23@14:30@16:00|数1@2010-11-24@10:15@11:50|计@2010-11-25@08:10@09:45|编@2010-11-25@10:15@11:50|计s3@2010-11-25@16:10@17:50|计1@2010-11-26@10:15@11:50|计2@2010-11-26@14:30@16:55|计@2010-11-29@08:10@09:45|计1@2010-11-29@10:15@11:50|计2s1@2010-11-30@08:10@09:45|计1s1@2010-11-30@10:15@11:50|编@2010-11-30@14:30@16:00|数1@2010-12-01@10:15@11:50|形@2010-12-01@14:30@16:00|计@2010-12-02@08:10@09:45|编@2010-12-02@10:15@11:50|计s3@2010-12-02@16:10@17:50|数1s3@2010-12-03@08:10@09:45|计1@2010-12-03@10:15@11:50|计2@2010-12-03@14:30@16:00|计@2010-12-06@08:10@09:45|计1@2010-12-06@10:15@11:50|计2s1@2010-12-07@08:10@09:45|计1s1@2010-12-07@10:15@11:50|编@2010-12-07@14:30@16:00|数1@2010-12-08@10:15@11:50|计@2010-12-09@08:10@09:45|编@2010-12-09@10:15@11:50|计s3@2010-12-09@16:10@17:50|数1s3@2010-12-10@08:10@09:45|计1@2010-12-10@10:15@11:50|计2@2010-12-10@14:30@16:00|计1@2010-12-13@10:15@11:50|软s1@2010-12-13@14:30@16:00|计2s1@2010-12-14@08:10@09:45|计1s1@2010-12-14@10:15@11:50|软s1@2010-12-14@14:30@17:50|数1@2010-12-15@10:15@11:50|形@2010-12-15@14:30@16:00|软s1@2010-12-16@08:10@11:50|数1s3@2010-12-17@08:10@09:45|计1@2010-12-17@10:15@11:50|软s1@2010-12-17@14:30@17:50|计1@2010-12-20@10:15@11:50|软s1@2010-12-20@14:30@17:50|计1s1@2010-12-21@10:15@11:50|软s1@2010-12-21@14:30@17:50|数1@2010-12-22@10:15@11:50|软s1@2010-12-23@08:10@11:50|数1s3@2010-12-24@08:10@09:45|软s1@2010-12-28@08:10@11:50|形@2010-12-29@15:20@16:00|软s1@2010-12-29@19:10@21:35|软s1@2010-12-30@19:10@21:35|软s1@2010-12-31@14:30@17:50|end","|");
-                         CourseList cl=new CourseList();
-                         int i=1;
-                         while(st.hasMoreTokens())
-                         {
-                             String rspart=st.nextToken();
-                             if(rspart.indexOf("end")!=-1)
-                             {
-                                 break;
-                             }
-                             if(i==1)
-                             {
-                                StringTokenizer st1 = new StringTokenizer(rspart,"@");
-                                weekNums=Integer.parseInt(st1.nextToken());
-                                courseNums=Integer.parseInt(st1.nextToken());
-                                parNums=Integer.parseInt(st1.nextToken());
-                             }
-                             if(i>1&&i-1<=courseNums)
-                             {
-                                 //这里面的是课程
-                                 StringTokenizer st1 = new StringTokenizer(rspart,"@");
-                                 Course c=new Course(st1.nextToken(),st1.nextToken(),st1.nextToken(),st1.nextToken());
-                                 cl.add(c);
-                             }
-                             if(i-1>weekNums)
-                             {
-                                 //这里面的是课
-                                StringTokenizer st1 = new StringTokenizer(rspart, "@");
-                                String idxname=st1.nextToken();
-                                String coursefullname = (cl.getFullName(idxname));
-                                String dat = st1.nextToken();
-                                String startdat = dat + " " + st1.nextToken();
-                                String enddat = dat + " " + st1.nextToken();
-                                try {
-                                    EventList list;
-                                    list = (EventList) PIM.getInstance().openPIMList(PIM.EVENT_LIST, PIM.READ_WRITE);
-                                    Event item;
-                                    Event ev =list.createEvent();
-                                    ev.addDate(Event.START, PIMItem.DATE,Date.ToTimeSpan(startdat+":00"));
-                                    ev.addDate(Event.END, PIMItem.DATE,Date.ToTimeSpan(enddat+":00"));
-                                    ev.addString(Event.SUMMARY, PIMItem.ATTR_NONE,coursefullname+"["+cl.getType(idxname)+"]"+ cl.getPlace(idxname));
-                                    ev.commit();
-                                    this.form.append(coursefullname+"添加成功\n");
-                                } catch (PIMException ex) {
-                                    this.form.append(coursefullname+"添加失败\n");
-                                }
-                             }
-                             i++;
-                         }
-//GEN-LINE:|7-commandAction|4|24-postAction
+                switchDisplayable(null, getWaitScreen());//GEN-LINE:|7-commandAction|4|24-postAction
                 // write post-action user code here
-            }//GEN-BEGIN:|7-commandAction|5|7-postCommandAction
-        }//GEN-END:|7-commandAction|5|7-postCommandAction
+            }//GEN-BEGIN:|7-commandAction|5|32-preAction
+        } else if (displayable == waitScreen) {
+            if (command == WaitScreen.FAILURE_COMMAND) {//GEN-END:|7-commandAction|5|32-preAction
+                // write pre-action user code here
+                switchDisplayable(getAlert1(), getForm());//GEN-LINE:|7-commandAction|6|32-postAction
+                // write post-action user code here
+            } else if (command == WaitScreen.SUCCESS_COMMAND) {//GEN-LINE:|7-commandAction|7|31-preAction
+                // write pre-action user code here
+                exitMIDlet();
+                /**
+                 * switchDisplayable (getAlert (), getForm ());//GEN-LINE:|7-commandAction|8|31-postAction
+                // write post-action user code here
+                */
+            }//GEN-BEGIN:|7-commandAction|9|7-postCommandAction
+        }//GEN-END:|7-commandAction|9|7-postCommandAction
         // write post-action user code here
-    }//GEN-BEGIN:|7-commandAction|6|27-postAction
-    //</editor-fold>//GEN-END:|7-commandAction|6|27-postAction
-
-
+    }//GEN-BEGIN:|7-commandAction|10|
+    //</editor-fold>//GEN-END:|7-commandAction|10|
+    /**解析串并加入到手机日程表
+     *
+     */
+    private void addintophone() {
+        int weekNums = 0;
+        int courseNums = 0;
+        int parNums = 0;
+        StringTokenizer st = new StringTokenizer(getResReturn(),"|");
+        CourseList cl = new CourseList();
+        int i = 1;
+        while (st.hasMoreTokens()) {
+            String rspart = st.nextToken();
+            if (rspart.indexOf("end") != -1) {
+                break;
+            }
+            if (i == 1) {
+                StringTokenizer st1 = new StringTokenizer(rspart, "@");
+                weekNums = Integer.parseInt(st1.nextToken());
+                courseNums = Integer.parseInt(st1.nextToken());
+                parNums = Integer.parseInt(st1.nextToken());
+            }
+            if (i > 1 && i - 1 <= courseNums) {
+                //这里面的是课程
+                StringTokenizer st1 = new StringTokenizer(rspart, "@");
+                Course c = new Course(st1.nextToken(), st1.nextToken(), st1.nextToken(), st1.nextToken());
+                cl.add(c);
+            }
+            if (i - 1 > weekNums) {
+                //这里面的是课
+                StringTokenizer st1 = new StringTokenizer(rspart, "@");
+                String idxname = st1.nextToken();
+                String coursefullname = (cl.getFullName(idxname));
+                String dat = st1.nextToken();
+                String startdat = dat + " " + st1.nextToken();
+                String enddat = dat + " " + st1.nextToken();
+                try {
+                    EventList list;
+                    list = (EventList) PIM.getInstance().openPIMList(PIM.EVENT_LIST, PIM.READ_WRITE);
+                    Event ev = list.createEvent();
+                    ev.addDate(Event.START, PIMItem.DATE, Date.ToTimeSpan(startdat + ":00"));
+                    ev.addDate(Event.END, PIMItem.DATE, Date.ToTimeSpan(enddat + ":00"));
+                    ev.addString(Event.SUMMARY, PIMItem.ATTR_NONE, coursefullname + "[" + cl.getType(idxname) + "]" + cl.getPlace(idxname));
+                    ev.commit();
+                    getWaitScreen().setText(coursefullname + "添加成功\n");
+                } catch (PIMException ex) {
+                    getWaitScreen().setText(coursefullname + "添加失败\n");
+                }
+            }
+            i++;
+        }
+        setStatuCode(6);
+    }
 
     //<editor-fold defaultstate="collapsed" desc=" Generated Getter: exitCommand ">//GEN-BEGIN:|18-getter|0|18-preInit
     /**
@@ -193,7 +209,7 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
     public Form getForm() {
         if (form == null) {//GEN-END:|14-getter|0|14-preInit
             // write pre-init user code here
-            form = new Form("Welcome", new Item[] { getStringItem() });//GEN-BEGIN:|14-getter|1|14-postInit
+            form = new Form("Welcome", new Item[] { getStringItem(), getTextField(), getTextField1() });//GEN-BEGIN:|14-getter|1|14-postInit
             form.addCommand(getExitCommand());
             form.addCommand(getOkCommand());
             form.setCommandListener(this);//GEN-END:|14-getter|1|14-postInit
@@ -211,7 +227,7 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
     public StringItem getStringItem() {
         if (stringItem == null) {//GEN-END:|16-getter|0|16-preInit
             // write pre-init user code here
-            stringItem = new StringItem("Hello", "Hello, World!");//GEN-LINE:|16-getter|1|16-postInit
+            stringItem = new StringItem("Hello", "\u6B22\u8FCE\u4F7F\u7528CdutKVB  ");//GEN-LINE:|16-getter|1|16-postInit
             // write post-init user code here
         }//GEN-BEGIN:|16-getter|2|
         return stringItem;
@@ -233,13 +249,205 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
     }
     //</editor-fold>//GEN-END:|23-getter|2|
 
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: textField ">//GEN-BEGIN:|27-getter|0|27-preInit
+    /**
+     * Returns an initiliazed instance of textField component.
+     * @return the initialized component instance
+     */
+    public TextField getTextField() {
+        if (textField == null) {//GEN-END:|27-getter|0|27-preInit
+            // write pre-init user code here
+            textField = new TextField("\u5B66\u53F7", "", 32, TextField.NUMERIC);//GEN-BEGIN:|27-getter|1|27-postInit
+            textField.setInitialInputMode("UCB_BASIC_LATIN");//GEN-END:|27-getter|1|27-postInit
+            // write post-init user code here
+        }//GEN-BEGIN:|27-getter|2|
+        return textField;
+    }
+    //</editor-fold>//GEN-END:|27-getter|2|
 
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: waitScreen ">//GEN-BEGIN:|28-getter|0|28-preInit
+    /**
+     * Returns an initiliazed instance of waitScreen component.
+     * @return the initialized component instance
+     */
+    public WaitScreen getWaitScreen() {
+        if (waitScreen == null) {//GEN-END:|28-getter|0|28-preInit
+            // write pre-init user code here
+            waitScreen = new WaitScreen(getDisplay());//GEN-BEGIN:|28-getter|1|28-postInit
+            waitScreen.setTitle("waitScreen");
+            waitScreen.setCommandListener(this);
+            waitScreen.setFullScreenMode(true);
+            waitScreen.setText("\u8BF7\u7A0D\u540E");
+            waitScreen.setTask(getTask());//GEN-END:|28-getter|1|28-postInit
+            // write post-init user code here
+        }//GEN-BEGIN:|28-getter|2|
+        return waitScreen;
+    }
+    //</editor-fold>//GEN-END:|28-getter|2|
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: task ">//GEN-BEGIN:|33-getter|0|33-preInit
+    /**
+     * Returns an initiliazed instance of task component.
+     * @return the initialized component instance
+     */
+    public SimpleCancellableTask getTask() {
+        if (task == null) {//GEN-END:|33-getter|0|33-preInit
+            // write pre-init user code here
+            task = new SimpleCancellableTask();//GEN-BEGIN:|33-getter|1|33-execute
+            task.setExecutable(new org.netbeans.microedition.util.Executable() {
+                public void execute() throws Exception {//GEN-END:|33-getter|1|33-execute
+                    // write task-execution user code here
+                    //联网登陆..结果存入statu
+                    String sid = getTextField().getString();
+                    String pwd = getTextField1().getString();
+                    Source a = new Source();
+                    getWaitScreen().setText("开始联网获取信息");
+                    String res = a.get("http://cdutkvb.appspot.com/fetch?s="+sid+"&p="+pwd, "UTF-8");
+                    System.out.println(res);
+                    setResReturn(res);
+                    setStatuCode(5);
+                    if (res.indexOf("error0") != -1) {
+                        setStatuCode(0);
+                    }
+                    if (res.indexOf("error1") != -1) {
+                        setStatuCode(1);
+                    }
+                    if (res.indexOf("error2") != -1) {
+                        setStatuCode(2);
+                    }
+                    if (res.indexOf("error3") != -1) {
+                        setStatuCode(3);
+                    }
+                    if (res.indexOf("error4") != -1) {
+                        setStatuCode(4);
+                    }
+                    setStatuCode(statuCode);
+                    if (!HandleCode()) {
+                        getWaitScreen().setText("请稍后");
+                        throw new Exception("!");
+                    }else
+                    {
+                        addintophone();
+                    }
+                }//GEN-BEGIN:|33-getter|2|33-postInit
+            });//GEN-END:|33-getter|2|33-postInit
+            // write post-init user code here
+        }//GEN-BEGIN:|33-getter|3|
+        return task;
+    }
+    //</editor-fold>//GEN-END:|33-getter|3|
+
+    /**处理错误
+     * 
+     */
+    private boolean HandleCode() {
+        System.out.println("code!!!"+getStatuCode());
+        switch (getStatuCode()) {
+            case 1:
+                getAlert1().setString("登陆超时 请重试");
+                break;
+            case 2:
+                getAlert1().setString("登陆失败 账号名或密码错误");
+                break;
+            case 3:
+                getAlert1().setString("获取课表链接超时 请重试");
+                break;
+            case 4:
+                getAlert1().setString("获取课表信息超时 请重试");
+                break;
+            case 5:
+                return true;
+            default:
+                getAlert().setString("无法与服务器通信"+getResReturn());
+                break;
+        }
+        return false;
+    }
+    /**从服务器返回的串
+     *
+     */
+    private String resReturn;
+
+    public String getResReturn() {
+        return resReturn;
+    }
+
+    public void setResReturn(String resReturn) {
+        this.resReturn = resReturn;
+    }
+    /**-------------------------------------
+     * 状态信息
+     * 0   无法连接服务器
+     * 1   登陆失败 (超时)
+     * 2   登陆失败  (密码错误)
+     * 3   获取课表url失败 (超时)
+     * 4   获取课表HTML失败 (超时)
+     * 5   正常
+     * 6   处理结束
+     * -------------------------------------
+     */
+    private int statuCode;
+
+    public int getStatuCode() {
+        return statuCode;
+    }
+
+    public void setStatuCode(int statuCode) {
+        this.statuCode = statuCode;
+    }
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: textField1 ">//GEN-BEGIN:|35-getter|0|35-preInit
+    /**
+     * Returns an initiliazed instance of textField1 component.
+     * @return the initialized component instance
+     */
+    public TextField getTextField1() {
+        if (textField1 == null) {//GEN-END:|35-getter|0|35-preInit
+            // write pre-init user code here
+            textField1 = new TextField("\u5BC6\u7801", "", 32, TextField.ANY);//GEN-BEGIN:|35-getter|1|35-postInit
+            textField1.setInitialInputMode("UCB_BASIC_LATIN");//GEN-END:|35-getter|1|35-postInit
+            // write post-init user code here
+        }//GEN-BEGIN:|35-getter|2|
+        return textField1;
+    }
+    //</editor-fold>//GEN-END:|35-getter|2|
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: alert ">//GEN-BEGIN:|37-getter|0|37-preInit
+    /**
+     * Returns an initiliazed instance of alert component.
+     * @return the initialized component instance
+     */
+    public Alert getAlert() {
+        if (alert == null) {//GEN-END:|37-getter|0|37-preInit
+            // write pre-init user code here
+            alert = new Alert("success", "\u6210\u529F\u5BFC\u5165\u5230\u624B\u673A!", null, AlertType.INFO);//GEN-BEGIN:|37-getter|1|37-postInit
+            alert.setTimeout(Alert.FOREVER);//GEN-END:|37-getter|1|37-postInit
+            // write post-init user code here
+        }//GEN-BEGIN:|37-getter|2|
+        return alert;
+    }
+    //</editor-fold>//GEN-END:|37-getter|2|
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: alert1 ">//GEN-BEGIN:|41-getter|0|41-preInit
+    /**
+     * Returns an initiliazed instance of alert1 component.
+     * @return the initialized component instance
+     */
+    public Alert getAlert1() {
+        if (alert1 == null) {//GEN-END:|41-getter|0|41-preInit
+            // write pre-init user code here
+            alert1 = new Alert("error");//GEN-BEGIN:|41-getter|1|41-postInit
+            alert1.setTimeout(Alert.FOREVER);//GEN-END:|41-getter|1|41-postInit
+            // write post-init user code here
+        }//GEN-BEGIN:|41-getter|2|
+        return alert1;
+    }
+    //</editor-fold>//GEN-END:|41-getter|2|
 
     /**
      * Returns a display instance.
      * @return the display instance.
      */
-    public Display getDisplay () {
+    public Display getDisplay() {
         return Display.getDisplay(this);
     }
 
@@ -247,7 +455,7 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
      * Exits MIDlet.
      */
     public void exitMIDlet() {
-        switchDisplayable (null, null);
+        switchDisplayable(null, null);
         destroyApp(true);
         notifyDestroyed();
     }
@@ -258,10 +466,10 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
      */
     public void startApp() {
         if (midletPaused) {
-            resumeMIDlet ();
+            resumeMIDlet();
         } else {
-            initialize ();
-            startMIDlet ();
+            initialize();
+            startMIDlet();
         }
         midletPaused = false;
     }
@@ -279,5 +487,4 @@ public class HelloMIDlet extends MIDlet implements CommandListener {
      */
     public void destroyApp(boolean unconditional) {
     }
-
 }
