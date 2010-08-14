@@ -62,7 +62,7 @@
                     <Property name="commands" typeID="1C#CommandEventSource" value="A2:3_R193_R24"/>
                     <Property name="title" typeID="Pjava.lang.String" value="VWelcome"/>
                     <Property name="commandListener" typeID="C#CommandListener" value="R7"/>
-                    <Property name="items" typeID="1Cjavax.microedition.lcdui.Item" value="A3:3_R163_R273_R35"/>
+                    <Property name="items" typeID="1Cjavax.microedition.lcdui.Item" value="A4:3_R163_R273_R353_R42"/>
                     <Component componentID="16" typeID="Cjavax.microedition.lcdui.StringItem">
                         <Property name="instanceName" typeID="Pjava.lang.String" value="VstringItem"/>
                         <Property name="codeGenerated" typeID="Pboolean" value="Vtrue"/>
@@ -107,6 +107,22 @@
                         <Property name="maxSize" typeID="Pint" value="V32"/>
                         <Property name="constraints" typeID="Pint" value="V0"/>
                         <Property name="initialInputMode" typeID="Pjava.lang.String" value="VUCB_BASIC_LATIN"/>
+                    </Component>
+                    <Component componentID="42" typeID="Cjavax.microedition.lcdui.ChoiceGroup">
+                        <Property name="instanceName" typeID="Pjava.lang.String" value="VchoiceGroup"/>
+                        <Property name="codeGenerated" typeID="Pboolean" value="Vtrue"/>
+                        <Property name="label" typeID="Pjava.lang.String" value="V联网方式"/>
+                        <Property name="itemCommandListener" typeID="C#ItemCommandListener" value="R17"/>
+                        <Property name="choiceType" typeID="Pint" value="V1"/>
+                        <Property name="elements" typeID="1C#ChoiceElement" value="A2:3_R433_R44"/>
+                        <Property name="fitPolicy" typeID="Pint" value="V1"/>
+                        <Component componentID="43" typeID="C#ChoiceElement">
+                            <Property name="string" typeID="Pjava.lang.String" value="VWAP"/>
+                            <Property name="selected" typeID="Pboolean" value="Vtrue"/>
+                        </Component>
+                        <Component componentID="44" typeID="C#ChoiceElement">
+                            <Property name="string" typeID="Pjava.lang.String" value="VGPRS"/>
+                        </Component>
                     </Component>
                 </Component>
                 <Component componentID="28" typeID="Corg.netbeans.microedition.lcdui.WaitScreen">
@@ -166,10 +182,10 @@
         </Component>
     </Document>
     <FlowScene version="1">
-        <Node componentID="14" descriptorID="componentNode14" x="263" y="195"/>
-        <Node componentID="2" descriptorID="componentNode2" x="24" y="26"/>
-        <Node componentID="37" descriptorID="componentNode37" x="476" y="287"/>
         <Node componentID="28" descriptorID="componentNode28" x="534" y="33"/>
         <Node componentID="41" descriptorID="componentNode41" x="335" y="19"/>
+        <Node componentID="2" descriptorID="componentNode2" x="24" y="26"/>
+        <Node componentID="37" descriptorID="componentNode37" x="476" y="287"/>
+        <Node componentID="14" descriptorID="componentNode14" x="263" y="195"/>
     </FlowScene>
 </VisualDesign>
