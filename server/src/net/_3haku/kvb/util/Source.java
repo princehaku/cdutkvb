@@ -12,7 +12,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Date;
 
 /**
  * 下载网页内容
@@ -22,31 +21,7 @@ import java.util.Date;
 public class Source {
     /** 存放cookie
      */
-	public static String cookieString="";
-	/**存放的时间 用于使session过期
-	 * 
-	 */
-	static Long timespan;
-	/**课表的url
-	 * 
-	 */
-	public static String surl="";
-	/**课表的HTML
-	 * 
-	 */
-	public static String res="";
-	
-	public static String s="";
-	/**Session 是否过期
-	 * @return boolean
-	 */
-	public static boolean isSessionOutOfDate()
-	{
-		if((new Date().getTime()-timespan)>300000)
-			return true;
-		else
-			return false;
-	}
+	static String cookieString="";
 	/**
 	 * url
 	 * 
@@ -56,13 +31,11 @@ public class Source {
 	 *            编码
 	 */
 	@SuppressWarnings("finally")
-	public static String get(String url, String encode) {
+	public String get(String url, String encode) {
 
 		String line = "";
 
 		String content = "";
-		
-		timespan=new Date().getTime();
 
 		// System.out.println(Inc.cookieString);
 
@@ -83,7 +56,8 @@ public class Source {
 			httpConn.setRequestProperty("Accept-Charset","GB2312,utf-8;q=0.7,*;q=0.7");
 			if (!(Source.cookieString.equals(""))) {
 				// 晕死..
-				httpConn.setRequestProperty("Cookie", "" + Source.cookieString+ ";");
+				httpConn.setRequestProperty("Cookie", "" + Source.cookieString
+						+ ";");
 				// System.out.print("发送cookie======="+Inc.cookieString);
 			}
 			httpConn.setRequestProperty("Keep-Alive", "300");
@@ -98,11 +72,13 @@ public class Source {
 			if (httpConn.getHeaderField("Set-Cookie") != null) {
 				String set_Cookie = httpConn.getHeaderField("Set-Cookie");
 				// System.out.println("得到cookie"+set_Cookie);
-				Source.cookieString = set_Cookie.substring(0, set_Cookie.indexOf(";"));
+				Source.cookieString = set_Cookie.substring(0, set_Cookie
+						.indexOf(";"));
 				// System.out.println(Inc.cookieString);
 			}
 
-			BufferedReader br = new BufferedReader(new InputStreamReader(uurl,encode));
+			BufferedReader br = new BufferedReader(new InputStreamReader(uurl,
+					encode));
 			while (line != null) {
 				line = br.readLine();
 				if (line   !=   null)
@@ -130,13 +106,11 @@ public class Source {
 	 *            编码
 	 */
 	@SuppressWarnings("finally")
-	public static String post(String url, String parm, String encode) {
+	public String post(String url, String parm, String encode) {
 
 		String line = "";
 
 		String content = "";
-		
-		timespan=new Date().getTime();
 
 		// System.out.println(Inc.cookieString);
 
@@ -160,7 +134,7 @@ public class Source {
 				// 晕死..
 				httpConn.setRequestProperty("Cookie", "" + Source.cookieString
 						+ ";");
-				System.out.println("发送cookie======="+Source.cookieString);
+				// System.out.print("发送cookie======="+Inc.cookieString);
 			}
 			httpConn.setRequestProperty("Keep-Alive", "300");
 			httpConn.setRequestProperty("Connection", "keep-alive");
@@ -168,7 +142,7 @@ public class Source {
 			httpConn.setRequestProperty("Cache-Control", "no-cache");
 			httpConn.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
 			httpConn.setRequestProperty("Content-Length", String.valueOf(parm.length()));
-			httpConn.setConnectTimeout(30000);
+			httpConn.setConnectTimeout(10000);
 			httpConn.setDoOutput(true);
 			httpConn.setDoInput(true);
 			OutputStreamWriter out = new OutputStreamWriter(httpConn
@@ -184,7 +158,7 @@ public class Source {
 
 			if (httpConn.getHeaderField("Set-Cookie") != null) {
 				String set_Cookie = httpConn.getHeaderField("Set-Cookie");
-				System.out.println("得到cookie"+set_Cookie);
+				// System.out.println("得到cookie"+set_Cookie);
 				Source.cookieString = set_Cookie.substring(0, set_Cookie
 						.indexOf(";"));
 				// System.out.println(Inc.cookieString);
@@ -204,7 +178,7 @@ public class Source {
 		} finally {
 			// 关闭连接
 			httpConn.disconnect();
-			//System.out.println(content);
+			// System.out.println(content);
 			return content;
 		}
 	}
