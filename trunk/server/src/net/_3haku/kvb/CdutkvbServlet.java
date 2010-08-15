@@ -40,11 +40,12 @@ public class CdutkvbServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		try {
+			
 			resp.setContentType("text/plain");
 			resp.setCharacterEncoding("UTF-8");
 			//课表的HTML
 			String kbhtml = "";
-			
+			Source sc = new Source();
 			if(req.getParameter("s")==null||req.getParameter("p")==null)
 			{
 				throw new Exception("0");
@@ -58,48 +59,41 @@ public class CdutkvbServlet extends HttpServlet {
 			//从教务处得到课表的HTML
 			//登陆
 			String res="";
-			if(!Source.s.equals(sid)||Source.cookieString.equals("")||Source.isSessionOutOfDate())
-				{
+			res=sc.post("http://202.115.139.16/login.php", "upwd=be98c5a516&uname=200805030326&usertype=%D1%A7%C9%FA", "gb2312");
+			
 				//resp.getWriter().println("尝试1");
-				res=Source.post("http://202.115.139.16/login.php","upwd="+pwd+"&uname="+sid+"&usertype=%D1%A7%C9%FA","gb2312");
+				res=sc.post("http://202.115.139.16/login.php","upwd="+pwd+"&uname="+sid+"&usertype=%D1%A7%C9%FA","gb2312");
 				if(res.length()<10)	{
 					//resp.getWriter().println("尝试2");
-					res=Source.post("http://202.115.139.16/login.php","upwd="+pwd+"&uname="+sid+"&usertype=%D1%A7%C9%FA","gb2312");
+					res=sc.post("http://202.115.139.16/login.php","upwd="+pwd+"&uname="+sid+"&usertype=%D1%A7%C9%FA","gb2312");
 				}
 				////resp.getWriter().print(res);
 				if(res.length()<10)	{
-					throw new Exception("1");
+					//throw new Exception("1");
 				}
 				if(res.indexOf("登录失败")!=-1)	{
 					throw new Exception("2");
 				}
-				Source.s=sid;
-			}
 			//得到课表url
-			String url=Source.surl;
-			if(!Source.s.equals(sid)||Source.surl.equals(""))
-			{
+			
 				//resp.getWriter().println("尝试1");
-				res=Source.get("http://202.115.139.16/sel_listsys/sel_listsys.php","gb2312");
+				res=sc.get("http://202.115.139.16/sel_listsys/sel_listsys.php","gb2312");
 				if(res.length()<10)	{
 					//resp.getWriter().println("尝试2");
-					res=Source.get("http://202.115.139.16/sel_listsys/sel_listsys.php","gb2312");
+					res=sc.get("http://202.115.139.16/sel_listsys/sel_listsys.php","gb2312");
 				}	
 				if(res.length()<10)	{
 					throw new Exception("3");
 				}
-				url=StringUtil.findMc(res, "\\\'查看所选课表总课表\\\' onclick=\\\"window.open\\(\\\'\\.\\.(.*?)\\\'\\,",1).replaceAll(" ","%20");
+				String url=StringUtil.findMc(res, "\\\'查看所选课表总课表\\\' onclick=\\\"window.open\\(\\\'\\.\\.(.*?)\\\'\\,",1).replaceAll(" ","%20");
 	
-				Source.surl=url;
-			}
 			////resp.getWriter().println(url);
 			//resp.getWriter().println("尝试1");
-			if(!Source.s.equals(sid)||Source.res.equals(""))
-			{
-				kbhtml=Source.get("http://202.115.139.16"+url,"gb2312");
+			
+				kbhtml=sc.get("http://202.115.139.16"+url,"gb2312");
 				if(kbhtml.length()<10){
 					//resp.getWriter().println("尝试2");
-					kbhtml=Source.get("http://202.115.139.16"+url,"gb2312");
+					kbhtml=sc.get("http://202.115.139.16"+url,"gb2312");
 				}
 				if(kbhtml.length()<10){
 					throw new Exception("4");
@@ -160,9 +154,7 @@ public class CdutkvbServlet extends HttpServlet {
 		            }
 		        }
 		        result=result+("|end");
-				Source.res=result;
-				}
-				resp.getWriter().print(Source.res);
+				resp.getWriter().print(result);
 		} catch (Exception e) {
 				resp.getWriter().print("error"+e.getMessage());
 				resp.getWriter().close();
