@@ -242,6 +242,9 @@ public class MainActivity extends Activity implements OnClickListener{
                             getAlert().show("Error","获取课表信息超时 请重试");
                         break;
                         case 5:
+                            getAlert().show("Error","服务器内部错误"+getResultString());
+                        break;
+                        case 99:
                             r=3;
                         break;
                         default:
@@ -301,11 +304,11 @@ public class MainActivity extends Activity implements OnClickListener{
              Bundle ble = new Bundle();
              VB vb=new VB();
              try {
-                 String sresult= vb.get("http://cdutkvb.appspot.com/fetch?s="+getSid()+"&p="+getPwd(), "utf8");
+                 String sresult= vb.get("http://androidkvb.3haku.net/fetch?k=047895516dd3527b5703178ef4e99639&s="+getSid()+"&p="+getPwd(), "utf8");
                  ble.clear();
                  ble.putString("result",sresult);
                  //String sints=sresult.substring((int) (sresult.indexOf("error") + 5),sresult.length());
-                 ble.putString("statu","5");
+                 ble.putString("statu","99");
                  if(sresult.indexOf("error0")!=-1)
                  {
                     ble.remove("statu");
@@ -330,6 +333,11 @@ public class MainActivity extends Activity implements OnClickListener{
                  {
                     ble.remove("statu");
                     ble.putString("statu","4");
+                 }
+                 if(sresult.indexOf("error5")!=-1)
+                 {
+                    ble.remove("statu");
+                    ble.putString("statu","5");
                  }
               } catch (Exception ex) {
                  ble.clear();
