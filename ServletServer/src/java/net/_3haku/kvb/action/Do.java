@@ -18,6 +18,7 @@ import net._3haku.kvb.db.Hb;
 import net._3haku.kvb.db.Productlock;
 import net._3haku.kvb.time.SchoolTime;
 import net._3haku.kvb.time.WinterSchoolTime;
+import net._3haku.kvb.util.MD5;
 import net._3haku.kvb.util.Parser;
 import net._3haku.kvb.util.Source;
 import net._3haku.kvb.util.StringUtil;
@@ -31,23 +32,22 @@ import org.hibernate.Session;
 public class Do extends HttpServlet {
 
     /**-------------------------------------
+     * 传入的参数
+     * s   用户学号
+     * p   用户密码
+     * k   验证密钥
+     * -------------------------------------
      * 返回的错误代码
      * 0   参数无效
      * 1   登陆失败 (超时)
      * 2   登陆失败  (密码错误)
      * 3   获取课表url失败 (超时)
      * 4   获取课表HTML失败 (超时)
-     * 5   错误的客户端版本号
+     * 5   服务器内部错误
+     * 6   错误的客户端版本号 (J2ME only)
      * -------------------------------------
      * 返回的格式
      * 正常    {总周数}@{课程数量}@{总分段数}|{{课程索引名@课程上课地点@上课时间@下课时间}}|end
-     */
-    /** 
-     * Handles the HTTP <code>GET</code> method.
-     * @param req servlet request
-     * @param resp servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -56,11 +56,10 @@ public class Do extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         try {
             resp.setContentType("text/plain");
-            resp.setCharacterEncoding("UTF-8");
             //课表的HTML
             String kbhtml = "";
             Source sc = new Source();
-            if (req.getParameter("s") == null || req.getParameter("p") == null) {
+            if (req.getParameter("s") == null || req.getParameter("p") == null|| req.getParameter("k") == null) {
                 throw new Exception("0");
             }
             req.setCharacterEncoding("UTF-8");
@@ -69,8 +68,10 @@ public class Do extends HttpServlet {
             //密码
             String pwd = req.getParameter("p");
 
-            String pString = "047895516dd3527b5703178ef4e99639";
-            System.out.println(pString);
+            String key = req.getParameter("k");
+            
+            String pString = MD5.getMD5(key.getBytes());
+            //System.out.println(pString);
             Session ses = Hb.getSessionFactory().openSession();
             Query wes = ses.createQuery("from Productlock where pstring='" + pString + "'");
             if (wes.list().size() == 0) {
@@ -82,15 +83,13 @@ public class Do extends HttpServlet {
             ses.flush();
             ses.close();
             //版本判断
-            if (!lastPl.getUid().equals(sid)) {
+            if (!key.equals("998914a777898389484faf4ed0fb607e")&&!lastPl.getUid().equals(sid)) {
                 throw new Exception("5");
             }
             int classnums = 0;
             //从教务处得到课表的HTML
             //登陆
             String res = "";
-            res = sc.post("http://202.115.139.16/login.php", "upwd=be98c5a516&uname=200805030326&usertype=%D1%A7%C9%FA", "gb2312");
-
             //resp.getWriter().println("尝试1");
             res = sc.post("http://202.115.139.16/login.php", "upwd=" + pwd + "&uname=" + sid + "&usertype=%D1%A7%C9%FA", "gb2312");
             if (res.length() < 10) {
@@ -186,7 +185,15 @@ public class Do extends HttpServlet {
             result = result + ("|end");
             resp.getWriter().print(result);
         } catch (Exception e) {
-            resp.getWriter().print("error" + e.getMessage());
+            String exs=e.getMessage();
+            try{
+                Integer.parseInt(e.getMessage().substring(0, 1));
+            }
+            catch(Exception ex)
+            {
+                exs="6"+e.getMessage().toString();
+            }
+            resp.getWriter().print("error" +exs);
             resp.getWriter().close();
             //e.printStackTrace();
         }

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Copyright (c) 2010 princehaku
  * All right reserved.
  * Author princehaku
