@@ -9,6 +9,7 @@ package net._3haku.kvb.coursetable;
 
 import java.util.ArrayList;
 import net._3haku.kvb.bean.Course;
+import net._3haku.kvb.bean.CourseList;
 
 /**课程表
  *
@@ -19,14 +20,24 @@ public class CourseTable {
      * @param rows
      * @param courses
      */
-    public CourseTable(ArrayList<CourseRow> rows,ArrayList<Course> courses) {
+    public CourseTable(ArrayList<CourseRow> rows) {
         this.rows = rows;
         this.rowNums=rows.size();
-        this.courses=courses;
     }
     /**所有的课程信息{课号,课名,上课教师}
      */
-    private ArrayList<Course> courses;
+    private CourseList courseList;
+
+    public CourseList getCourseList() {
+        return courseList;
+    }
+    /**设置课程信息
+     *
+     * @param courseList
+     */
+    public void setCourseList(CourseList courseList) {
+        this.courseList = courseList;
+    }
     /**课表行私有
      *
      */
@@ -40,21 +51,6 @@ public class CourseTable {
      */
     public int getRowNums() {
         return rowNums;
-    }
-    /**得到课程的数量
-     * @return int
-     */
-    public int getCoursesNums() {
-        return courses.size();
-    }
-    /**得到课程
-     * @return int
-     * @throws Exception 
-     */
-    public Course getCourseAt(int pos) throws Exception {
-    	if(pos>getCoursesNums()||pos<1)
-            throw new Exception("Row Out of Range");
-        return courses.get(pos-1);
     }
     /**得到某行单元格数两
      * @param rowIdx 行号 下标1
@@ -110,5 +106,14 @@ public class CourseTable {
      */
     public ArrayList<CourseColumn> getColumnColums(int columnIdx) throws Exception {
         throw new Exception("Not implements");
+    }
+    /**序列化成字符串
+     *
+     */
+    @Override
+    public String toString()
+    {
+
+        return "";
     }
 }

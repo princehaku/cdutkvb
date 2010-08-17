@@ -7,15 +7,20 @@
  */
 package net._3haku.kvb.util;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import net._3haku.kvb.bean.Course;
+import net._3haku.kvb.bean.CourseList;
 import net._3haku.kvb.coursetable.CourseColumn;
 import net._3haku.kvb.coursetable.CourseRow;
 import net._3haku.kvb.coursetable.CourseRowHead;
 import net._3haku.kvb.coursetable.CourseTable;
+import net._3haku.kvb.time.SchoolTime;
+import net._3haku.kvb.time.WinterSchoolTime;
 
 /**
  *
@@ -33,19 +38,20 @@ public class Parser {
     /**解析课程表
      * @return CourseTable
      */
-    public static CourseTable parseTable(String WholeHTMLString) throws Exception {
+    public CourseTable parseTable(String WholeHTMLString) throws Exception {
        	courseidx = 99;
-    	  CourseInfoHTMLString = "";
+    	CourseInfoHTMLString = "";
         ArrayList<CourseRow> rows = parseRow(WholeHTMLString);
-        ArrayList<Course> courses = parseCourse(CourseInfoHTMLString);
-        CourseTable tb = new CourseTable(rows,courses);
+        CourseList courses = parseCourse(CourseInfoHTMLString);
+        CourseTable tb = new CourseTable(rows);
+        tb =organizeCourseTime(tb,courses);
         return tb;
     }
 
     /**解析出课程表的行
      * @return ArrayList<CourseRow>
      */
-    private static ArrayList<CourseRow> parseRow(String WholeHTMLString) {
+    private ArrayList<CourseRow> parseRow(String WholeHTMLString) {
         ArrayList<CourseRow> rows = new ArrayList<CourseRow>();
         Pattern pn = Pattern.compile("<tr>([\\s|\\S]*?)</tr>");
         Matcher mc = pn.matcher(WholeHTMLString);
@@ -78,7 +84,7 @@ public class Parser {
      * @param RowHTMLString
      * @return CourseRow
      */
-    private static CourseRow parseColumn(String RowHTMLString, int rowidx) {
+    private CourseRow parseColumn(String RowHTMLString, int rowidx) {
         CourseRow cr = new CourseRow();
         ArrayList<CourseColumn> cols = new ArrayList<CourseColumn>();
         //System.out.println(RowHTMLString);
@@ -135,10 +141,10 @@ public class Parser {
 
     /**解析课程的信息
      * @param CourseInfoHTMLString
-     * @return ArrayList<Course>
+     * @return CourseList
      */
-    private static ArrayList<Course> parseCourse(String CourseInfoHTMLString) throws Exception {
-        ArrayList<Course> courses=new ArrayList<Course>();
+    private CourseList parseCourse(String CourseInfoHTMLString) throws Exception {
+        CourseList courses=new CourseList();
 
         String courseName = "", courseidxName = "", courseScoure = "", courseId = "";
         String courseType = "", courseTeacher = "", coursePlace = "";
@@ -176,5 +182,64 @@ public class Parser {
             }
         }
         return courses;
+    }
+    /**重组课程的时间信息
+     *
+     */
+    private CourseTable organizeCourseTime(CourseTable tb,CourseList courseList) throws Exception{
+
+        SchoolTime st = new WinterSchoolTime();
+        int classnums = 0;
+        //计算总课数
+        for (int i = 1; i <= tb.getRowNums(); i++) {
+            for (int o = 1; o <= tb.getColumnNums(i); o++) {
+                CourseColumn cc = tb.getColum(i, o);
+                if (cc.haveClass()) {
+                    classnums++;
+                }
+            }
+
+        }
+        //打印周数,课程数,分段数
+        //System.out.print(tb.getRowNums() + "@" + courseList.toString() + "@" + classnums);
+        
+        Date dat=new Date();
+        //初始化date
+        dat.setMonth(Integer.parseInt(tb.getRowHead(1).getWeekStartDate().substring(0,tb.getRowHead(1).getWeekStartDate().indexOf("-")))-1);
+        dat.setDate(Integer.parseInt(tb.getRowHead(1).getWeekStartDate().substring(tb.getRowHead(1).getWeekStartDate().indexOf("-")+1,tb.getRowHead(1).getWeekStartDate().length())));
+        for (int i = 1; i <= tb.getRowNums(); i++) {
+            // 一周开始的时间
+            int courest = 1;
+            for (int o = 1; o <= tb.getColumnNums(i); o++) {
+                CourseColumn cc = tb.getColum(i, o);
+                if (cc.haveClass()) {
+                    String idxName=cc.getCourseIdxName().replaceAll("\n", "");
+                    int date=dat.getMonth()+1;
+                    int day=dat.getDate();
+                    //开始的时间  格式yy-MM-dd HH:mm
+                    String stTime=StringUtil.plusZero((dat.getYear()+1900)+"",4)+"-"+StringUtil.plusZero(date+"",2)
+                            +"-"+StringUtil.plusZero(day+"",2)+" "
+                            +StringUtil.plusZero(st.getStartTimeAt(courest).getHours()+"",2)+ ":"
+                            + StringUtil.plusZero(st.getStartTimeAt(courest).getMinutes()+"",2);
+                    courest = courest + cc.getCrossSpan();
+                    //结束的时间  格式yy-MM-dd HH:mm
+                    String edTime=StringUtil.plusZero((dat.getYear()+1900)+"",4)+"-"+StringUtil.plusZero(date+"",2)
+                            +"-"+StringUtil.plusZero(day+"",2)+" "
+                            + StringUtil.plusZero(st.getEndTimeAt(courest - 1).getHours()+"",2)
+                            + ":"
+                            + StringUtil.plusZero(st.getEndTimeAt(courest - 1).getMinutes()+"",2);
+                    //将时间插入到课程列表
+                    courseList.insertTime(idxName, stTime, edTime);
+                } else {
+                    courest = courest + cc.getCrossSpan();
+                }
+                if (courest > 11) {
+                    courest = 1;
+                    dat=new Date(dat.getTime()+3600*24*1000);
+                }
+            }
+        }
+        tb.setCourseList(courseList);
+        return tb;
     }
 }

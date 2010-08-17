@@ -7,9 +7,15 @@
  */
 package net._3haku.kvb.bean;
 
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import net._3haku.kvb.time.TimeTable;
 
 import java.util.ArrayList;
+import java.util.Date;
+import javax.rmi.CORBA.Util;
+import net._3haku.kvb.util.Time;
 
 /**课程
  *
@@ -118,7 +124,6 @@ public class Course {
     }
 
     /**得到时间表
-     * @deprecated
      * @return
      */
     public ArrayList<TimeTable> getTimeTables() {
@@ -126,11 +131,14 @@ public class Course {
     }
 
     /**设置时间表
-     * @deprecated
      * @return
      */
-    public void setTimeTable(ArrayList<TimeTable> timeTables) {
-        this.timeTables = timeTables;
+    public void addNewTime(String stTime,String edTime) {
+        try {
+            System.out.println(Time.isWeek(stTime, edTime));
+        } catch (ParseException ex) {
+            Logger.getLogger(Course.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**得到第 pos 个timetable
