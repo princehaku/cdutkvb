@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-????-10 ???? 03:35 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="net._3haku.kvb.db.Crawlstatu" table="crawlstatu" catalog="cdutkvb">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="uid" type="int">
+            <column name="uid" not-null="true">
+                <comment>&#209;&#167;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="statu" type="string">
+            <column name="statu" length="2" not-null="true">
+                <comment>&#215;&#180;&#204;&#172;&#180;&#250;&#194;&#235; 1&#181;&#199;&#194;&#189;ok 2&#191;&#206;&#177;&#237;urlok 3&#191;&#206;&#177;&#237;htmlok
+                4&#198;&#228;&#203;&#251;</comment>
+            </column>
+        </property>
+        <property name="kbhtml" type="string">
+            <column name="kbhtml" length="65535" not-null="true">
+                <comment>&#191;&#206;&#177;&#237;&#181;&#196;html</comment>
+            </column>
+        </property>
+        <property name="lstime" type="timestamp">
+            <column name="lstime" length="19" not-null="true">
+                <comment>&#201;&#207;&#180;&#206;&#178;&#217;&#215;&#247;&#181;&#196;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
