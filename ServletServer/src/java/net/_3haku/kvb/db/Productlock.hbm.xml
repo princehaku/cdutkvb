@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-????-10 ???? 03:35 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="net._3haku.kvb.db.Productlock" table="productlock" catalog="cdutkvb">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="pstring" type="string">
+            <column name="pstring" length="32" not-null="true">
+                <comment>&#178;&#250;&#198;&#183;&#181;&#196;id</comment>
+            </column>
+        </property>
+        <property name="uid" type="int">
+            <column name="uid" not-null="true">
+                <comment>&#211;&#195;&#187;&#167;&#209;&#167;&#186;&#197;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
