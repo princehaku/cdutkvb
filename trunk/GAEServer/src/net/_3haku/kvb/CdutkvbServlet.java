@@ -13,10 +13,10 @@ import java.util.Date;
 
 import javax.servlet.http.*;
 
-import net._3haku.kvb.CourseTable.CourseColumn;
-import net._3haku.kvb.CourseTable.CourseTable;
-import net._3haku.kvb.TimeFactory.SchoolTime;
-import net._3haku.kvb.TimeFactory.WinterSchoolTime;
+import net._3haku.kvb.coursetable.CourseColumn;
+import net._3haku.kvb.coursetable.CourseTable;
+import net._3haku.kvb.time.SchoolTime;
+import net._3haku.kvb.time.WinterSchoolTime;
 import net._3haku.kvb.bean.Course;
 import net._3haku.kvb.util.Parser;
 import net._3haku.kvb.util.Source;
