@@ -69,7 +69,7 @@ public class CdutkvbServlet extends HttpServlet {
 				}
 				////resp.getWriter().print(res);
 				if(res.length()<10)	{
-					//throw new Exception("1");
+					throw new Exception("1");
 				}
 				if(res.indexOf("登录失败")!=-1)	{
 					throw new Exception("2");
