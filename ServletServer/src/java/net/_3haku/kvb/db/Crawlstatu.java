@@ -1,5 +1,4 @@
 package net._3haku.kvb.db;
-// Generated 17-����-10 ���� 03:35 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;

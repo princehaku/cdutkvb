@@ -1,5 +1,4 @@
 package net._3haku.kvb.db;
-// Generated 17-°ËÔÂ-10 ÏÂÎç 03:35 by Hibernate Tools 3.2.1.GA
 
 
 
