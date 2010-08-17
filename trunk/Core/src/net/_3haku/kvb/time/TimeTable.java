@@ -8,18 +8,19 @@
 
 package net._3haku.kvb.time;
 
+import java.util.Date;
+
 /**时间表
  *
  * @author princehaku
  */
 public class TimeTable {
     //重复开始时间
-
+    Date stDate;
     //重复结束时间
-
+    Date edDate;
     //每次的开始时间
-
+    Date stTime;
     //每次的结束时间
-
-    //星期几
+    Date edTime;
 }
