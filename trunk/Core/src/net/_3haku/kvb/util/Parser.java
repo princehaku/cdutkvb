@@ -7,7 +7,6 @@
  */
 package net._3haku.kvb.util;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.StringTokenizer;
@@ -228,8 +227,10 @@ public class Parser {
                             + StringUtil.plusZero(st.getEndTimeAt(courest - 1).getHours()+"",2)
                             + ":"
                             + StringUtil.plusZero(st.getEndTimeAt(courest - 1).getMinutes()+"",2);
-                    //将时间插入到课程列表
-                    courseList.insertTime(idxName, stTime, edTime);
+                    //重建课程的索引 加入未被包含的课程
+                    courseList.reBuiltClass(idxName,cc.getCoursePlace());
+                    //将时间插入到课程列表 (考虑到课程有类型的区别..故连上课程的上课地点一起传)
+                    courseList.insertTime(idxName,cc.getCoursePlace(), stTime, edTime);
                 } else {
                     courest = courest + cc.getCrossSpan();
                 }

@@ -29,11 +29,12 @@ public class CourseList {
      * @param idxname
      * @return
      */
-    public String getFullName(String idxname)
+    public String getFullName(String idxName)
     {
         for(int i=0;i<cs.size();i++)
         {
-            if(idxname.indexOf(((Course)(cs.get(i+""))).getCourseIdxName())!=-1)
+            String courseidxName=((Course)(cs.get(i+""))).getCourseIdxName();
+            if(idxName.equals(courseidxName))
             {
                 return ((Course)(cs.get(i+""))).getCourseName();
             }
@@ -46,11 +47,12 @@ public class CourseList {
      * @param idxname
      * @return
      */
-    public String getPlace(String idxname)
+    public String getPlace(String idxName)
     {
         for(int i=0;i<cs.size();i++)
         {
-            if(idxname.indexOf(((Course)(cs.get(i+""))).getCourseIdxName())!=-1)
+            String courseidxName=((Course)(cs.get(i+""))).getCourseIdxName();
+            if(idxName.equals(courseidxName))
             {
                 return ((Course)(cs.get(i+""))).getCoursePlace();
             }
@@ -62,11 +64,12 @@ public class CourseList {
      * @param idxname
      * @return
      */
-    public String getType(String idxname)
+    public String getType(String idxName)
     {
         for(int i=0;i<cs.size();i++)
         {
-            if(idxname.indexOf(((Course)(cs.get(i+""))).getCourseIdxName())!=-1)
+            String courseidxName=((Course)(cs.get(i+""))).getCourseIdxName();
+            if(idxName.equals(courseidxName))
             {
                 return ((Course)(cs.get(i+""))).getCourseType();
             }
@@ -81,19 +84,54 @@ public class CourseList {
     {
         cs.put(size+++"",csr);
     }
+    public void reBuiltClass(String idxName,String coursePlace)
+    {
+        boolean found=false;
+        String courseName="";
+        String type="理论";
+        for(int i=0;i<cs.size();i++)
+        {
+            //如果包含s字段..表明是实验课
+            if(idxName.indexOf("s")!=-1)
+            {
+                idxName=idxName.substring(0,idxName.indexOf("s"));
+                type="实验";
+            }
+            //名字和上课地点都相同才算匹配
+            if(idxName.equals(((Course)(cs.get(i+""))).getCourseIdxName())&&coursePlace.equals(((Course)(cs.get(i+""))).getCoursePlace()))
+            {
+                //System.out.println(idxName+" - "+((Course)(cs.get(i+""))).getCourseName()+type+" - "+coursePlace);
+                found=true;
+                }
+            else
+            {
+                if(idxName.equals(((Course)(cs.get(i+""))).getCourseIdxName()))
+                    courseName=((Course)(cs.get(i+""))).getCourseName();
+            }
+        }
+        if(!found)
+        {
+            System.out.println(idxName+""+coursePlace+"  -  "+courseName+type);
+        }
+    }
     /**更新某个课程的时间表信息
-     *
+     * 考虑到课程有类型的区别..故连上课程的上课地点一起传值
      * @param idxName 课程索引名
+     * @param coursePlace 课程上课地点
      * @param stTime
      * @param edTime
      */
-    public void insertTime(String idxName,String stTime,String edTime)
+    public void insertTime(String idxName,String coursePlace,String stTime,String edTime)
     {
+        
         for(int i=0;i<cs.size();i++)
         {
-            if(idxName.indexOf(((Course)(cs.get(i+""))).getCourseIdxName())!=-1)
+            String courseidxName=((Course)(cs.get(i+""))).getCourseIdxName();
+            
+            if(idxName.equals(courseidxName))
             {
-                ((Course)(cs.get(i+""))).addNewTime(stTime,edTime);
+                
+                ((Course)(cs.get(i+""))).addNewTime(coursePlace,stTime,edTime);
             }
         }
     }
