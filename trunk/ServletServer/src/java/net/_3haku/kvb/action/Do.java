@@ -72,7 +72,7 @@ public class Do extends HttpServlet {
             
             String pString = MD5.getMD5(key.getBytes());
             //System.out.println(pString);
-            Session ses = Hb.getSessionFactory().openSession();
+            /*Session ses = Hb.getSessionFactory().openSession();
             Query wes = ses.createQuery("from Productlock where pstring='" + pString + "'");
             if (wes.list().size() == 0) {
                 Productlock pl = new Productlock(pString, sid);
@@ -80,10 +80,10 @@ public class Do extends HttpServlet {
             }
             Productlock lastPl = (Productlock) wes.list().get(0);
             ses.connection().commit();
-            ses.flush();
-            ses.close();
+            ses.flush();&&!lastPl.getUid().equals(sid)
+            ses.close();*/
             //版本判断
-            if (!key.equals("998914a777898389484faf4ed0fb607e")&&!lastPl.getUid().equals(sid)) {
+            if (!pString.equals("998914a777898389484faf4ed0fb607e")) {
                 throw new Exception("5");
             }
             int classnums = 0;
