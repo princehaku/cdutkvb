@@ -84,7 +84,7 @@ public class Do extends HttpServlet {
             ses.close();*/
             //版本判断
             if (!pString.equals("998914a777898389484faf4ed0fb607e")) {
-                throw new Exception("5");
+                throw new Exception("0");
             }
             int classnums = 0;
             //从教务处得到课表的HTML
