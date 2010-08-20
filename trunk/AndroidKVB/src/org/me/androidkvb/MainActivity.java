@@ -12,9 +12,11 @@ import virtualbroser.VB;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -25,6 +27,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 /**
@@ -156,6 +159,7 @@ public class MainActivity extends Activity implements OnClickListener{
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        ids=1000;
         setContentView(R.layout.main);
         bt=(Button)findViewById(R.id.button);
         bt.setOnClickListener(this);
@@ -273,10 +277,17 @@ public class MainActivity extends Activity implements OnClickListener{
             super.handleMessage(msg);
         }
     };
+    static int ids=1000;
     private void addCanlendarEvent(String title,String desp,String location,String sttime,String edtime) throws Exception
     {
          try {
           ContentValues event = new ContentValues();
+          String bbh=Build.VERSION.RELEASE;
+          String evt="content://calendar/events";
+          Log.v(MainActivity.ACCOUNT_SERVICE,bbh);
+          if(bbh.indexOf("2.")!=-1)
+              evt="content://com.android.calendar/events";
+          event.put("calendar_id",ids++);
           event.put("title", title);
           event.put("description", desp);
           event.put("eventLocation", location);
@@ -287,7 +298,7 @@ public class MainActivity extends Activity implements OnClickListener{
           long endTime = d.getTime();
           event.put("dtstart", startTime);
           event.put("dtend", endTime);
-          Uri eventsUri = Uri.parse("content://calendar/events");
+          Uri eventsUri = Uri.parse(evt);
           getContentResolver().insert(eventsUri, event);
            } catch (Exception ex) {
             throw ex;
@@ -338,6 +349,11 @@ public class MainActivity extends Activity implements OnClickListener{
                  {
                     ble.remove("statu");
                     ble.putString("statu","5");
+                 }
+                 if(sresult.indexOf("error6")!=-1)
+                 {
+                    ble.remove("statu");
+                    ble.putString("statu","6");
                  }
               } catch (Exception ex) {
                  ble.clear();
