@@ -12,8 +12,8 @@ import java.util.Date;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import net._3haku.kvb.bean.Course;
-import net._3haku.kvb.bean.CourseList;
+import net._3haku.kvb.course.Course;
+import net._3haku.kvb.course.CourseList;
 import net._3haku.kvb.coursetable.CourseColumn;
 import net._3haku.kvb.coursetable.CourseRow;
 import net._3haku.kvb.coursetable.CourseRowHead;
@@ -43,6 +43,7 @@ public class Parser {
         ArrayList<CourseRow> rows = parseRow(WholeHTMLString);
         CourseList courses = parseCourse(CourseInfoHTMLString);
         CourseTable tb = new CourseTable(rows);
+        //装饰下这个类
         tb =organizeCourseTime(tb,courses);
         return tb;
     }
@@ -240,6 +241,7 @@ public class Parser {
                 }
             }
         }
+        //给表格加上课程信息
         tb.setCourseList(courseList);
         return tb;
     }
