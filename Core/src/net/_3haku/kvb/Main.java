@@ -38,7 +38,7 @@ public class Main {
         fs.close();
         Parser psr=new Parser();
         CourseTable Tb = psr.parseTable(kbhtml);
-        //System.out.println(Tb.getRowNums());
+        System.out.println(Tb.toString());
         
     }
 }

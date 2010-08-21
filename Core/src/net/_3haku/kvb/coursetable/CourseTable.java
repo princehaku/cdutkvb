@@ -8,8 +8,10 @@
 package net._3haku.kvb.coursetable;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import net._3haku.kvb.bean.Course;
 import net._3haku.kvb.bean.CourseList;
+import net._3haku.kvb.time.TimeTable;
 
 /**课程表
  *
@@ -108,12 +110,32 @@ public class CourseTable {
         throw new Exception("Not implements");
     }
     /**序列化成字符串
-     *
+     * 节点总个数|课程全名@课程地点@课程类型@上课时间@下课时间@重复开始的日期@重复结束的日期|...|...|end
      */
     @Override
     public String toString()
     {
+        String returnString="";
+        Hashtable cs=getCourseList().getContaner();
+        int count=0;
+        for(int i=0;i<cs.size();i++)
+        {
+            Course cc=((Course)(cs.get(i+"")));
+            //遍历时间表
+            ArrayList<TimeTable> tta=cc.getTimeTables();
+            for(int j=0;j<tta.size();j++)
+            {
+                count++;
+                returnString +=cc.getCourseName()+"@"+cc.getCoursePlace()+"@"+cc.getCourseType()+"@";
+                //System.out.println("时间表"+j);
+                TimeTable tt=tta.get(j);
+                returnString +=tt.getStTime()+"@"+tt.getEdTime()+"@"+tt.getStDate()+"@"+tt.getEdDate();
+                returnString +="|";
+            }
 
-        return "";
+        }
+        //加上附加信息
+        returnString =count+"|"+returnString+"end";
+        return returnString;
     }
 }
