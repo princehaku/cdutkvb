@@ -19,7 +19,11 @@ public class CourseList {
     Hashtable cs;
 
     int size=0;
-    
+
+    public Hashtable getContaner()
+    {
+        return cs;
+    }
     public CourseList()
     {
          cs=new Hashtable();
@@ -111,7 +115,9 @@ public class CourseList {
         }
         if(!found)
         {
-            System.out.println(idxName+""+coursePlace+"  -  "+courseName+type);
+            Course csr=new Course(courseName,"Null","Null",coursePlace,"Null", idxName,type);
+            cs.put(size+++"",csr);
+            //System.out.println(idxName+""+coursePlace+"  -  "+courseName+type);
         }
     }
     /**更新某个课程的时间表信息
@@ -126,11 +132,16 @@ public class CourseList {
         
         for(int i=0;i<cs.size();i++)
         {
-            String courseidxName=((Course)(cs.get(i+""))).getCourseIdxName();
-            
-            if(idxName.equals(courseidxName))
+            //如果包含s字段..表明是实验课
+            if(idxName.indexOf("s")!=-1)
             {
-                
+                idxName=idxName.substring(0,idxName.indexOf("s"));
+            }
+            //名字和上课地点都相同才算匹配
+            if(idxName.equals(((Course)(cs.get(i+""))).getCourseIdxName())&&coursePlace.equals(((Course)(cs.get(i+""))).getCoursePlace()))
+            {
+                String courseidxName=((Course)(cs.get(i+""))).getCourseIdxName();
+                String courseplace=((Course)(cs.get(i+""))).getCoursePlace();
                 ((Course)(cs.get(i+""))).addNewTime(coursePlace,stTime,edTime);
             }
         }
