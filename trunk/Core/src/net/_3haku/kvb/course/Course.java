@@ -5,7 +5,7 @@
  * Site http://3haku.net
  * Created on : 2010-7-24, 14:43:16
  */
-package net._3haku.kvb.bean;
+package net._3haku.kvb.course;
 
 import java.text.ParseException;
 import java.util.logging.Level;

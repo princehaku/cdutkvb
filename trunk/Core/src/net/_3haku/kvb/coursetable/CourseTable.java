@@ -9,8 +9,8 @@ package net._3haku.kvb.coursetable;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
-import net._3haku.kvb.bean.Course;
-import net._3haku.kvb.bean.CourseList;
+import net._3haku.kvb.course.Course;
+import net._3haku.kvb.course.CourseList;
 import net._3haku.kvb.time.TimeTable;
 
 /**课程表

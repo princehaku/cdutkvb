@@ -6,7 +6,7 @@
  * Created on : 2010-8-10, 21:46:37
  */
 
-package net._3haku.kvb.bean;
+package net._3haku.kvb.course;
 
 import java.util.Hashtable;
 
@@ -88,6 +88,11 @@ public class CourseList {
     {
         cs.put(size+++"",csr);
     }
+    /**重建部分被丢失的课程信息
+     *
+     * @param idxName
+     * @param coursePlace
+     */
     public void reBuiltClass(String idxName,String coursePlace)
     {
         boolean found=false;
