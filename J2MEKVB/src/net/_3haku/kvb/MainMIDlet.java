@@ -4,8 +4,6 @@
  */
 package net._3haku.kvb;
 
-import net._3haku.course.CourseList;
-import net._3haku.course.Course;
 import net._3haku.util.StringTokenizer;
 import javax.microedition.midlet.*;
 import javax.microedition.lcdui.*;
@@ -14,6 +12,7 @@ import javax.microedition.pim.EventList;
 import javax.microedition.pim.PIM;
 import javax.microedition.pim.PIMException;
 import javax.microedition.pim.PIMItem;
+import javax.microedition.pim.RepeatRule;
 import net._3haku.util.Date;
 import net._3haku.util.Source;
 import org.netbeans.microedition.lcdui.WaitScreen;
@@ -136,12 +135,10 @@ public class MainMIDlet extends MIDlet implements CommandListener {
     /**解析串并加入到手机日程表
      *
      */
-    private void addintophone() {
-        int weekNums = 0;
-        int courseNums = 0;
+    private void addintophone() throws Exception{
         int parNums = 0;
+        try{
         StringTokenizer st = new StringTokenizer(getResReturn(),"|");
-        CourseList cl = new CourseList();
         int i = 1;
         while (st.hasMoreTokens()) {
             String rspart = st.nextToken();
@@ -149,42 +146,75 @@ public class MainMIDlet extends MIDlet implements CommandListener {
                 break;
             }
             if (i == 1) {
-                StringTokenizer st1 = new StringTokenizer(rspart, "@");
-                weekNums = Integer.parseInt(st1.nextToken());
-                courseNums = Integer.parseInt(st1.nextToken());
-                parNums = Integer.parseInt(st1.nextToken());
+                parNums = Integer.parseInt(rspart);
             }
-            if (i > 1 && i - 1 <= courseNums) {
+            if (i > 1 && i <= parNums) {
                 //这里面的是课程
                 StringTokenizer st1 = new StringTokenizer(rspart, "@");
-                Course c = new Course(st1.nextToken(), st1.nextToken(), st1.nextToken(), st1.nextToken());
-                cl.add(c);
-            }
-            if (i - 1 > weekNums) {
-                //这里面的是课
-                StringTokenizer st1 = new StringTokenizer(rspart, "@");
-                String idxname = st1.nextToken();
-                String coursefullname = (cl.getFullName(idxname));
-                String dat = st1.nextToken();
-                String startdat = dat + " " + st1.nextToken();
-                String enddat = dat + " " + st1.nextToken();
+                String coursefullname = st1.nextToken();
+                String coursePlace = st1.nextToken();
+                String courseType = st1.nextToken();
+                String coursestTime = st1.nextToken();
+                String courseedTime = st1.nextToken();
+                String coursestDate = st1.nextToken();
+                String courseedDate = st1.nextToken();
                 int per=i*100/parNums;
+                //System.out.println(coursefullname+coursePlace+courseType+coursestTime+courseedTime+coursestDate+courseedDate);
+                //System.out.println(Date.ToTimeSpan(coursestDate+" "+coursestTime + ":00")+"");
+                //System.out.println(Date.ToWeek(coursestDate+" "+coursestTime + ":00")+"");
                 try {
                     EventList list;
                     list = (EventList) PIM.getInstance().openPIMList(PIM.EVENT_LIST, PIM.READ_WRITE);
                     Event ev = list.createEvent();
-                    ev.addDate(Event.START, PIMItem.DATE, Date.ToTimeSpan(startdat + ":00"));
-                    ev.addDate(Event.END, PIMItem.DATE, Date.ToTimeSpan(enddat + ":00"));
-                    ev.addString(Event.SUMMARY, PIMItem.ATTR_NONE, coursefullname + "[" + cl.getType(idxname) + "]" + cl.getPlace(idxname));
+                    ev.addDate(Event.START, PIMItem.DATE, Date.ToTimeSpan(coursestDate+" "+coursestTime + ":00"));
+                    ev.addDate(Event.END, PIMItem.DATE, Date.ToTimeSpan(coursestDate+" "+courseedTime + ":00"));
+                    ev.addString(Event.SUMMARY, PIMItem.ATTR_NONE, coursefullname + "[" +courseType   + "]" + coursePlace);
+                    RepeatRule rpRule = new RepeatRule();
+                    rpRule.setInt(RepeatRule.FREQUENCY,RepeatRule.WEEKLY);
+                    int week=(Date.ToWeek(coursestDate+" "+coursestTime + ":00"));
+                    int weekinRule=RepeatRule.SUNDAY;
+                    switch(week){
+                        case 1:
+                            weekinRule=RepeatRule.MONDAY;
+                            break;
+                        case 2:
+                            weekinRule=RepeatRule.TUESDAY;
+                            break;
+                        case 3:
+                            weekinRule=RepeatRule.THURSDAY;
+                            break;
+                        case 4:
+                            weekinRule=RepeatRule.WEDNESDAY;
+                            break;
+                        case 5:
+                            weekinRule=RepeatRule.FRIDAY;
+                            break;
+                        case 6:
+                            weekinRule=RepeatRule.SATURDAY;
+                            break;
+                        case 7:
+                            weekinRule=RepeatRule.SUNDAY;
+                            break;
+                    }
+                    rpRule.setInt(RepeatRule.DAY_IN_WEEK,weekinRule);
+                    rpRule.setDate(RepeatRule.END,Date.ToTimeSpan(courseedDate+" "+courseedTime + ":00"));
+                    ev.setRepeat(rpRule);
                     ev.commit();
                     getWaitScreen().setText(coursefullname + "添加成功\n"+per+"%");
-                } catch (PIMException ex) {
-                    getWaitScreen().setText(coursefullname + "添加失败\n"+per+"%");
+                } catch (Exception ex) {
+                    System.out.print(ex.getMessage());
+                    throw new Exception(ex.getMessage());
+                    //getWaitScreen().setText(coursefullname + "添加失败\n"+per+"%");
+                    //continue;
                 }
             }
             i++;
+         }
         }
-        setStatuCode(6);
+        catch (Exception ex) {
+                    throw ex;
+                }
+        setStatuCode(100);
     }
 
     //<editor-fold defaultstate="collapsed" desc=" Generated Getter: exitCommand ">//GEN-BEGIN:|18-getter|0|18-preInit
@@ -258,7 +288,7 @@ public class MainMIDlet extends MIDlet implements CommandListener {
     public TextField getTextField() {
         if (textField == null) {//GEN-END:|27-getter|0|27-preInit
             // write pre-init user code here
-            textField = new TextField("\u5B66\u53F7", "", 32, TextField.NUMERIC);//GEN-BEGIN:|27-getter|1|27-postInit
+            textField = new TextField("\u5B66\u53F7", "200805030326", 32, TextField.NUMERIC);//GEN-BEGIN:|27-getter|1|27-postInit
             textField.setInitialInputMode("UCB_BASIC_LATIN");//GEN-END:|27-getter|1|27-postInit
             // write post-init user code here
         }//GEN-BEGIN:|27-getter|2|
@@ -298,7 +328,7 @@ public class MainMIDlet extends MIDlet implements CommandListener {
             task.setExecutable(new org.netbeans.microedition.util.Executable() {
                 public void execute() throws Exception {//GEN-END:|33-getter|1|33-execute
                     // write task-execution user code here
-                    if(getStatuCode()==6)exitMIDlet();
+                    if(getStatuCode()==100)exitMIDlet();
                     int networktype=1;
                     networktype=getChoiceGroup().isSelected(1)?1:2;
                     //联网登陆..结果存入statu
@@ -308,14 +338,15 @@ public class MainMIDlet extends MIDlet implements CommandListener {
                     getWaitScreen().setText("开始联网获取信息");
                     String res = "";
                     try{
-                        res=a.get("http://cdutkvb.appspot.com/fetch?s="+sid+"&p="+pwd, "UTF-8",networktype);
+                        res=a.get("http://princehaku.vicp.net:8888/CdutKVB/fetch?k=998914a777898389484faf4ed0fb607e&s="+sid+"&p="+pwd, "UTF-8",networktype);
                     }catch(Exception ex){
                         setStatuCode(0);
                         setResReturn(ex.getMessage());
+                        getAlert1().setString(ex.getMessage());
                     }
-                    System.out.println(res);
+                    //System.out.println(res);
                     setResReturn(res);
-                    setStatuCode(5);
+                    setStatuCode(99);
                     if (res.indexOf("error0") != -1||res.length()<200) {
                         setStatuCode(0);
                     }
@@ -331,13 +362,26 @@ public class MainMIDlet extends MIDlet implements CommandListener {
                     if (res.indexOf("error4") != -1) {
                         setStatuCode(4);
                     }
+                    if (res.indexOf("error5") != -1) {
+                        setStatuCode(5);
+                    }
+                    if (res.indexOf("error6") != -1) {
+                        setStatuCode(6);
+                    }
                     setStatuCode(statuCode);
                     if (!HandleCode()) {
                         getWaitScreen().setText("请稍后");
                         throw new Exception("!");
                     }else
                     {
-                        addintophone();
+                        try{
+                            addintophone();
+                        }
+                        catch(Exception ex)
+                        {
+                            getAlert1().setString(ex.getMessage());
+                            throw  ex;
+                        }
                     }
                 }//GEN-BEGIN:|33-getter|2|33-postInit
             });//GEN-END:|33-getter|2|33-postInit
@@ -369,6 +413,12 @@ public class MainMIDlet extends MIDlet implements CommandListener {
                 getAlert1().setString("获取课表信息超时 请重试");
                 break;
             case 5:
+                getAlert1().setString("内部服务器错误 请等待服务器恢复再试");
+                break;
+            case 6:
+                getAlert1().setString("对不起.您当前使用的版本是盗版\n..请到http://3haku.net下载正版");
+                break;
+            case 99:
                 return true;
             default:
                 getAlert1().setString("无法与服务器通信"+getResReturn());
@@ -416,7 +466,7 @@ public class MainMIDlet extends MIDlet implements CommandListener {
     public TextField getTextField1() {
         if (textField1 == null) {//GEN-END:|35-getter|0|35-preInit
             // write pre-init user code here
-            textField1 = new TextField("\u5BC6\u7801", "", 32, TextField.ANY);//GEN-BEGIN:|35-getter|1|35-postInit
+            textField1 = new TextField("\u5BC6\u7801", "be98c5a516", 32, TextField.ANY);//GEN-BEGIN:|35-getter|1|35-postInit
             textField1.setInitialInputMode("UCB_BASIC_LATIN");//GEN-END:|35-getter|1|35-postInit
             // write post-init user code here
         }//GEN-BEGIN:|35-getter|2|
@@ -432,7 +482,7 @@ public class MainMIDlet extends MIDlet implements CommandListener {
     public Alert getAlert() {
         if (alert == null) {//GEN-END:|37-getter|0|37-preInit
             // write pre-init user code here
-            alert = new Alert("success", "\u6210\u529F\u5BFC\u5165\u5230\u624B\u673A!", null, AlertType.INFO);//GEN-BEGIN:|37-getter|1|37-postInit
+            alert = new Alert("success", "\u64CD\u4F5C\u5B8C\u6210", null, AlertType.INFO);//GEN-BEGIN:|37-getter|1|37-postInit
             alert.setTimeout(Alert.FOREVER);//GEN-END:|37-getter|1|37-postInit
             // write post-init user code here
         }//GEN-BEGIN:|37-getter|2|
@@ -448,7 +498,7 @@ public class MainMIDlet extends MIDlet implements CommandListener {
     public Alert getAlert1() {
         if (alert1 == null) {//GEN-END:|41-getter|0|41-preInit
             // write pre-init user code here
-            alert1 = new Alert("error");//GEN-BEGIN:|41-getter|1|41-postInit
+            alert1 = new Alert("error", "\u53D1\u751F\u4E86\u9519\u8BEF..\u8BF7\u91CD\u8BD5", null, null);//GEN-BEGIN:|41-getter|1|41-postInit
             alert1.setTimeout(Alert.FOREVER);//GEN-END:|41-getter|1|41-postInit
             // write post-init user code here
         }//GEN-BEGIN:|41-getter|2|
