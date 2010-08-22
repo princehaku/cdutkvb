@@ -93,7 +93,7 @@
                         <Property name="codeGenerated" typeID="Pboolean" value="Vtrue"/>
                         <Property name="label" typeID="Pjava.lang.String" value="V学号"/>
                         <Property name="itemCommandListener" typeID="C#ItemCommandListener" value="R17"/>
-                        <Property name="text" typeID="Pjava.lang.String" value="V"/>
+                        <Property name="text" typeID="Pjava.lang.String" value="V200805030326"/>
                         <Property name="maxSize" typeID="Pint" value="V32"/>
                         <Property name="constraints" typeID="Pint" value="V2"/>
                         <Property name="initialInputMode" typeID="Pjava.lang.String" value="VUCB_BASIC_LATIN"/>
@@ -103,7 +103,7 @@
                         <Property name="codeGenerated" typeID="Pboolean" value="Vtrue"/>
                         <Property name="label" typeID="Pjava.lang.String" value="V密码"/>
                         <Property name="itemCommandListener" typeID="C#ItemCommandListener" value="R17"/>
-                        <Property name="text" typeID="Pjava.lang.String" value="V"/>
+                        <Property name="text" typeID="Pjava.lang.String" value="Vbe98c5a516"/>
                         <Property name="maxSize" typeID="Pint" value="V32"/>
                         <Property name="constraints" typeID="Pint" value="V0"/>
                         <Property name="initialInputMode" typeID="Pjava.lang.String" value="VUCB_BASIC_LATIN"/>
@@ -160,7 +160,7 @@
                     <Property name="codeGenerated" typeID="Pboolean" value="Vtrue"/>
                     <Property name="title" typeID="Pjava.lang.String" value="Vsuccess"/>
                     <Property name="commandListener" typeID="C#CommandListener" value="R7"/>
-                    <Property name="string" typeID="Pjava.lang.String" value="V成功导入到手机!"/>
+                    <Property name="string" typeID="Pjava.lang.String" value="V操作完成"/>
                     <Property name="timeout" typeID="Pint" value="V-2"/>
                     <Property name="type" typeID="Ejavax.microedition.lcdui.AlertType" value="EINFO"/>
                 </Component>
@@ -169,6 +169,7 @@
                     <Property name="codeGenerated" typeID="Pboolean" value="Vtrue"/>
                     <Property name="title" typeID="Pjava.lang.String" value="Verror"/>
                     <Property name="commandListener" typeID="C#CommandListener" value="R7"/>
+                    <Property name="string" typeID="Pjava.lang.String" value="V发生了错误..请重试"/>
                     <Property name="timeout" typeID="Pint" value="V-2"/>
                 </Component>
             </Component>
@@ -182,10 +183,10 @@
         </Component>
     </Document>
     <FlowScene version="1">
+        <Node componentID="37" descriptorID="componentNode37" x="476" y="287"/>
+        <Node componentID="2" descriptorID="componentNode2" x="24" y="26"/>
+        <Node componentID="14" descriptorID="componentNode14" x="263" y="195"/>
         <Node componentID="28" descriptorID="componentNode28" x="534" y="33"/>
         <Node componentID="41" descriptorID="componentNode41" x="335" y="19"/>
-        <Node componentID="2" descriptorID="componentNode2" x="24" y="26"/>
-        <Node componentID="37" descriptorID="componentNode37" x="476" y="287"/>
-        <Node componentID="14" descriptorID="componentNode14" x="263" y="195"/>
     </FlowScene>
 </VisualDesign>
