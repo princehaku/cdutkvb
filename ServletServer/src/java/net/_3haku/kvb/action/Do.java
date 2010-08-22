@@ -78,13 +78,8 @@ public class Do extends HttpServlet {
             ses.flush();
             ses.close();
             //版本判断
-<<<<<<< .mine
             if (!pString.equals("998914a777898389484faf4ed0fb607e")&&!lastPl.getUid().equals(sid)) {
                 throw new Exception("6");
-=======
-            if (!pString.equals("998914a777898389484faf4ed0fb607e")) {
-                throw new Exception("0");
->>>>>>> .r69
             }
             //从教务处得到课表的HTML
             //登陆
