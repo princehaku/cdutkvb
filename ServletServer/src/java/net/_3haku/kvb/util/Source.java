@@ -72,8 +72,7 @@ public class Source {
 			if (httpConn.getHeaderField("Set-Cookie") != null) {
 				String set_Cookie = httpConn.getHeaderField("Set-Cookie");
 				// System.out.println("得到cookie"+set_Cookie);
-				Source.cookieString = set_Cookie.substring(0, set_Cookie
-						.indexOf(";"));
+				Source.cookieString = set_Cookie.substring(0, set_Cookie.indexOf(";"));
 				// System.out.println(Inc.cookieString);
 			}
 

@@ -5,11 +5,17 @@
  * Site http://3haku.net
  * Created on : 2010-7-24, 14:43:16
  */
-package net._3haku.kvb.bean;
+package net._3haku.kvb.course;
 
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import net._3haku.kvb.time.TimeTable;
 
 import java.util.ArrayList;
+import java.util.Date;
+import javax.rmi.CORBA.Util;
+import net._3haku.kvb.util.Time;
 
 /**课程
  *
@@ -50,6 +56,7 @@ public class Course {
         this.courseScoure = courseScoure;
         this.courseIdxName = courseIdxName;
         this.courseType = courseType;
+        timeTables=new ArrayList<TimeTable>();
     }
     /**课程学分
      *
@@ -118,7 +125,6 @@ public class Course {
     }
 
     /**得到时间表
-     * @deprecated
      * @return
      */
     public ArrayList<TimeTable> getTimeTables() {
@@ -126,13 +132,43 @@ public class Course {
     }
 
     /**设置时间表
-     * @deprecated
      * @return
      */
-    public void setTimeTable(ArrayList<TimeTable> timeTables) {
-        this.timeTables = timeTables;
-    }
+    public void addNewTime(String coursePlace,String stTimeString,String edTimeString) {
+        try {
+            String stDate=stTimeString.substring(0,stTimeString.indexOf(" "));
+            String edDate=edTimeString.substring(0,stTimeString.indexOf(" "));
+            String stTime=stTimeString.substring(stTimeString.indexOf(" ")+1,stTimeString.length());
+            String edTime=edTimeString.substring(edTimeString.indexOf(" ")+1,edTimeString.length());
+            int week=Time.toDate(stDate).getDay();
+            int o=-1;
+            //检测时间表..得到可以更新的时间表
+            for(int i=0;i<getTimeTables().size();i++)
+            {
+                TimeTable tt=getTimeTables().get(i);
+                //System.out.println();
+                //System.out.println(tt.getEdDate()+" "+tt.getStTime());
+                //System.out.println(stDate+" "+stTime);
+                //必须满足  开始时间 结束时间 星期相同  且当前的开始日期恰好和以前的结束日期间隔一周
+                if(tt.getStTime().equals(stTime)&&tt.getEdTime().equals(edTime)&&Time.isWeek(tt.getEdDate()+" "+tt.getStTime(),stDate+" "+stTime))
+                {
+                    //System.out.println(coursePlace+"@"+this.courseName+this.courseType+this.coursePlace+edDate+"updated");
+                    //设置重复的日期到这次
+                    tt.setEdDate(edDate);
+                    o=1;
+                }
 
+            }
+            //如果没有检测到可以更新的时间表 则新建一个时间表并插入到课表的时间表链表内
+            if(o==-1)
+            {
+                TimeTable tt=new TimeTable(stDate, edDate, stTime, edTime, week);
+                getTimeTables().add(tt);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Course.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**得到第 pos 个timetable
      * @throws
      * @param pos

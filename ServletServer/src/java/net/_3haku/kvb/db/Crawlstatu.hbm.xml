@@ -1,26 +1,25 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="net._3haku.kvb.db.Crawlstatu" table="crawlstatu" catalog="cdutkvb">
-        <id name="id" type="java.lang.Integer">
-            <column name="id" />
-            <generator class="identity" />
-        </id>
-        <property name="uid" type="int">
-            <column name="uid" not-null="true">
+  <class catalog="cdutkvb" name="net._3haku.kvb.db.Crawlstatu" table="crawlstatu">
+    <id name="id" type="java.lang.Integer">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="uid" type="int">
+      <column name="uid" not-null="true">
             </column>
-        </property>
-        <property name="statu" type="string">
-            <column name="statu" length="2" not-null="true">
+    </property>
+    <property name="statu" type="string">
+      <column length="2" name="statu" not-null="true">
             </column>
-        </property>
-        <property name="kbhtml" type="string">
-            <column name="kbhtml" length="65535" not-null="true">
+    </property>
+    <property name="kbhtml" type="string">
+      <column length="65535" name="kbhtml" not-null="true">
             </column>
-        </property>
-        <property name="lstime" type="timestamp">
-            <column name="lstime" length="19" not-null="true"></column>
-        </property>
-    </class>
+    </property>
+    <property name="lstime" type="timestamp">
+      <column length="19" name="lstime" not-null="true"/>
+    </property>
+  </class>
 </hibernate-mapping>
