@@ -10,9 +10,9 @@ import javax.microedition.lcdui.*;
 import javax.microedition.pim.Event;
 import javax.microedition.pim.EventList;
 import javax.microedition.pim.PIM;
-import javax.microedition.pim.PIMException;
 import javax.microedition.pim.PIMItem;
 import javax.microedition.pim.RepeatRule;
+import net._3haku.key.Key;
 import net._3haku.util.Date;
 import net._3haku.util.Source;
 import org.netbeans.microedition.lcdui.WaitScreen;
@@ -123,97 +123,98 @@ public class MainMIDlet extends MIDlet implements CommandListener {
                 // write post-action user code here
             } else if (command == WaitScreen.SUCCESS_COMMAND) {//GEN-LINE:|7-commandAction|7|31-preAction
                 // write pre-action user code here
-
                 switchDisplayable(getAlert(), getForm());//GEN-LINE:|7-commandAction|8|31-postAction
                 // write post-action user code here
-
             }//GEN-BEGIN:|7-commandAction|9|7-postCommandAction
         }//GEN-END:|7-commandAction|9|7-postCommandAction
         // write post-action user code here
     }//GEN-BEGIN:|7-commandAction|10|
     //</editor-fold>//GEN-END:|7-commandAction|10|
+
     /**解析串并加入到手机日程表
      *
      */
-    private void addintophone() throws Exception{
+    private void addintophone() throws Exception {
         int parNums = 0;
-        try{
-        StringTokenizer st = new StringTokenizer(getResReturn(),"|");
-        int i = 1;
-        while (st.hasMoreTokens()) {
-            String rspart = st.nextToken();
-            if (rspart.indexOf("end") != -1) {
-                break;
-            }
-            if (i == 1) {
-                parNums = Integer.parseInt(rspart);
-            }
-            if (i > 1 && i <= parNums) {
-                //这里面的是课程
-                StringTokenizer st1 = new StringTokenizer(rspart, "@");
-                String coursefullname = st1.nextToken();
-                String coursePlace = st1.nextToken();
-                String courseType = st1.nextToken();
-                String coursestTime = st1.nextToken();
-                String courseedTime = st1.nextToken();
-                String coursestDate = st1.nextToken();
-                String courseedDate = st1.nextToken();
-                int per=i*100/parNums;
-                //System.out.println(coursefullname+coursePlace+courseType+coursestTime+courseedTime+coursestDate+courseedDate);
-                //System.out.println(Date.ToTimeSpan(coursestDate+" "+coursestTime + ":00")+"");
-                //System.out.println(Date.ToWeek(coursestDate+" "+coursestTime + ":00")+"");
-                try {
-                    EventList list;
-                    list = (EventList) PIM.getInstance().openPIMList(PIM.EVENT_LIST, PIM.READ_WRITE);
-                    Event ev = list.createEvent();
-                    ev.addDate(Event.START, PIMItem.DATE, Date.ToTimeSpan(coursestDate+" "+coursestTime + ":00"));
-                    ev.addDate(Event.END, PIMItem.DATE, Date.ToTimeSpan(coursestDate+" "+courseedTime + ":00"));
-                    ev.addString(Event.SUMMARY, PIMItem.ATTR_NONE, coursefullname + "[" +courseType   + "]" + coursePlace);
-                    RepeatRule rpRule = new RepeatRule();
-                    rpRule.setInt(RepeatRule.FREQUENCY,RepeatRule.WEEKLY);
-                    int week=(Date.ToWeek(coursestDate+" "+coursestTime + ":00"));
-                    int weekinRule=RepeatRule.SUNDAY;
-                    switch(week){
-                        case 1:
-                            weekinRule=RepeatRule.MONDAY;
-                            break;
-                        case 2:
-                            weekinRule=RepeatRule.TUESDAY;
-                            break;
-                        case 3:
-                            weekinRule=RepeatRule.THURSDAY;
-                            break;
-                        case 4:
-                            weekinRule=RepeatRule.WEDNESDAY;
-                            break;
-                        case 5:
-                            weekinRule=RepeatRule.FRIDAY;
-                            break;
-                        case 6:
-                            weekinRule=RepeatRule.SATURDAY;
-                            break;
-                        case 7:
-                            weekinRule=RepeatRule.SUNDAY;
-                            break;
+        try {
+            StringTokenizer st = new StringTokenizer(getResReturn(), "|");
+            int i = 1;
+            while (st.hasMoreTokens()) {
+                String rspart = st.nextToken();
+                if (rspart.indexOf("end") != -1) {
+                    break;
+                }
+                if (i == 1) {
+                    parNums = Integer.parseInt(rspart);
+                }
+                if (i > 1 && i <= parNums) {
+                    //这里面的是课程
+                    StringTokenizer st1 = new StringTokenizer(rspart, "@");
+                    String coursefullname = st1.nextToken();
+                    String coursePlace = st1.nextToken();
+                    String courseType = st1.nextToken();
+                    String coursestTime = st1.nextToken();
+                    String courseedTime = st1.nextToken();
+                    String coursestDate = st1.nextToken();
+                    String courseedDate = st1.nextToken();
+                    int per = i * 100 / parNums;
+                    //System.out.println(coursefullname+coursePlace+courseType+coursestTime+courseedTime+coursestDate+courseedDate);
+                    //System.out.println(Date.ToTimeSpan(coursestDate+" "+coursestTime + ":00")+"");
+                    //System.out.println(Date.ToWeek(coursestDate+" "+coursestTime + ":00")+"");
+                    try {
+                        EventList list;
+                        list = (EventList) PIM.getInstance().openPIMList(PIM.EVENT_LIST, PIM.READ_WRITE);
+                        Event ev = list.createEvent();
+                        ev.addDate(Event.START, PIMItem.DATE, Date.ToTimeSpan(coursestDate + " " + coursestTime + ":00"));
+                        ev.addDate(Event.END, PIMItem.DATE, Date.ToTimeSpan(coursestDate + " " + courseedTime + ":00"));
+                        ev.addString(Event.SUMMARY, PIMItem.ATTR_NONE, coursefullname + "[" + courseType + "]" + coursePlace);
+                        //如果开始和结束时间不一样则写入重复时间规则
+                        if (!coursestDate.equals(courseedDate)) {
+                            RepeatRule rpRule = new RepeatRule();
+                            rpRule.setInt(RepeatRule.FREQUENCY, RepeatRule.WEEKLY);
+                            int week = (Date.ToWeek(coursestDate + " " + coursestTime + ":00"));
+                            int weekinRule = RepeatRule.SUNDAY;
+                            switch (week) {
+                                case 1:
+                                    weekinRule = RepeatRule.MONDAY;
+                                    break;
+                                case 2:
+                                    weekinRule = RepeatRule.TUESDAY;
+                                    break;
+                                case 3:
+                                    weekinRule = RepeatRule.THURSDAY;
+                                    break;
+                                case 4:
+                                    weekinRule = RepeatRule.WEDNESDAY;
+                                    break;
+                                case 5:
+                                    weekinRule = RepeatRule.FRIDAY;
+                                    break;
+                                case 6:
+                                    weekinRule = RepeatRule.SATURDAY;
+                                    break;
+                                case 7:
+                                    weekinRule = RepeatRule.SUNDAY;
+                                    break;
+                            }
+                            rpRule.setInt(RepeatRule.DAY_IN_WEEK, weekinRule);
+                            rpRule.setDate(RepeatRule.END, Date.ToTimeSpan(courseedDate + " " + courseedTime + ":00"));
+                            ev.setRepeat(rpRule);
+                        }
+                        ev.commit();
+                        getWaitScreen().setText(coursefullname + "添加成功\n" + per + "%");
+                    } catch (Exception ex) {
+                        System.out.print(ex.getMessage());
+                        getWaitScreen().setText(coursefullname + "添加失败\n" + per + "%");
+                        //continue;
+                        throw new Exception(ex.getMessage());
                     }
-                    rpRule.setInt(RepeatRule.DAY_IN_WEEK,weekinRule);
-                    rpRule.setDate(RepeatRule.END,Date.ToTimeSpan(courseedDate+" "+courseedTime + ":00"));
-                    ev.setRepeat(rpRule);
-                    ev.commit();
-                    getWaitScreen().setText(coursefullname + "添加成功\n"+per+"%");
-                } catch (Exception ex) {
-                    System.out.print(ex.getMessage());
-                    throw new Exception(ex.getMessage());
-                    //getWaitScreen().setText(coursefullname + "添加失败\n"+per+"%");
-                    //continue;
                 }
+                i++;
             }
-            i++;
-         }
+        } catch (Exception ex) {
+            throw ex;
         }
-        catch (Exception ex) {
-                    throw ex;
-                }
         setStatuCode(100);
     }
 
@@ -328,18 +329,20 @@ public class MainMIDlet extends MIDlet implements CommandListener {
             task.setExecutable(new org.netbeans.microedition.util.Executable() {
                 public void execute() throws Exception {//GEN-END:|33-getter|1|33-execute
                     // write task-execution user code here
-                    if(getStatuCode()==100)exitMIDlet();
-                    int networktype=1;
-                    networktype=getChoiceGroup().isSelected(1)?1:2;
+                    if (getStatuCode() == 100) {
+                        exitMIDlet();
+                    }
+                    int networktype = 1;
+                    networktype = getChoiceGroup().isSelected(1) ? 1 : 2;
                     //联网登陆..结果存入statu
                     String sid = getTextField().getString();
                     String pwd = getTextField1().getString();
                     Source a = new Source();
                     getWaitScreen().setText("开始联网获取信息");
                     String res = "";
-                    try{
-                        res=a.get("http://princehaku.vicp.net:8888/CdutKVB/fetch?k=998914a777898389484faf4ed0fb607e&s="+sid+"&p="+pwd, "UTF-8",networktype);
-                    }catch(Exception ex){
+                    try {
+                        res = a.get("http://princehaku.vicp.net:8888/CdutKVB/fetch?k="+Key.key+"&s=" + sid + "&p=" + pwd, "UTF-8", networktype);
+                    } catch (Exception ex) {
                         setStatuCode(0);
                         setResReturn(ex.getMessage());
                         getAlert1().setString(ex.getMessage());
@@ -347,7 +350,7 @@ public class MainMIDlet extends MIDlet implements CommandListener {
                     //System.out.println(res);
                     setResReturn(res);
                     setStatuCode(99);
-                    if (res.indexOf("error0") != -1||res.length()<200) {
+                    if (res.indexOf("error0") != -1 || res.length() < 200) {
                         setStatuCode(0);
                     }
                     if (res.indexOf("error1") != -1) {
@@ -372,15 +375,12 @@ public class MainMIDlet extends MIDlet implements CommandListener {
                     if (!HandleCode()) {
                         getWaitScreen().setText("请稍后");
                         throw new Exception("!");
-                    }else
-                    {
-                        try{
+                    } else {
+                        try {
                             addintophone();
-                        }
-                        catch(Exception ex)
-                        {
+                        } catch (Exception ex) {
                             getAlert1().setString(ex.getMessage());
-                            throw  ex;
+                            throw ex;
                         }
                     }
                 }//GEN-BEGIN:|33-getter|2|33-postInit
@@ -395,10 +395,10 @@ public class MainMIDlet extends MIDlet implements CommandListener {
      * 
      */
     private boolean HandleCode() {
-        System.out.println("code!!!"+getStatuCode());
+        System.out.println("code!!!" + getStatuCode());
         switch (getStatuCode()) {
             case 0:
-                getAlert1().setString("无法与服务器通信"+getResReturn());
+                getAlert1().setString("无法与服务器通信" + getResReturn());
                 break;
             case 1:
                 getAlert1().setString("登陆超时 请重试");
@@ -421,7 +421,7 @@ public class MainMIDlet extends MIDlet implements CommandListener {
             case 99:
                 return true;
             default:
-                getAlert1().setString("无法与服务器通信"+getResReturn());
+                getAlert1().setString("无法与服务器通信" + getResReturn());
                 break;
         }
         return false;
