@@ -289,7 +289,7 @@ public class MainMIDlet extends MIDlet implements CommandListener {
     public TextField getTextField() {
         if (textField == null) {//GEN-END:|27-getter|0|27-preInit
             // write pre-init user code here
-            textField = new TextField("\u5B66\u53F7", "200805030326", 32, TextField.NUMERIC);//GEN-BEGIN:|27-getter|1|27-postInit
+            textField = new TextField("\u5B66\u53F7", "", 32, TextField.NUMERIC);//GEN-BEGIN:|27-getter|1|27-postInit
             textField.setInitialInputMode("UCB_BASIC_LATIN");//GEN-END:|27-getter|1|27-postInit
             // write post-init user code here
         }//GEN-BEGIN:|27-getter|2|
@@ -341,7 +341,7 @@ public class MainMIDlet extends MIDlet implements CommandListener {
                     getWaitScreen().setText("开始联网获取信息");
                     String res = "";
                     try {
-                        res = a.get("http://princehaku.vicp.net:8888/CdutKVB/fetch?k="+Key.key+"&s=" + sid + "&p=" + pwd, "UTF-8", networktype);
+                        res = a.get("http://cdutkvb.3haku.net/fetch?k="+Key.key+"&s=" + sid + "&p=" + pwd, "UTF-8", networktype);
                     } catch (Exception ex) {
                         setStatuCode(0);
                         setResReturn(ex.getMessage());
@@ -466,7 +466,7 @@ public class MainMIDlet extends MIDlet implements CommandListener {
     public TextField getTextField1() {
         if (textField1 == null) {//GEN-END:|35-getter|0|35-preInit
             // write pre-init user code here
-            textField1 = new TextField("\u5BC6\u7801", "be98c5a516", 32, TextField.ANY);//GEN-BEGIN:|35-getter|1|35-postInit
+            textField1 = new TextField("\u5BC6\u7801", "", 32, TextField.ANY);//GEN-BEGIN:|35-getter|1|35-postInit
             textField1.setInitialInputMode("UCB_BASIC_LATIN");//GEN-END:|35-getter|1|35-postInit
             // write post-init user code here
         }//GEN-BEGIN:|35-getter|2|
