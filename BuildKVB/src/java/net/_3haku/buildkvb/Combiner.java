@@ -24,7 +24,7 @@ public class Combiner implements Runnable{
      }
     public void run() {
         Process p;
-        String cmd = "javac -g:none "+Builder.tmpPath+"Key.java";
+        String cmd = "javac -g:none "+BuilderServlet.tmpPath+"Key.java";
         try {
             p = Runtime.getRuntime().exec(cmd);
             InputStream fis = p.getInputStream();

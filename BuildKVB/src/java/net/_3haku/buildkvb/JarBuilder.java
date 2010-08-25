@@ -10,7 +10,6 @@ package net._3haku.buildkvb;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -20,17 +19,19 @@ import java.io.InputStreamReader;
  */
 public class JarBuilder {
     static final int BUFFER = 2048;
-    JarBuilder()
+    String key="";
+    JarBuilder(String key)
     {
-
+        this.key=key;
     }
     public void compress(){
         Process p;
-        String cmd = Builder.zipPath+"zip  "+Builder.tmpPath+"cdutkvb.jar ./ -r";
-        System.out.println(cmd);
+        String cmd = BuilderServlet.zipPath+"zip  "+BuilderServlet.tmpPath+"cdutkvb-"+key+".jar ./ -r";
         try {
-            p = Runtime.getRuntime().exec(cmd,new String[]{""},new File(Builder.sourcePath+""));
+            p = Runtime.getRuntime().exec(cmd,new String[]{""},new File(BuilderServlet.sourcePath+""));
             InputStream fis = p.getInputStream();
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
             fis.close();
         } catch (Exception e) {
             e.printStackTrace();
