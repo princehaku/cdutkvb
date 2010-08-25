@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <servlet>
-        <servlet-name>builder</servlet-name>
-        <servlet-class>net._3haku.buildkvb.Builder</servlet-class>
+        <servlet-name>download</servlet-name>
+        <servlet-class>net._3haku.buildkvb.DownloadServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>builder</servlet-name>
-        <url-pattern>/builder</url-pattern>
+        <servlet-name>download</servlet-name>
+        <url-pattern>/download</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -18,7 +18,7 @@
     </welcome-file-list>
     <servlet>
         <servlet-name>Do</servlet-name>
-        <servlet-class>net._3haku.buildkvb.Builder</servlet-class>
+        <servlet-class>net._3haku.buildkvb.BuilderServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Do</servlet-name>
