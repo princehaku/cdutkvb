@@ -27,11 +27,10 @@ public class GeneralKey implements Runnable{
     }
     public void run() {
         try {
-            File f=new File(Builder.absTmpPath+"Key.java");
-            
-        System.out.print(f.getAbsoluteFile().toString());
+            File f=new File(Builder.tmpPath+"Key.java");
+            //System.out.print(f.getAbsoluteFile().toString());
             f.createNewFile();
-            OutputStream is = new FileOutputStream(Builder.absTmpPath+"Key.java");
+            OutputStream is = new FileOutputStream(Builder.tmpPath+"Key.java");
             is.write(pattern.getBytes());
             is.close();
         } catch (IOException ex) {
