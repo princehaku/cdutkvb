@@ -24,13 +24,13 @@ public class Combiner implements Runnable{
      }
     public void run() {
         Process p;
-        String cmd = "javac -g:none "+Builder.absTmpPath+"Key.java";
+        String cmd = "javac -g:none "+Builder.tmpPath+"Key.java";
         try {
             p = Runtime.getRuntime().exec(cmd);
             InputStream fis = p.getInputStream();
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
-            //System.out.println(br.readLine());
+            fis.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

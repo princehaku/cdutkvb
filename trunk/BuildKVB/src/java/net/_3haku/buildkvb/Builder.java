@@ -20,7 +20,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Builder extends HttpServlet {
 
-    static String absTmpPath="E:/JAVA/KVB/BuildKVB/tmp/";
+    static String tmpPath="E:/JAVA/KVB/BuildKVB/tmp/";
+    static String zipPath="E:/JAVA/KVB/BuildKVB/exec/";
+    static String javaPath="E:/JAVA/KVB/BuildKVB/exec/";
+    static String sourcePath="E:/JAVA/KVB/BuildKVB/S/";
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -31,10 +34,15 @@ public class Builder extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String key=MD5.getMD5(((new Date()).getTime()+"").getBytes());
+        //创建key的java文件
         GeneralKey gk=new GeneralKey(key);
         gk.run();
+        //创建key的class文件
         Combiner cb=new Combiner(key);
         cb.run();
+        //创建jar文件
+        JarBuilder jb=new JarBuilder();
+        jb.compress();
         response.getOutputStream().print(gk.getFileContent());
        
     }
