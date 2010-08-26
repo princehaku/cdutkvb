@@ -10,14 +10,13 @@ package net._3haku.buildkvb;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStream;
 
 /**
  *
  * @author princehaku
  */
-public class GeneralKey implements Runnable{
+public class GeneralKey{
     String key="";
     String pattern="package net._3haku.key;\npublic class Key { public static String key=\"keys\";}";
     public GeneralKey(String key)
@@ -25,7 +24,7 @@ public class GeneralKey implements Runnable{
         this.key=key;
         pattern=pattern.replaceAll("keys",key);
     }
-    public void run() {
+    public void run() throws Exception  {
         try {
             File f=new File(BuilderServlet.tmpPath+"Key.java");
             //System.out.print(f.getAbsoluteFile().toString());
@@ -33,8 +32,8 @@ public class GeneralKey implements Runnable{
             OutputStream is = new FileOutputStream(BuilderServlet.tmpPath+"Key.java");
             is.write(pattern.getBytes());
             is.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            throw e;
         }
     }
     public String getFileContent()
