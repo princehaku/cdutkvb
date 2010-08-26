@@ -40,10 +40,7 @@ public class JarBuilder{
         String cmd = BuilderServlet.zipPath+"zip  "+BuilderServlet.tmpPath+"cdutkvb-"+key+".jar ./ -r";
         try {
             p = Runtime.getRuntime().exec(cmd,new String[]{""},new File(BuilderServlet.sourcePath+"/"));
-            InputStream fis = p.getInputStream();
-            InputStreamReader isr = new InputStreamReader(fis);
-            BufferedReader br = new BufferedReader(isr);
-            fis.close();
+            p.waitFor();
         } catch (Exception e) {
             throw e;
         }
