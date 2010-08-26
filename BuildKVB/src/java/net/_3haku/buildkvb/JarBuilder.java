@@ -29,16 +29,17 @@ public class JarBuilder{
         File classFile=new File(BuilderServlet.tmpPath+"Key.java");
         File keyFile=new File(BuilderServlet.sourcePath+"net/_3haku/key/Key.java");
         classFile.renameTo(keyFile);
-        //如果之前存在了对应key文件的jar 则删除
+        //如果之前存在了对应key文件的jar 则返回
         File file = new File(BuilderServlet.tmpPath+"cdutkvb-"+key+".jar");
         if(file.isFile() && file.exists()){
-             file.delete();
+            return;
+            //file.delete();
         }
         //创建jar文件
         Process p;
         String cmd = BuilderServlet.zipPath+"zip  "+BuilderServlet.tmpPath+"cdutkvb-"+key+".jar ./ -r";
         try {
-            p = Runtime.getRuntime().exec(cmd,new String[]{""},new File(BuilderServlet.sourcePath+""));
+            p = Runtime.getRuntime().exec(cmd,new String[]{""},new File(BuilderServlet.sourcePath+"/"));
             InputStream fis = p.getInputStream();
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);

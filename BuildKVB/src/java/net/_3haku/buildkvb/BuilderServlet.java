@@ -18,11 +18,11 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class BuilderServlet extends HttpServlet {
 
-    /*
-    static String tmpPath="E:/KVB/BuildKVB/tmp/";
-    static String zipPath="E:/KVB/BuildKVB/exec/";
-    static String javaPath="E:/KVB/BuildKVB/exec/";
-    static String sourcePath="E:/KVB/BuildKVB/S/";
+    
+    /*static String tmpPath="E:/JAVA/KVB/BuildKVB/tmp/";
+    static String zipPath="E:/JAVA/KVB/BuildKVB/exec/";
+    static String javaPath="";
+    static String sourcePath="E:/JAVA/KVB/BuildKVB/S/";
      */
     static String tmpPath="/tmp/";
     static String zipPath="/usr/bin/";
