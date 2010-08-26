@@ -23,12 +23,13 @@ public class BuilderServlet extends HttpServlet {
     static String zipPath="E:/JAVA/KVB/BuildKVB/exec/";
     static String javaPath="";
     static String sourcePath="E:/JAVA/KVB/BuildKVB/S/";
-     */
-    static String tmpPath="/tmp/";
+    static String delCommand="del";*/
+    static String tmpPath="/tmp/tomcat6-temp/";
     static String zipPath="/usr/bin/";
     static String javaPath="/usr/bin/";
     static String sourcePath="/var/S/";
-     /* */
+    static String delCommand="rm";
+     /**/
 @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
@@ -42,7 +43,7 @@ public class BuilderServlet extends HttpServlet {
         }
         if(auth.equals(""))
         {
-            response.getWriter().println("<body>sorry...you dont't have an authkey,<br />please visit <a href=http://3haku.net>http://3haku.net</a> and click download link</body>");
+            response.getWriter().println("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><body>sorry...you dont't have an authkey,<br />please visit <a href=http://3haku.net>http://3haku.net</a> and click download link</body>");
             return;
         }
         String key=MD5.getMD5((auth).getBytes());
@@ -58,11 +59,12 @@ public class BuilderServlet extends HttpServlet {
             JarBuilder jb=new JarBuilder(key);
             jb.run();
             String cmd = BuilderServlet.zipPath+"zip  "+BuilderServlet.tmpPath+"cdutkvb-"+key+".jar ./ -r";
-            response.getWriter().println("<meta http-equiv='refresh' content='5;url=download?key="+key+"'><br />please wait....<br />your download will be start soon!!!");
+            response.getWriter().println("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><meta http-equiv='refresh' content='5;url=download?key="+key+
+                    "'><br />please wait....<br />下载即将开始!!!!<br/><br/><br/><img src=/d.png /><br />如果您使用ie..请向上图一样操作");
         }
         catch(Exception ex)
         {
-            response.getWriter().println(ex.getMessage());
+            response.getWriter().println("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><meta http-equiv='refresh' content='1;url=/getjar><br />发生了错误.."+ex.getMessage()+"<br />正在重试");
         }
 } 
 @Override

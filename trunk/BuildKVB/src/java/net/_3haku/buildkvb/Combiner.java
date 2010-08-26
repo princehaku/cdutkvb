@@ -26,10 +26,7 @@ public class Combiner{
         String cmd = "javac -g:none "+BuilderServlet.tmpPath+"Key.java";
         try {
             p = Runtime.getRuntime().exec(cmd);
-            InputStream fis = p.getInputStream();
-            InputStreamReader isr = new InputStreamReader(fis);
-            BufferedReader br = new BufferedReader(isr);
-            fis.close();
+            p.waitFor();
         } catch (Exception e) {
             throw e;
         }
