@@ -329,6 +329,7 @@ public class MainMIDlet extends MIDlet implements CommandListener {
             task.setExecutable(new org.netbeans.microedition.util.Executable() {
                 public void execute() throws Exception {//GEN-END:|33-getter|1|33-execute
                     // write task-execution user code here
+                    try{
                     if (getStatuCode() == 100) {
                         exitMIDlet();
                     }
@@ -341,7 +342,7 @@ public class MainMIDlet extends MIDlet implements CommandListener {
                     getWaitScreen().setText("开始联网获取信息");
                     String res = "";
                     try {
-                        res = a.get("http://cdutkvb.3haku.net/fetch?k="+Key.key+"&s=" + sid + "&p=" + pwd, "UTF-8", networktype);
+                        res = a.get("http://tecest.com/fetch?k="+Key.key+"&s=" + sid + "&p=" + pwd, "UTF-8", networktype);
                     } catch (Exception ex) {
                         setStatuCode(0);
                         setResReturn(ex.getMessage());
@@ -382,6 +383,11 @@ public class MainMIDlet extends MIDlet implements CommandListener {
                             getAlert1().setString(ex.getMessage());
                             throw ex;
                         }
+                    }
+                    } catch (Exception ex) {
+                        setStatuCode(0);
+                        setResReturn(ex.getMessage());
+                        getAlert1().setString(ex.getMessage());
                     }
                 }//GEN-BEGIN:|33-getter|2|33-postInit
             });//GEN-END:|33-getter|2|33-postInit
