@@ -60,7 +60,7 @@ public class BuilderServlet extends HttpServlet {
             jb.run();
             String cmd = BuilderServlet.zipPath+"zip  "+BuilderServlet.tmpPath+"cdutkvb-"+key+".jar ./ -r";
             response.getWriter().println("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><meta http-equiv='refresh' content='5;url=download?key="+key+
-                    "'><br />please wait....<br />下载即将开始!!!!<br/><br/><br/><img src=/d.png /><br />如果您使用ie..请向上图一样操作");
+                    "'><br />please wait....<br />下载即将开始!!!!<br/><br/><br/><img src=/d.png /><br />如果您使用ie..请向上图一样操作<br />或者<a href=download?key="+key+">点我下载</a>");
         }
         catch(Exception ex)
         {

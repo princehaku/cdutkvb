@@ -8,10 +8,7 @@
 
 package net._3haku.buildkvb;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 /**
  *
@@ -26,8 +23,9 @@ public class JarBuilder{
     }
     public void run() throws Exception {
         //复写KEY文件
-        File classFile=new File(BuilderServlet.tmpPath+"Key.java");
-        File keyFile=new File(BuilderServlet.sourcePath+"net/_3haku/key/Key.java");
+        File classFile=new File(BuilderServlet.tmpPath+"Key.class");
+        File keyFile=new File(BuilderServlet.sourcePath+"net/_3haku/key/Key.class");
+        keyFile.delete();
         classFile.renameTo(keyFile);
         //如果之前存在了对应key文件的jar 则返回
         File file = new File(BuilderServlet.tmpPath+"cdutkvb-"+key+".jar");
