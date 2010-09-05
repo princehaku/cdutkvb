@@ -11,14 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import net._3haku.kvb.coursetable.CourseTable;
-import net._3haku.kvb.db.Hb;
-import net._3haku.kvb.db.Productlock;
 import net._3haku.kvb.util.MD5;
 import net._3haku.kvb.util.Parser;
 import net._3haku.kvb.util.Source;
 import net._3haku.kvb.util.StringUtil;
-import org.hibernate.Query;
-import org.hibernate.Session;
 
 /**
  *
@@ -67,7 +63,7 @@ public class Do extends HttpServlet {
             
             String pString = MD5.getMD5(key.getBytes());
             //从数据库读入版本信息
-            Session ses = Hb.getSessionFactory().openSession();
+            /*Session ses = Hb.getSessionFactory().openSession();
             Query wes = ses.createQuery("from Productlock where pstring='" + pString + "'");
             if (wes.list().size() == 0) {
                 Productlock pl = new Productlock(pString, sid);
@@ -77,10 +73,10 @@ public class Do extends HttpServlet {
             ses.connection().commit();
             ses.flush();
             ses.close();
-            /*版本判断*/
+            版本判断
             if (!key.equals("123123123aqwe")&&!pString.equals("998914a777898389484faf4ed0fb607e")&&!lastPl.getUid().equals(sid)) {
                 throw new Exception("6");
-            }
+            }*/
             //从教务处得到课表的HTML
             //登陆
             String res = "";
