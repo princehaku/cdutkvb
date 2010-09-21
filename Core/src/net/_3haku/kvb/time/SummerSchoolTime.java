@@ -50,8 +50,8 @@ public class SummerSchoolTime implements SchoolTime{
          endTimeTb.add("11:00");
          endTimeTb.add("11:50");
          endTimeTb.add("15:15");
-         endTimeTb.add("16:00");
-         endTimeTb.add("16:55");
+         endTimeTb.add("16:05");
+         endTimeTb.add("17:00");
          endTimeTb.add("17:50");
          endTimeTb.add("19:55");
          endTimeTb.add("20:40");
