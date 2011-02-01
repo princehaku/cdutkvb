@@ -90,7 +90,7 @@ public class CourseTable {
             throw new Exception("Col Out of Range");
         }
         return rows.get(rowIdx - 1).getCourseColums().get(columnIdx-1);
-
+    
     }
     /**得到某行的所有课程节点
      * @param rowIdx 行号 下标1
@@ -104,13 +104,13 @@ public class CourseTable {
         return rows.get(rowIdx - 1).getCourseColums();
     }
     /**得到某列的所有节点
-     *@deprecated
+     *@deprecated 
      */
     public ArrayList<CourseColumn> getColumnColums(int columnIdx) throws Exception {
         throw new Exception("Not implements");
     }
     /**序列化成字符串
-     * 节点总个数|课程全名@课程地点@课程类型@课程学分@课程老师@上课时间@下课时间@重复开始的日期@重复结束的日期|...|...|end
+     * 节点总个数|课程全名@课程地点@课程类型@上课时间@下课时间@重复开始的日期@重复结束的日期|...|...|end
      */
     @Override
     public String toString()
@@ -126,8 +126,7 @@ public class CourseTable {
             for(int j=0;j<tta.size();j++)
             {
                 count++;
-                returnString +=cc.getCourseName()+"@"+cc.getCoursePlace()+"@"+cc.getCourseType()+"@"+cc.getCourseScore()+"@"
-                        +cc.getCourseTeacher();
+                returnString +=cc.getCourseName()+"@"+cc.getCoursePlace()+"@"+cc.getCourseType()+"@";
                 //System.out.println("时间表"+j);
                 TimeTable tt=tta.get(j);
                 returnString +=tt.getStTime()+"@"+tt.getEdTime()+"@"+tt.getStDate()+"@"+tt.getEdDate();
