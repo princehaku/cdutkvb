@@ -44,7 +44,7 @@ public class Course {
      * @param courseId
      * @param courseTeacher
      * @param coursePlace
-     * @param courseScoure
+     * @param courseScore
      * @param courseIdxName
      * @param courseType
      */
@@ -53,7 +53,7 @@ public class Course {
         this.courseId = courseId;
         this.courseTeacher = courseTeacher;
         this.coursePlace = coursePlace;
-        this.courseScoure = courseScoure;
+        this.courseScore = courseScoure;
         this.courseIdxName = courseIdxName;
         this.courseType = courseType;
         timeTables=new ArrayList<TimeTable>();
@@ -61,7 +61,7 @@ public class Course {
     /**课程学分
      *
      */
-    private String courseScoure;
+    private String courseScore;
     /**课程索引名
      *
      */
@@ -75,49 +75,49 @@ public class Course {
      */
     private ArrayList<TimeTable> timeTables;
     /**得到课程上课地点
-     * 
+     *
      * @return
      */
     public String getCoursePlace() {
         return coursePlace;
     }
     /**得到课程执教老师
-     * 
+     *
      * @return
      */
     public String getCourseTeacher() {
         return courseTeacher;
     }
     /**得到课程索引名
-     * 
+     *
      * @return
      */
     public String getCourseIdxName() {
         return courseIdxName;
     }
     /**得到课程课号
-     * 
+     *
      * @return
      */
     public String getCourseId() {
         return courseId;
     }
-    /**得到课程源HTML
-     * 
+    /**得到课程学分
+     *
      * @return
      */
-    public String getCourseScoure() {
-        return courseScoure;
+    public String getCourseScore() {
+        return courseScore;
     }
     /**得到课程全名
-     * 
+     *
      * @return
      */
     public String getCourseName() {
         return courseName;
     }
     /**得到课程类型
-     * 
+     *
      * @return
      */
     public String getCourseType() {
