@@ -13,6 +13,7 @@ package net._3haku.kvb.util;
  * @author princehaku
  */
 public class MD5 {
+	
  public static String getMD5(byte[] source) {
   String s = null;
   char hexDigits[] = {       // 用来将字节转换成 16 进制表示的字符
