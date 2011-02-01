@@ -24,19 +24,20 @@ import org.netbeans.microedition.util.SimpleCancellableTask;
 public class MainMIDlet extends MIDlet implements CommandListener {
 
     private boolean midletPaused = false;
-    //<editor-fold defaultstate="collapsed" desc=" Generated Fields ">//GEN-BEGIN:|fields|0|
+    //<editor-fold defaultstate="collapsed" desc=" Generated Fields ">
     private Command exitCommand;
     private Command okCommand;
     private Form form;
-    private StringItem stringItem;
     private TextField textField;
     private TextField textField1;
     private ChoiceGroup choiceGroup;
+    private TextField textField2;
+    private ImageItem imageItem;
     private WaitScreen waitScreen;
     private Alert alert;
     private Alert alert1;
     private SimpleCancellableTask task;
-    //</editor-fold>//GEN-END:|fields|0|
+    //</editor-fold>
 
     /**
      * The MainMIDlet constructor.
@@ -44,92 +45,92 @@ public class MainMIDlet extends MIDlet implements CommandListener {
     public MainMIDlet() {
     }
 
-    //<editor-fold defaultstate="collapsed" desc=" Generated Methods ">//GEN-BEGIN:|methods|0|
-    //</editor-fold>//GEN-END:|methods|0|
-    //<editor-fold defaultstate="collapsed" desc=" Generated Method: initialize ">//GEN-BEGIN:|0-initialize|0|0-preInitialize
+    //<editor-fold defaultstate="collapsed" desc=" Generated Methods ">
+    //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc=" Generated Method: initialize ">
     /**
      * Initilizes the application.
      * It is called only once when the MIDlet is started. The method is called before the <code>startMIDlet</code> method.
      */
-    private void initialize() {//GEN-END:|0-initialize|0|0-preInitialize
+    private void initialize() {
         // write pre-initialize user code here
-//GEN-LINE:|0-initialize|1|0-postInitialize
+ 
         // write post-initialize user code here
-    }//GEN-BEGIN:|0-initialize|2|
-    //</editor-fold>//GEN-END:|0-initialize|2|
+    }
+    //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc=" Generated Method: startMIDlet ">//GEN-BEGIN:|3-startMIDlet|0|3-preAction
+    //<editor-fold defaultstate="collapsed" desc=" Generated Method: startMIDlet ">
     /**
      * Performs an action assigned to the Mobile Device - MIDlet Started point.
      */
-    public void startMIDlet() {//GEN-END:|3-startMIDlet|0|3-preAction
+    public void startMIDlet() {
         // write pre-action user code here
-        switchDisplayable(null, getForm());//GEN-LINE:|3-startMIDlet|1|3-postAction
+        switchDisplayable(null, getForm());
         // write post-action user code here
-    }//GEN-BEGIN:|3-startMIDlet|2|
-    //</editor-fold>//GEN-END:|3-startMIDlet|2|
+    }
+    //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc=" Generated Method: resumeMIDlet ">//GEN-BEGIN:|4-resumeMIDlet|0|4-preAction
+    //<editor-fold defaultstate="collapsed" desc=" Generated Method: resumeMIDlet ">
     /**
      * Performs an action assigned to the Mobile Device - MIDlet Resumed point.
      */
-    public void resumeMIDlet() {//GEN-END:|4-resumeMIDlet|0|4-preAction
+    public void resumeMIDlet() {
         // write pre-action user code here
-//GEN-LINE:|4-resumeMIDlet|1|4-postAction
+ 
         // write post-action user code here
-    }//GEN-BEGIN:|4-resumeMIDlet|2|
-    //</editor-fold>//GEN-END:|4-resumeMIDlet|2|
+    }
+    //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc=" Generated Method: switchDisplayable ">//GEN-BEGIN:|5-switchDisplayable|0|5-preSwitch
+    //<editor-fold defaultstate="collapsed" desc=" Generated Method: switchDisplayable ">
     /**
      * Switches a current displayable in a display. The <code>display</code> instance is taken from <code>getDisplay</code> method. This method is used by all actions in the design for switching displayable.
      * @param alert the Alert which is temporarily set to the display; if <code>null</code>, then <code>nextDisplayable</code> is set immediately
      * @param nextDisplayable the Displayable to be set
      */
-    public void switchDisplayable(Alert alert, Displayable nextDisplayable) {//GEN-END:|5-switchDisplayable|0|5-preSwitch
+    public void switchDisplayable(Alert alert, Displayable nextDisplayable) {
         // write pre-switch user code here
-        Display display = getDisplay();//GEN-BEGIN:|5-switchDisplayable|1|5-postSwitch
+        Display display = getDisplay();
         if (alert == null) {
             display.setCurrent(nextDisplayable);
         } else {
             display.setCurrent(alert, nextDisplayable);
-        }//GEN-END:|5-switchDisplayable|1|5-postSwitch
+        }
         // write post-switch user code here
-    }//GEN-BEGIN:|5-switchDisplayable|2|
-    //</editor-fold>//GEN-END:|5-switchDisplayable|2|
+    }
+    //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc=" Generated Method: commandAction for Displayables ">//GEN-BEGIN:|7-commandAction|0|7-preCommandAction
+    //<editor-fold defaultstate="collapsed" desc=" Generated Method: commandAction for Displayables ">
     /**
      * Called by a system to indicated that a command has been invoked on a particular displayable.
      * @param command the Command that was invoked
      * @param displayable the Displayable where the command was invoked
      */
-    public void commandAction(Command command, Displayable displayable) {//GEN-END:|7-commandAction|0|7-preCommandAction
+    public void commandAction(Command command, Displayable displayable) {
         // write pre-action user code here
-        if (displayable == form) {//GEN-BEGIN:|7-commandAction|1|19-preAction
-            if (command == exitCommand) {//GEN-END:|7-commandAction|1|19-preAction
+        if (displayable == form) {
+            if (command == exitCommand) {
                 // write pre-action user code here
-                exitMIDlet();//GEN-LINE:|7-commandAction|2|19-postAction
+                exitMIDlet();
                 // write post-action user code here
-            } else if (command == okCommand) {//GEN-LINE:|7-commandAction|3|24-preAction
+            } else if (command == okCommand) {
                 // write pre-action user code here
-                switchDisplayable(null, getWaitScreen());//GEN-LINE:|7-commandAction|4|24-postAction
+                switchDisplayable(null, getWaitScreen());
                 // write post-action user code here
-            }//GEN-BEGIN:|7-commandAction|5|32-preAction
+            }
         } else if (displayable == waitScreen) {
-            if (command == WaitScreen.FAILURE_COMMAND) {//GEN-END:|7-commandAction|5|32-preAction
+            if (command == WaitScreen.FAILURE_COMMAND) {
                 // write pre-action user code here
-                switchDisplayable(getAlert1(), getForm());//GEN-LINE:|7-commandAction|6|32-postAction
+                switchDisplayable(getAlert1(), getForm());
                 // write post-action user code here
-            } else if (command == WaitScreen.SUCCESS_COMMAND) {//GEN-LINE:|7-commandAction|7|31-preAction
+            } else if (command == WaitScreen.SUCCESS_COMMAND) {
                 // write pre-action user code here
-                switchDisplayable(getAlert(), getForm());//GEN-LINE:|7-commandAction|8|31-postAction
+                switchDisplayable(getAlert(), getForm());
                 // write post-action user code here
-            }//GEN-BEGIN:|7-commandAction|9|7-postCommandAction
-        }//GEN-END:|7-commandAction|9|7-postCommandAction
+            }
+        }
         // write post-action user code here
-    }//GEN-BEGIN:|7-commandAction|10|
-    //</editor-fold>//GEN-END:|7-commandAction|10|
+    }
+    //</editor-fold>
 
     /**解析串并加入到手机日程表
      *
@@ -153,11 +154,16 @@ public class MainMIDlet extends MIDlet implements CommandListener {
                     String coursefullname = st1.nextToken();
                     String coursePlace = st1.nextToken();
                     String courseType = st1.nextToken();
+                    String courseScorce = st1.nextToken();
+                    String courseTeacher = st1.nextToken();
                     String coursestTime = st1.nextToken();
                     String courseedTime = st1.nextToken();
                     String coursestDate = st1.nextToken();
                     String courseedDate = st1.nextToken();
                     int per = i * 100 / parNums;
+                    //处理描述
+                    this.getTextField2().getString();
+                    String summary=coursefullname + "[" + courseType + "]" + coursePlace;
                     //System.out.println(coursefullname+coursePlace+courseType+coursestTime+courseedTime+coursestDate+courseedDate);
                     //System.out.println(Date.ToTimeSpan(coursestDate+" "+coursestTime + ":00")+"");
                     //System.out.println(Date.ToWeek(coursestDate+" "+coursestTime + ":00")+"");
@@ -167,7 +173,7 @@ public class MainMIDlet extends MIDlet implements CommandListener {
                         Event ev = list.createEvent();
                         ev.addDate(Event.START, PIMItem.DATE, Date.ToTimeSpan(coursestDate + " " + coursestTime + ":00"));
                         ev.addDate(Event.END, PIMItem.DATE, Date.ToTimeSpan(coursestDate + " " + courseedTime + ":00"));
-                        ev.addString(Event.SUMMARY, PIMItem.ATTR_NONE, coursefullname + "[" + courseType + "]" + coursePlace);
+                        ev.addString(Event.SUMMARY, PIMItem.STRING, summary);
                         //如果开始和结束时间不一样则写入重复时间规则
                         if (!coursestDate.equals(courseedDate)) {
                             RepeatRule rpRule = new RepeatRule();
@@ -218,118 +224,105 @@ public class MainMIDlet extends MIDlet implements CommandListener {
         setStatuCode(100);
     }
 
-    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: exitCommand ">//GEN-BEGIN:|18-getter|0|18-preInit
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: exitCommand ">
     /**
      * Returns an initiliazed instance of exitCommand component.
      * @return the initialized component instance
      */
     public Command getExitCommand() {
-        if (exitCommand == null) {//GEN-END:|18-getter|0|18-preInit
+        if (exitCommand == null) {
             // write pre-init user code here
-            exitCommand = new Command("Exit", Command.EXIT, 0);//GEN-LINE:|18-getter|1|18-postInit
+            exitCommand = new Command("Exit", Command.EXIT, 0);
             // write post-init user code here
-        }//GEN-BEGIN:|18-getter|2|
+        }
         return exitCommand;
     }
-    //</editor-fold>//GEN-END:|18-getter|2|
+    //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: form ">//GEN-BEGIN:|14-getter|0|14-preInit
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: form ">
     /**
      * Returns an initiliazed instance of form component.
      * @return the initialized component instance
      */
     public Form getForm() {
-        if (form == null) {//GEN-END:|14-getter|0|14-preInit
+        if (form == null) {
             // write pre-init user code here
-            form = new Form("Welcome", new Item[] { getStringItem(), getTextField(), getTextField1(), getChoiceGroup() });//GEN-BEGIN:|14-getter|1|14-postInit
+            form = new Form("Welcome", new Item[] { getImageItem(), getTextField(), getTextField1(), getTextField2(), getChoiceGroup() });
             form.addCommand(getExitCommand());
             form.addCommand(getOkCommand());
-            form.setCommandListener(this);//GEN-END:|14-getter|1|14-postInit
+            form.setCommandListener(this);
             // write post-init user code here
-        }//GEN-BEGIN:|14-getter|2|
+        }
         return form;
     }
-    //</editor-fold>//GEN-END:|14-getter|2|
+    //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: stringItem ">//GEN-BEGIN:|16-getter|0|16-preInit
-    /**
-     * Returns an initiliazed instance of stringItem component.
-     * @return the initialized component instance
-     */
-    public StringItem getStringItem() {
-        if (stringItem == null) {//GEN-END:|16-getter|0|16-preInit
-            // write pre-init user code here
-            stringItem = new StringItem("Hello", "\u6B22\u8FCE\u4F7F\u7528CdutKVB  ");//GEN-LINE:|16-getter|1|16-postInit
-            // write post-init user code here
-        }//GEN-BEGIN:|16-getter|2|
-        return stringItem;
-    }
-    //</editor-fold>//GEN-END:|16-getter|2|
 
-    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: okCommand ">//GEN-BEGIN:|23-getter|0|23-preInit
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: okCommand ">
     /**
      * Returns an initiliazed instance of okCommand component.
      * @return the initialized component instance
      */
     public Command getOkCommand() {
-        if (okCommand == null) {//GEN-END:|23-getter|0|23-preInit
+        if (okCommand == null) {
             // write pre-init user code here
-            okCommand = new Command("Ok", Command.OK, 0);//GEN-LINE:|23-getter|1|23-postInit
+            okCommand = new Command("Ok", Command.OK, 0);
             // write post-init user code here
-        }//GEN-BEGIN:|23-getter|2|
+        }
         return okCommand;
     }
-    //</editor-fold>//GEN-END:|23-getter|2|
+    //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: textField ">//GEN-BEGIN:|27-getter|0|27-preInit
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: textField ">
     /**
      * Returns an initiliazed instance of textField component.
      * @return the initialized component instance
      */
     public TextField getTextField() {
-        if (textField == null) {//GEN-END:|27-getter|0|27-preInit
+        if (textField == null) {
             // write pre-init user code here
-            textField = new TextField("\u5B66\u53F7", "", 32, TextField.NUMERIC);//GEN-BEGIN:|27-getter|1|27-postInit
-            textField.setInitialInputMode("UCB_BASIC_LATIN");//GEN-END:|27-getter|1|27-postInit
+            textField = new TextField("\u5B66\u53F7", "", 32, TextField.NUMERIC);
+            textField.setInitialInputMode("UCB_BASIC_LATIN");
             // write post-init user code here
-        }//GEN-BEGIN:|27-getter|2|
+        }
         return textField;
     }
-    //</editor-fold>//GEN-END:|27-getter|2|
+    //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: waitScreen ">//GEN-BEGIN:|28-getter|0|28-preInit
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: waitScreen ">
     /**
      * Returns an initiliazed instance of waitScreen component.
      * @return the initialized component instance
      */
     public WaitScreen getWaitScreen() {
-        if (waitScreen == null) {//GEN-END:|28-getter|0|28-preInit
+        if (waitScreen == null) {
             // write pre-init user code here
-            waitScreen = new WaitScreen(getDisplay());//GEN-BEGIN:|28-getter|1|28-postInit
+            waitScreen = new WaitScreen(getDisplay());
             waitScreen.setTitle("waitScreen");
             waitScreen.setCommandListener(this);
             waitScreen.setFullScreenMode(true);
             waitScreen.setText("\u8BF7\u7A0D\u540E");
-            waitScreen.setTask(getTask());//GEN-END:|28-getter|1|28-postInit
+            waitScreen.setTask(getTask());
             // write post-init user code here
-        }//GEN-BEGIN:|28-getter|2|
+        }
         return waitScreen;
     }
-    //</editor-fold>//GEN-END:|28-getter|2|
+    //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: task ">//GEN-BEGIN:|33-getter|0|33-preInit
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: task ">
     /**
      * Returns an initiliazed instance of task component.
      * @return the initialized component instance
      */
     public SimpleCancellableTask getTask() {
-        if (task == null) {//GEN-END:|33-getter|0|33-preInit
+        if (task == null) {
             // write pre-init user code here
-            task = new SimpleCancellableTask();//GEN-BEGIN:|33-getter|1|33-execute
+            task = new SimpleCancellableTask();
             task.setExecutable(new org.netbeans.microedition.util.Executable() {
-                public void execute() throws Exception {//GEN-END:|33-getter|1|33-execute
+                public void execute() throws Exception {
                     // write task-execution user code here
-                   
+
                     if (getStatuCode() == 100) {
                         exitMIDlet();
                     }
@@ -384,13 +377,13 @@ public class MainMIDlet extends MIDlet implements CommandListener {
                             throw ex;
                         }
                     }
-                }//GEN-BEGIN:|33-getter|2|33-postInit
-            });//GEN-END:|33-getter|2|33-postInit
+                }
+            });
             // write post-init user code here
-        }//GEN-BEGIN:|33-getter|3|
+        }
         return task;
     }
-    //</editor-fold>//GEN-END:|33-getter|3|
+    //</editor-fold>
 
     /**处理错误
      * 
@@ -459,72 +452,102 @@ public class MainMIDlet extends MIDlet implements CommandListener {
     public void setStatuCode(int statuCode) {
         this.statuCode = statuCode;
     }
-    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: textField1 ">//GEN-BEGIN:|35-getter|0|35-preInit
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: textField1 ">
     /**
      * Returns an initiliazed instance of textField1 component.
      * @return the initialized component instance
      */
     public TextField getTextField1() {
-        if (textField1 == null) {//GEN-END:|35-getter|0|35-preInit
+        if (textField1 == null) {
             // write pre-init user code here
-            textField1 = new TextField("\u5BC6\u7801", "", 32, TextField.ANY);//GEN-BEGIN:|35-getter|1|35-postInit
-            textField1.setInitialInputMode("UCB_BASIC_LATIN");//GEN-END:|35-getter|1|35-postInit
+            textField1 = new TextField("\u5BC6\u7801", "", 32, TextField.ANY);
+            textField1.setInitialInputMode("UCB_BASIC_LATIN");
             // write post-init user code here
-        }//GEN-BEGIN:|35-getter|2|
+        }
         return textField1;
     }
-    //</editor-fold>//GEN-END:|35-getter|2|
+    //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: alert ">//GEN-BEGIN:|37-getter|0|37-preInit
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: alert ">
     /**
      * Returns an initiliazed instance of alert component.
      * @return the initialized component instance
      */
     public Alert getAlert() {
-        if (alert == null) {//GEN-END:|37-getter|0|37-preInit
+        if (alert == null) {
             // write pre-init user code here
-            alert = new Alert("success", "\u64CD\u4F5C\u5B8C\u6210", null, AlertType.INFO);//GEN-BEGIN:|37-getter|1|37-postInit
-            alert.setTimeout(Alert.FOREVER);//GEN-END:|37-getter|1|37-postInit
+            alert = new Alert("success", "\u64CD\u4F5C\u5B8C\u6210", null, AlertType.INFO);
+            alert.setTimeout(Alert.FOREVER);
             // write post-init user code here
-        }//GEN-BEGIN:|37-getter|2|
+        }
         return alert;
     }
-    //</editor-fold>//GEN-END:|37-getter|2|
+    //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: alert1 ">//GEN-BEGIN:|41-getter|0|41-preInit
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: alert1 ">
     /**
      * Returns an initiliazed instance of alert1 component.
      * @return the initialized component instance
      */
     public Alert getAlert1() {
-        if (alert1 == null) {//GEN-END:|41-getter|0|41-preInit
+        if (alert1 == null) {
             // write pre-init user code here
-            alert1 = new Alert("error", "\u53D1\u751F\u4E86\u9519\u8BEF..\u8BF7\u91CD\u8BD5", null, null);//GEN-BEGIN:|41-getter|1|41-postInit
-            alert1.setTimeout(Alert.FOREVER);//GEN-END:|41-getter|1|41-postInit
+            alert1 = new Alert("error", "\u53D1\u751F\u4E86\u9519\u8BEF..\u8BF7\u91CD\u8BD5", null, null);
+            alert1.setTimeout(Alert.FOREVER);
             // write post-init user code here
-        }//GEN-BEGIN:|41-getter|2|
+        }
         return alert1;
     }
-    //</editor-fold>//GEN-END:|41-getter|2|
+    //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: choiceGroup ">//GEN-BEGIN:|42-getter|0|42-preInit
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: choiceGroup ">
     /**
      * Returns an initiliazed instance of choiceGroup component.
      * @return the initialized component instance
      */
     public ChoiceGroup getChoiceGroup() {
-        if (choiceGroup == null) {//GEN-END:|42-getter|0|42-preInit
+        if (choiceGroup == null) {
             // write pre-init user code here
-            choiceGroup = new ChoiceGroup("\u8054\u7F51\u65B9\u5F0F", Choice.EXCLUSIVE);//GEN-BEGIN:|42-getter|1|42-postInit
+            choiceGroup = new ChoiceGroup("\u8054\u7F51\u65B9\u5F0F", Choice.EXCLUSIVE);
             choiceGroup.append("WAP", null);
             choiceGroup.append("GPRS", null);
             choiceGroup.setFitPolicy(Choice.TEXT_WRAP_ON);
-            choiceGroup.setSelectedFlags(new boolean[] { true, false });//GEN-END:|42-getter|1|42-postInit
+            choiceGroup.setSelectedFlags(new boolean[] { true, false });
             // write post-init user code here
-        }//GEN-BEGIN:|42-getter|2|
+        }
         return choiceGroup;
     }
-    //</editor-fold>//GEN-END:|42-getter|2|
+    //</editor-fold>
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: textField2 ">
+    /**
+     * Returns an initiliazed instance of textField2 component.
+     * @return the initialized component instance
+     */
+    public TextField getTextField2() {
+        if (textField2 == null) {
+            // write pre-init user code here
+            textField2 = new TextField("\u81EA\u5B9A\u4E49\u6807\u9898", "{\u8BFE\u7A0B\u540D\u79F0}[{\u8BFE\u7A0B\u7C7B\u578B}]{\u4E0A\u8BFE\u5730\u70B9}", 32, TextField.ANY);
+            // write post-init user code here
+        }
+        return textField2;
+    }
+    //</editor-fold>
+
+    //<editor-fold defaultstate="collapsed" desc=" Generated Getter: imageItem ">
+    /**
+     * Returns an initiliazed instance of imageItem component.
+     * @return the initialized component instance
+     */
+    public ImageItem getImageItem() {
+        if (imageItem == null) {
+            // write pre-init user code here
+            imageItem = new ImageItem("\u6B22\u8FCE\u4F7F\u7528CdutKVB  ", null, ImageItem.LAYOUT_DEFAULT, "");
+            // write post-init user code here
+        }
+        return imageItem;
+    }
+    //</editor-fold>
 
     /**
      * Returns a display instance.
