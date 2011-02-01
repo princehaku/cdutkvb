@@ -38,7 +38,7 @@ public class Do extends HttpServlet {
      * 6   错误的客户端版本号 (J2ME only)
      * -------------------------------------
      * 返回的格式
-     * 正常    {总周数}@{课程数量}@{总分段数}|{{课程索引名@课程上课地点@上课时间@下课时间}}|end
+     * 正常    {总周数}@{课程数量}@{总分段数}|{{课程索引名@课程上课地点@课程类型@课程学分@课程老师@上课时间@下课时间}}|end
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
