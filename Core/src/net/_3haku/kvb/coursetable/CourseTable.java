@@ -110,7 +110,7 @@ public class CourseTable {
         throw new Exception("Not implements");
     }
     /**序列化成字符串
-     * 节点总个数|课程全名@课程地点@课程类型@上课时间@下课时间@重复开始的日期@重复结束的日期|...|...|end
+     * 节点总个数|课程全名@课程地点@课程类型@课程学分@课程老师@上课时间@下课时间@重复开始的日期@重复结束的日期|...|...|end
      */
     @Override
     public String toString()
