@@ -127,7 +127,7 @@ public class CourseTable {
             {
                 count++;
                 returnString +=cc.getCourseName()+"@"+cc.getCoursePlace()+"@"+cc.getCourseType()+"@"+cc.getCourseScore()+"@"
-                        +cc.getCourseTeacher();
+                        +cc.getCourseTeacher()+"@";
                 //System.out.println("时间表"+j);
                 TimeTable tt=tta.get(j);
                 returnString +=tt.getStTime()+"@"+tt.getEdTime()+"@"+tt.getStDate()+"@"+tt.getEdDate();
