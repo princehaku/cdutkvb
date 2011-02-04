@@ -45,9 +45,6 @@ public class Source {
                 httpConn = (HttpConnection) Connector.open("http://10.0.0.172/" + url.substring(url.indexOf("/", url.indexOf("//") + 2) + 1, url.length()), Connector.READ, true);
                 httpConn.setRequestProperty("X-Online-Host", url.substring(url.indexOf("//") + 2, url.indexOf("/", url.indexOf("//") + 2)));
                 httpConn.setRequestProperty("User-Agent", System.getProperty("microedition.profiles"));
-                httpConn = (HttpConnection) Connector.open("http://10.0.0.172/" + url.substring(url.indexOf("/", url.indexOf("//") + 2) + 1, url.length()), Connector.READ, true);
-                httpConn.setRequestProperty("X-Online-Host", url.substring(url.indexOf("//") + 2, url.indexOf("/", url.indexOf("//") + 2)));
-                httpConn.setRequestProperty("User-Agent", System.getProperty("microedition.profiles"));
             }
             httpConn.setRequestProperty("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
             httpConn.setRequestProperty("Accept-Language", "zh-cn,zh;q=0.5");
