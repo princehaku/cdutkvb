@@ -310,6 +310,7 @@ public class MainMIDlet extends MIDlet implements CommandListener {
             waitScreen.setTitle("waitScreen");
             waitScreen.setCommandListener(this);
             waitScreen.setFullScreenMode(true);
+            waitScreen.setImage(getImage());
             waitScreen.setText("\u8BF7\u7A0D\u540E");
             waitScreen.setTask(getTask());//GEN-END:|28-getter|1|28-postInit
             // write post-init user code here
@@ -577,6 +578,8 @@ public class MainMIDlet extends MIDlet implements CommandListener {
         return image;
     }
     //</editor-fold>//GEN-END:|49-getter|3|
+
+
 
     /**
      * Returns a display instance.
