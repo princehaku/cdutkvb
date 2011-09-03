@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Document   : process.xml
+    Created on : 2010年8月8日, 上午8:39
+    Author     : princehaku
+    Description:
+        在处理过程中显示的画面
+-->
+<AbsoluteLayout
+android:id="@+id/widget0"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+<Button
+android:id="@+id/barnow"
+android:layout_width="250px"
+android:layout_height="20px"
+android:background="#ff00ff33"
+android:layout_x="39px"
+android:layout_y="364px"
+>
+</Button>
+<ScrollView
+android:id="@+id/widget32"
+android:layout_width="248px"
+android:layout_height="324px"
+android:layout_x="40px"
+android:layout_y="26px"
+>
+<TextView
+android:id="@+id/console"
+android:layout_width="239px"
+android:layout_height="324px"
+android:singleLine="false"
+android:ellipsize="marquee"
+android:marqueeRepeatLimit="marquee_forever" 
+android:text="正在处理......\n"
+>
+</TextView>
+</ScrollView>
+</AbsoluteLayout>
