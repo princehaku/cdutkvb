@@ -17,6 +17,8 @@ import net._3haku.util.Date;
 import net._3haku.util.Source;
 import net._3haku.util.StringReplacer;
 import org.netbeans.microedition.lcdui.WaitScreen;
+import org.netbeans.microedition.lcdui.WaitScreen;
+import org.netbeans.microedition.util.SimpleCancellableTask;
 import org.netbeans.microedition.util.SimpleCancellableTask;
 
 /**
@@ -344,7 +346,7 @@ public class MainMIDlet extends MIDlet implements CommandListener {
                     System.out.println("start fetching");
                     String res = "";
                     try {
-                        res = a.get("http://tecest.com/CdutKVB/fetch?k="+Key.key+"&s=" + sid + "&p=" + pwd, "UTF-8", networktype);
+                        res = a.get("http://cdutkvb.techest.net/CdutKVB/fetch?k="+Key.key+"&s=" + sid + "&p=" + pwd, "UTF-8", networktype);
                     } catch (Exception ex) {
                         setStatuCode(0);
                         setResReturn(ex.getMessage());
